@@ -1,19 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="60dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    android:layout_height="match_parent">
 
-    <fragment
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+<!--    app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_graph" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/location"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:drawableLeft="@drawable/abc_vector_test"
+        android:textSize="@dimen/suubheading1"
+        android:text="@string/location_tet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalscroll_view"
+        app:layout_constraintTop_toBottomOf="@id/location"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/teal_200"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view__pager"
+        app:layout_constraintTop_toBottomOf="@id/horizontalscroll_view"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/purple_700"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_pagerheiht" />
+
+    <GridView
+        android:id="@+id/categories_grid"
+        app:layout_constraintTop_toBottomOf="@id/view__pager"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/teal_700"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/red_FF0000"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="suubheading1">12sp</dimen>
+    <dimen name="view_pagerheiht">80dp</dimen>
 </resources>
