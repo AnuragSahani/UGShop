@@ -1,0 +1,11 @@
+<resources>
+<!--    Base Application theme-->
+    <style name="colorPrimary" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+<!--        Customise your theme here-->
+        <item name="colorPrimary">@color/design_default_color_primary</item>
+        <item name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
+        <item name="colorAccent">@color/purple_700</item>
+<!--        <item name="android:fontFamily">@font/loraFont</item>-->
+    </style>
+</resources>
