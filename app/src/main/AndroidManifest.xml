@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UGShop">
         <activity
+            android:name=".MainActivity2"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.UGShop.NoActionBar"></activity>
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.UGShop.NoActionBar">

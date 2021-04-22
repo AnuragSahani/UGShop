@@ -12,4 +12,5 @@
 
     //Landin page strings
     <string name="location_tet">Location</string>
+    <string name="title_activity_main2">MainActivity</string>
 </resources>
