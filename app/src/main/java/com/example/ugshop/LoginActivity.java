@@ -35,8 +35,14 @@ public class LoginActivity extends AppCompatActivity {
          viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
          google.setTranslationY(300);
+         tabLayout.setTranslationY(300);
+
          google.setAlpha(v);
-         // here we animate
+         tabLayout.setAlpha(v);
+
+         google.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
+         tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(100).start();
+
          
     }
 }

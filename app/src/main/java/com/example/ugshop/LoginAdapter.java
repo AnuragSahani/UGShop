@@ -8,17 +8,17 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class LoginAdapter extends FragmentPagerAdapter {
     private Context context;
-    int totalTab;
+    int totalTabs;
 
     @Override
     public int getCount() {
-        return totalTab;
+        return totalTabs;
     }
 
-    public LoginAdapter(FragmentManager fm, Context context, int totalTab){
+    public LoginAdapter(FragmentManager fm, Context context, int totalTabs){
         super(fm);
         this.context = context;
-        this.totalTab = totalTab;
+        this.totalTabs = totalTabs;
     }
 
     public Fragment getItem(int position){
