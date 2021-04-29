@@ -64,13 +64,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:src="@drawable/google"
             android:elevation="35dp"
+            android:src="@drawable/google"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_pager"
-            >
+            app:layout_constraintTop_toBottomOf="@+id/view_pager">
 
         </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
@@ -85,8 +84,10 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/loginBackground"
         app:layout_constraintTop_toTopOf="@+id/loginBackground"
-        app:layout_constraintVertical_bias="0.405"
-        tools:srcCompat="@drawable/uglogo"></ImageView>
+        app:layout_constraintVertical_bias="0.534"
+        tools:srcCompat="@drawable/uglogo">
+
+    </ImageView>
 
     <TextView
         android:layout_width="wrap_content"
@@ -99,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.032">
+        app:layout_constraintVertical_bias="0.0">
 
     </TextView>
 
