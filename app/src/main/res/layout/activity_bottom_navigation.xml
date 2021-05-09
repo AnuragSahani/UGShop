@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".activity_bottom_navigation">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container"
+        android:layout_above="@+id/bottom_nav">
+
+    </FrameLayout>
+
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,6 +24,7 @@
         app:menu="@menu/navigation_item"
         app:itemRippleColor="@color/white"
         app:itemIconTint="@color/icon_color"
+        android:id="@+id/bottom_nav"
         >
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
