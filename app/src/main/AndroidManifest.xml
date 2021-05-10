@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UGShop">
-        <activity android:name=".change_password"></activity>
+        <activity android:name=".My_Cart_Empty">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".change_password" />
         <activity android:name=".Add_delivery_addresss" />
         <activity android:name=".deacivate_account" />
         <activity android:name=".account_setting" />
@@ -18,11 +25,11 @@
         <activity
             android:name=".IntroductoryActivity"
             android:theme="@style/Theme.UGShop.NoActionBar">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".LoginActivity" />
         <activity

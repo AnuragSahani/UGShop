@@ -23,6 +23,7 @@
         android:background="@drawable/round_corner_bottom_navigation_bar"
         app:menu="@menu/navigation_item"
         app:itemRippleColor="@color/white"
+        app:itemTextColor="@color/white"
         app:itemIconTint="@color/icon_color"
         android:id="@+id/bottom_nav"
         >

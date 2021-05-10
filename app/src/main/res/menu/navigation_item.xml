@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:id="@+id/homeID"
     android:icon="@drawable/ic_home"
-    android:title="Home">
+    android:title="Home"
+    >
 </item>
     <item android:id="@+id/AllCategories"
         android:icon="@drawable/ic_all_catgeories"
