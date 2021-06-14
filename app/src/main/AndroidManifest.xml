@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UGShop">
-        <activity android:name=".My_Cart_Empty"> </activity>
-        <activity android:name=".change_password" />
-        <activity android:name=".Add_delivery_addresss" />
-        <activity android:name=".deacivate_account" />
-        <activity android:name=".account_setting" />
-        <activity android:name=".main_my_account" />
-        <activity android:name=".activity_bottom_navigation" />
+        <activity android:name=".MyCartEmpty"> </activity>
+        <activity android:name=".ChangePassword" />
+        <activity android:name=".AddDeliveryAddresss" />
+        <activity android:name=".DeactivateAccount" />
+        <activity android:name=".AccountSetting" />
+        <activity android:name=".MyAccountMain" />
+        <activity android:name=".ActivityBottomNavigation" />
         <activity
             android:name=".IntroductoryActivity"
             android:theme="@style/Theme.UGShop.NoActionBar">

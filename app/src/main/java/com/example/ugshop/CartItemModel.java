@@ -1,8 +1,8 @@
 package com.example.ugshop;
 
-public class Cart_item_model {
-    public static final int CART_ITEM=0;
-    public static final int TOTAL_AMOUNT=1;
+public class CartItemModel {
+    public static final int CART_ITEM = 0;
+    public static final int TOTAL_AMOUNT = 1;
 
     private int type;
 
@@ -21,14 +21,14 @@ public class Cart_item_model {
     private String product_price;
     private String cutted_price;
     private int product_quantity;
-    private  int offers_applied;
-    private  int coupons_applied;
+    private int offers_applied;
+    private int coupons_applied;
 
 
     //Constructor
-    public Cart_item_model(int type, int product_image,
-                           String product_title, int free_coupons, String product_price, String cutted_price,
-                           int product_quantity, int offers_applied, int coupons_applied) {
+    public CartItemModel(int type, int product_image,
+                         String product_title, int free_coupons, String product_price, String cutted_price,
+                         int product_quantity, int offers_applied, int coupons_applied) {
         this.type = type;
         this.product_image = product_image;
         this.product_title = product_title;
@@ -111,11 +111,11 @@ public class Cart_item_model {
     ///////Cart total
     private int Total_items;
     private String Total_Amount;
-    private  String Delivery_price;
-    private  String Saved_Amount;
+    private String Delivery_price;
+    private String Saved_Amount;
 
     // Constructor
-    public Cart_item_model(int type, int total_items, String total_Amount, String delivery_price, String saved_Amount) {
+    public CartItemModel(int type, int total_items, String total_Amount, String delivery_price, String saved_Amount) {
         this.type = type;
         Total_items = total_items;
         Total_Amount = total_Amount;
@@ -156,7 +156,6 @@ public class Cart_item_model {
         Saved_Amount = saved_Amount;
     }
     ///////Cart total
-
 
 
 }

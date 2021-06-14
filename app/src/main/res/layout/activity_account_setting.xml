@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".main_my_account">
+    tools:context=".MyAccountMain">
 
     <include
         android:id="@+id/include"
@@ -36,7 +36,7 @@
             android:src="@drawable/ic_edit"
             tools:ignore="RtlSymmetry" />
 
-        <view
+        <View
             android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -67,8 +67,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="  Last_Name"
         android:background="@drawable/edit_text"
+        android:hint="  Last_Name"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -102,9 +102,9 @@
         android:id="@+id/email_id_acc_setting"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/edit_text"
         android:hint="  Email_ID"
         android:paddingTop="10dp"
-        android:background="@drawable/edit_text"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

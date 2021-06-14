@@ -20,11 +20,11 @@ public class LoginTabFragment extends Fragment {
     EditText password;
     Button login;
     TextView forgetpass;
-    float v =0;
+    float v = 0;
 
     @Override
-    public View onCreateView( LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.login_tab_fragment,container,false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.login_tab_fragment, container, false);
 
         login = root.findViewById(R.id.login);
         email = root.findViewById(R.id.email);
