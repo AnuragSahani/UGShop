@@ -16,8 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
-<!-- Our bottom total amount and conyinue btn-->
+<!-- Our bottom total amount and continue btn-->
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
