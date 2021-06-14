@@ -1,4 +1,4 @@
-package com.example.ugshop;
+package com.example.ugshop.view;
 
 import android.content.Context;
 

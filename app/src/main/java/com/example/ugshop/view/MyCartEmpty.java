@@ -1,4 +1,4 @@
-package com.example.ugshop;
+package com.example.ugshop.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.ugshop.R;
 
 public class MyCartEmpty extends AppCompatActivity {
 

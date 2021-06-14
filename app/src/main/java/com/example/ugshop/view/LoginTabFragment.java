@@ -1,4 +1,4 @@
-package com.example.ugshop;
+package com.example.ugshop.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.ugshop.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class LoginTabFragment extends Fragment {

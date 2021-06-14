@@ -1,14 +1,16 @@
-package com.example.ugshop;
+package com.example.ugshop.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AccountSetting extends AppCompatActivity {
+import com.example.ugshop.R;
+
+public class MyAccountMain extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account_setting);
+        setContentView(R.layout.activity_main_my_account);
     }
 }

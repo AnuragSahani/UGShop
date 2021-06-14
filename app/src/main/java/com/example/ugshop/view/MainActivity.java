@@ -1,8 +1,9 @@
-package com.example.ugshop;
+package com.example.ugshop.view;
 
 import android.content.Context;
 import android.os.Bundle;
 
+import com.example.ugshop.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 

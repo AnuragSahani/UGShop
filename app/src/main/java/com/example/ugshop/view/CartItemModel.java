@@ -1,4 +1,4 @@
-package com.example.ugshop;
+package com.example.ugshop.view;
 
 public class CartItemModel {
     public static final int CART_ITEM = 0;
