@@ -1,4 +1,4 @@
-package com.example.ugshop;
+package com.example.ugshop.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.ugshop.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class LoginTabFragment extends Fragment {
@@ -20,11 +21,11 @@ public class LoginTabFragment extends Fragment {
     EditText password;
     Button login;
     TextView forgetpass;
-    float v =0;
+    float v = 0;
 
     @Override
-    public View onCreateView( LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.login_tab_fragment,container,false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.login_tab_fragment, container, false);
 
         login = root.findViewById(R.id.login);
         email = root.findViewById(R.id.email);

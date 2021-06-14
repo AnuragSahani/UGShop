@@ -1,14 +1,16 @@
-package com.example.ugshop;
+package com.example.ugshop.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class activity_bottom_navigation extends AppCompatActivity {
+import com.example.ugshop.R;
+
+public class DeactivateAccount extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bottom_navigation);
+        setContentView(R.layout.activity_deacivate_account);
     }
 }

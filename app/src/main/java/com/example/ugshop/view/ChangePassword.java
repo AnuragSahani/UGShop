@@ -1,10 +1,12 @@
-package com.example.ugshop;
+package com.example.ugshop.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class change_password extends AppCompatActivity {
+import com.example.ugshop.R;
+
+public class ChangePassword extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

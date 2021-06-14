@@ -1,4 +1,4 @@
-package com.example.ugshop;
+package com.example.ugshop.view;
 
 import android.content.Context;
 
@@ -15,21 +15,22 @@ public class LoginAdapter extends FragmentPagerAdapter {
         return totalTabs;
     }
 
-    public LoginAdapter(FragmentManager fm, Context context, int totalTabs){
+    public LoginAdapter(FragmentManager fm, Context context, int totalTabs) {
         super(fm);
         this.context = context;
         this.totalTabs = totalTabs;
     }
 
-    public Fragment getItem(int position){
-        switch (position){
-            case  0:
-                LoginTabFragment loginTabFragment =new LoginTabFragment();
+    public Fragment getItem(int position) {
+        switch (position) {
+            case 0:
+                LoginTabFragment loginTabFragment = new LoginTabFragment();
                 return loginTabFragment;
-            case  1:
-                SignupTabFragment signupTabFragment=  new SignupTabFragment();
+            case 1:
+                SignupTabFragment signupTabFragment = new SignupTabFragment();
                 return signupTabFragment;
-            default:return null;
+            default:
+                return null;
 
         }
     }
