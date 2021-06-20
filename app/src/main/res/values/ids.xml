@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="drawer" type="id" />
+    <item name="search" type="id" />
+    <item name="setting" type="id" />
+    <item name="Account" type="id" />
+</resources>

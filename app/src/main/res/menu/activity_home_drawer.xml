@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/activity_home">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/seach"
+            android:icon="@drawable/search"
+            android:title="search"/>
+        <item
+            android:id="@+id/nav_myorder"
+            android:icon="@drawable/ic_my_order"
+            android:title="my order"/>
+
+        <item
+            android:id="@+id/AllCategories"
+            android:icon="@drawable/ic_all_catgeories"
+            android:title="All Categories"/>
+        <item
+            android:id="@+id/Account"
+            android:icon="@drawable/ic_my_acc"
+            android:title="Account"/>
+    </group>
+
+</menu>
