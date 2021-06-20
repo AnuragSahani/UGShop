@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.ugshop.R;
 
-public class Home_page extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

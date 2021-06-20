@@ -25,11 +25,10 @@ public class IntroductoryActivity extends AppCompatActivity {
         splashImg.animate().translationY(-1600).setDuration(1000).setStartDelay(4000);
         lottieAnimationView.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
 
-        /*new Handler().postDelayed(()->{
+        new Handler().postDelayed(()->{
             Intent intent = new Intent(IntroductoryActivity.this,LoginActivity.class);
             startActivity(intent);
         },3000);
-*/
     }
 
 }
