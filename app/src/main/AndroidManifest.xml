@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UGShop">
-        <activity android:name=".view.HomePage"></activity>
+        <activity android:name=".view.AddDeliveryAddressActivity"></activity>
+        <activity android:name=".view.MainMyAccountActivity" />
+        <activity android:name=".view.HomePage" />
         <activity android:name=".view.Home" />
         <activity android:name=".view.MyCartEmpty" />
         <activity android:name=".view.ChangePassword" />

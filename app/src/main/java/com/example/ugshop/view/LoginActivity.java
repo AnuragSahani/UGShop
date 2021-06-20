@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         tabLayout = findViewById(R.id.tab_layout);
-        viewPager = findViewById(R.id.view__pager);
+        viewPager = findViewById(R.id.view_pager);
         google = findViewById(R.id.fab_google);
         tabLayout.addTab(tabLayout.newTab().setText("Login"));
         tabLayout.addTab(tabLayout.newTab().setText("Signup"));

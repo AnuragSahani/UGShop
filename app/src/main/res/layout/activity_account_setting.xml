@@ -7,9 +7,9 @@
     android:orientation="vertical"
     tools:context=".view.MyAccountMain">
 
-    <include
+    <!--<include
         android:id="@+id/include"
-        layout="@layout/tool_bar_acc_setting" />
+        layout="@layout/tool_bar_acc_setting" />-->
 
     <LinearLayout
         android:id="@+id/change_img_Acc_setting_LL"
@@ -21,7 +21,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
         <de.hdodenhof.circleimageview.CircleImageView

@@ -16,11 +16,11 @@ public class MyCartEmpty extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my__cart__empty);
+        setContentView(R.layout.fragment_my_cart_with_product);
 
-        button = findViewById(R.id.shop_now_empty_cart);
-        lottieAnimationView = findViewById(R.id.empty_cart_anim);
-
-        lottieAnimationView.animate().setDuration(1000).setStartDelay(4000);
+//        button = findViewById(R.id.shop_now_empty_cart);
+//        lottieAnimationView = findViewById(R.id.empty_cart_anim);
+//
+//        lottieAnimationView.animate().setDuration(1000).setStartDelay(4000);
     }
 }

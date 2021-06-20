@@ -1,5 +1,6 @@
 package com.example.ugshop.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.ugshop.R;
 import com.google.android.material.tabs.TabLayout;
 
-public class LoginTabFragment extends Fragment {
+public class LoginTabFragment extends Fragment implements View.OnClickListener {
     EditText email;
     EditText password;
     Button login;
@@ -47,6 +48,17 @@ public class LoginTabFragment extends Fragment {
         forgetpass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
         login.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
 
+        login.setOnClickListener(this);
         return root;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.login:
+                Intent homePageIntent = new Intent(getActivity(), HomePage.class);
+                startActivity(homePageIntent);
+                break;
+        }
     }
 }

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".view.MyAccountMain">
 
-    <include layout="@layout/tool_bar_my_account" />
+<!--    <include layout="@layout/tool_bar_my_account" />-->
 
     <LinearLayout
         android:id="@+id/name_LL"
@@ -123,6 +123,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/add_address"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="right"

@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".view.AddDeliveryAddresss">
 
-    <include
+    <!--<include
         android:id="@+id/include"
-        layout="@layout/tool_bar_add_delivery_address" />
+        layout="@layout/tool_bar_add_delivery_address" />-->
 
     <EditText
         android:id="@+id/first_name"
@@ -18,10 +18,9 @@
         android:hint="  Full Name(Required)*"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.063"
         app:layout_constraintWidth_percent=".8">
 
@@ -120,8 +119,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/state"
         app:layout_constraintTop_toBottomOf="@+id/state"
-        app:layout_constraintWidth_percent=".8"
-        app:layout_constraintVertical_bias="0.021">
+        app:layout_constraintVertical_bias="0.021"
+        app:layout_constraintWidth_percent=".8">
 
     </EditText>
 
@@ -138,8 +137,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/City"
-        app:layout_constraintWidth_percent=".8"
-        app:layout_constraintVertical_bias="0.021">
+        app:layout_constraintVertical_bias="0.021"
+        app:layout_constraintWidth_percent=".8">
 
     </EditText>
 
@@ -156,8 +155,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/houseNo"
-        app:layout_constraintWidth_percent=".8"
-        app:layout_constraintVertical_bias="0.021">
+        app:layout_constraintVertical_bias="0.021"
+        app:layout_constraintWidth_percent=".8">
 
     </EditText>
 
@@ -175,8 +174,8 @@
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/area"
-        app:layout_constraintWidth_percent=".8"
-        app:layout_constraintVertical_bias="0.021">
+        app:layout_constraintVertical_bias="0.021"
+        app:layout_constraintWidth_percent=".8">
 
     </EditText>
 
@@ -208,8 +207,7 @@
         app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toEndOf="@+id/Home"
         app:layout_constraintTop_toTopOf="@+id/Home"
-        app:layout_constraintVertical_bias="0.021"
-        />
+        app:layout_constraintVertical_bias="0.021" />
 
     <RadioButton
         android:id="@+id/Home"
