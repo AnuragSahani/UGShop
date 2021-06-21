@@ -10,11 +10,23 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-    //Landing page strings
+<!--    Landing page strings-->
     <string name="location_tet">Location</string>
     <string name="title_activity_main2">MainActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="open" />
-    <string name="close" />
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forget_pswd">Forget Password</string>
+    <string name="name">Name</string>
+    <string name="mobile_number">MobileNumber</string>
+
+    <!--   Login Tab Strings-->
+    <string-array name="login_tabs">
+        <item>Login</item>
+        <item>Signup</item>
+    </string-array>
 </resources>

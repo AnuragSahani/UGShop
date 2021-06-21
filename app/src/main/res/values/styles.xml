@@ -1,19 +1,21 @@
 <resources>
-<!--    Base Application theme-->
+    <!--    Base Application theme-->
     <style name="colorPrimary" parent="Theme.MaterialComponents.Light.NoActionBar">
 
-<!--        Customise your theme here-->
+        <!--        Customise your theme here-->
         <item name="colorPrimary">@color/design_default_color_primary</item>
         <item name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
         <item name="colorAccent">@color/purple_700</item>
-<!--        <item name="android:fontFamily">@font/loraFont</item>-->
+        <!--        <item name="android:fontFamily">@font/loraFont</item>-->
 
 
     </style>
 
-    <style name="Textviewstyle">textviewstyle" parent="andriod:widget.TextView"
-    <item name="android:textColor">#fff</item>
+    <style name="TextViewStyle" parent="Widget.MaterialComponents.TextView">
+<!--        <item name="android:textColor">@color/grey_696969</item>-->
         <item name="android:fontFamily">serif</item>
-        <item name="android:textSize">14dp</item>
+        <item name="android:textSize">@dimen/edit_text_size</item>
+        <item name="android:padding">@dimen/ten_dp</item>
+        <item name="android:layout_margin">@dimen/ten_dp</item>
     </style>
 </resources>

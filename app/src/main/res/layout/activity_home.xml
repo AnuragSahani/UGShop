@@ -24,7 +24,7 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/activity_home_drawer"
         app:itemIconTint="@color/white"
-        app:itemTextAppearance="@style/Textviewstyle"
+        app:itemTextAppearance="@style/TextViewStyle"
         app:itemBackground="@drawable/round_corner_bottom_navigation_bar"
         app:itemTextColor="@color/white"
         app:itemHorizontalPadding="40dp"/>

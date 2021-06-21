@@ -31,7 +31,7 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
         login = root.findViewById(R.id.login);
         email = root.findViewById(R.id.email);
         password = root.findViewById(R.id.password);
-        forgetpass = root.findViewById(R.id.forgetpass);
+        forgetpass = root.findViewById(R.id.forget_password);
 
         email.setTranslationX(800);
         password.setTranslationX(800);

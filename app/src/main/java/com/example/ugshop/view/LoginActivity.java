@@ -2,8 +2,10 @@ package com.example.ugshop.view;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.ugshop.R;
@@ -15,8 +17,8 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = LoginActivity.class.getSimpleName();
     TabLayout tabLayout;
     ViewPager viewPager;
-    FloatingActionButton google;
     float v = 0;
+    private AppCompatButton google;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +28,8 @@ public class LoginActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
         google = findViewById(R.id.fab_google);
-        tabLayout.addTab(tabLayout.newTab().setText("Login"));
-        tabLayout.addTab(tabLayout.newTab().setText("Signup"));
+        tabLayout.addTab(tabLayout.newTab());
+        tabLayout.addTab(tabLayout.newTab());
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final LoginAdapter adapter = new LoginAdapter(getSupportFragmentManager(), this, tabLayout.getTabCount());
@@ -49,6 +51,8 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        tabLayout.setupWithViewPager(viewPager);
 
         google.setTranslationY(300);
         tabLayout.setTranslationY(300);
