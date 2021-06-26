@@ -1,240 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.AddDeliveryAddresss">
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-    <!--<include
-        android:id="@+id/include"
-        layout="@layout/tool_bar_add_delivery_address" />-->
-
-    <EditText
-        android:id="@+id/first_name"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/edit_text"
-        android:hint="  Full Name(Required)*"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.063"
-        app:layout_constraintWidth_percent=".8">
+        tools:context=".view.AddDeliveryAddresss">
 
-    </EditText>
+<!--        <include-->
+<!--            android:id="@+id/include"-->
+<!--            layout="@layout/tool_bar_add_delivery_address"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/first_name"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <EditText
+            android:id="@+id/first_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54dp"
+            android:background="@drawable/edit_text"
+            android:hint="Full Name(Required)*"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".8">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/mobile_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/edit_text"
+            android:hint="Mobile_Number(Required)*"
+            android:inputType="number"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_name"
+            app:layout_constraintVertical_bias="0.021"
+            app:layout_constraintWidth_percent=".8">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/alternate_mobile_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text"
+            android:hint="Alternate_Mobile_Number"
+            android:inputType="number"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="4dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mobile_num"
+            app:layout_constraintVertical_bias="0.021"
+            app:layout_constraintWidth_percent=".8">
+
+        </EditText>
 
 
-    <EditText
-        android:id="@+id/mobile_num"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text"
-        android:hint="  Mobile_Number(Required)*"
-        android:inputType="number"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_name"
-        app:layout_constraintVertical_bias="0.021"
-        app:layout_constraintWidth_percent=".8">
+        <EditText
+            android:id="@+id/state"
+            android:layout_width="157dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="312dp"
+            android:background="@drawable/edit_text"
+            android:hint="State(Required)*"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.165"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alternate_mobile_num"
+            app:layout_constraintVertical_bias="0.072"
+            app:layout_constraintWidth_percent=".8">
 
-    </EditText>
+        </EditText>
 
-    <EditText
-        android:id="@+id/alternate_mobile_num"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text"
-        android:hint="  Alternate_Mobile_Number"
-        android:inputType="number"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mobile_num"
-        app:layout_constraintVertical_bias="0.021"
-        app:layout_constraintWidth_percent=".8">
+        <EditText
+            android:id="@+id/Pin"
+            android:layout_width="157dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="312dp"
+            android:background="@drawable/edit_text"
+            android:hint="Pin(Required)*"
+            android:inputType="number"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.127"
+            app:layout_constraintStart_toEndOf="@+id/state"
+            app:layout_constraintTop_toBottomOf="@+id/alternate_mobile_num"
+            app:layout_constraintVertical_bias="0.072"
+            app:layout_constraintWidth_percent=".8">
 
-    </EditText>
+        </EditText>
 
+        <EditText
+            android:id="@+id/City"
+            android:layout_width="157dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="212dp"
+            android:layout_marginBottom="320dp"
+            android:background="@drawable/edit_text"
+            android:hint="City(Required)*"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/state"
+            app:layout_constraintTop_toBottomOf="@+id/state"
+            app:layout_constraintVertical_bias="0.15"
+            app:layout_constraintWidth_percent=".8">
 
-    <EditText
-        android:id="@+id/state"
-        android:layout_width="157dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="312dp"
-        android:background="@drawable/edit_text"
-        android:hint="  State(Required)*"
-        android:inputType="number"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alternate_mobile_num"
-        app:layout_constraintVertical_bias="0.021"
-        app:layout_constraintWidth_percent=".8">
+        </EditText>
 
-    </EditText>
+        <EditText
+            android:id="@+id/houseNo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="264dp"
+            android:background="@drawable/edit_text"
+            android:hint="House No.,Building Name(Required)*"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/City"
+            app:layout_constraintVertical_bias="0.074"
+            app:layout_constraintWidth_percent=".8">
 
-    <EditText
-        android:id="@+id/Pin"
-        android:layout_width="157dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="312dp"
-        android:background="@drawable/edit_text"
-        android:hint="  Pin(Required)*"
-        android:inputType="number"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.267"
-        app:layout_constraintStart_toEndOf="@+id/state"
-        app:layout_constraintTop_toBottomOf="@+id/alternate_mobile_num"
-        app:layout_constraintVertical_bias="0.021"
-        app:layout_constraintWidth_percent=".8">
+        </EditText>
 
-    </EditText>
+        <EditText
+            android:id="@+id/area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="264dp"
+            android:background="@drawable/edit_text"
+            android:hint="Road name,Area,Colony(Required)*"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/houseNo"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintWidth_percent=".8">
 
-    <EditText
-        android:id="@+id/City"
-        android:layout_width="157dp"
-        android:layout_height="54dp"
-        android:layout_marginEnd="212dp"
-        android:layout_marginBottom="320dp"
-        android:background="@drawable/edit_text"
-        android:hint="  City(Required)*"
-        android:inputType="number"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/state"
-        app:layout_constraintTop_toBottomOf="@+id/state"
-        app:layout_constraintVertical_bias="0.021"
-        app:layout_constraintWidth_percent=".8">
+        </EditText>
 
-    </EditText>
+        <EditText
+            android:id="@+id/other"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="184dp"
+            android:background="@drawable/edit_text"
+            android:hint="AddNearbyFamousShop/Mall/Landmark"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/area"
+            app:layout_constraintVertical_bias="0.021"
+            app:layout_constraintWidth_percent=".8">
 
-    <EditText
-        android:id="@+id/houseNo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="264dp"
-        android:background="@drawable/edit_text"
-        android:hint="  House No.,Building Name(Required)*"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/City"
-        app:layout_constraintVertical_bias="0.021"
-        app:layout_constraintWidth_percent=".8">
+        </EditText>
 
-    </EditText>
+        <TextView
+            android:id="@+id/Type_add_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Type of address"
+            android:textColor="@color/grey_696969"
+            android:layout_marginTop="4dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/other"
+            app:layout_constraintTop_toBottomOf="@+id/other"
+            app:layout_constraintVertical_bias="0.095" />
 
-    <EditText
-        android:id="@+id/area"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="264dp"
-        android:background="@drawable/edit_text"
-        android:hint="  Road name,Area,Colony(Required)*"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/houseNo"
-        app:layout_constraintVertical_bias="0.021"
-        app:layout_constraintWidth_percent=".8">
+        <RadioButton
+            android:id="@+id/Work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Work"
+            android:textColor="@color/purple_700"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.396"
+            app:layout_constraintStart_toEndOf="@+id/Home"
+            app:layout_constraintTop_toTopOf="@+id/Home"
+            app:layout_constraintVertical_bias="0.021" />
 
-    </EditText>
+        <RadioButton
+            android:id="@+id/Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textColor="@color/purple_700"
+            android:layout_marginTop="4dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/Type_add_label"
+            app:layout_constraintTop_toBottomOf="@+id/Type_add_label"
+            app:layout_constraintVertical_bias="0.021" />
 
-    <EditText
-        android:id="@+id/other"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="184dp"
-        android:background="@drawable/edit_text"
-        android:hint=" AddNearbyFamousShop/Mall/Landmark"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/area"
-        app:layout_constraintVertical_bias="0.021"
-        app:layout_constraintWidth_percent=".8">
+        <Button
+            android:id="@+id/save_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_bg"
+            android:text="Save Address"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Work"
+            app:layout_constraintWidth_percent=".8" />
 
-    </EditText>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/Type_add_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" Type of address"
-        android:textColor="@color/grey_696969"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/other"
-        app:layout_constraintTop_toBottomOf="@+id/other"
-        app:layout_constraintVertical_bias="0.095" />
-
-    <RadioButton
-        android:id="@+id/Work"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Work"
-        android:textColor="@color/purple_700"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
-        app:layout_constraintStart_toEndOf="@+id/Home"
-        app:layout_constraintTop_toTopOf="@+id/Home"
-        app:layout_constraintVertical_bias="0.021" />
-
-    <RadioButton
-        android:id="@+id/Home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:textColor="@color/purple_700"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/Type_add_label"
-        app:layout_constraintTop_toBottomOf="@+id/Type_add_label"
-        app:layout_constraintVertical_bias="0.021" />
-
-    <Button
-        android:id="@+id/save_address"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_bg"
-        android:text="Save Address"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Work"
-        app:layout_constraintWidth_percent=".8" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

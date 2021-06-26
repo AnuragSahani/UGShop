@@ -28,8 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     float v = 0;
-    private SignInButton google;
-
+    SignInButton google;
     GoogleSignInClient mGoogleSignInClient;
     private  static int RC_SIGN_IN =100;
 
@@ -59,9 +58,6 @@ public class LoginActivity extends AppCompatActivity {
             };
         });
         //GoogleLoginAPI..............................................1...........
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -145,12 +141,11 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
             startActivity(new Intent(LoginActivity.this,HomePage.class));
-
             // Signed in successfully, show authenticated UI.
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.d("message",e.toString());
+            Log.d("Try Again",e.toString());
         }
     }
     //GoogleLoginAPI..............................................2...........

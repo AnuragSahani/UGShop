@@ -11,11 +11,17 @@
         android:theme="@style/Theme.UGShop">
         <activity android:name=".view.AddDeliveryAddressActivity" />
         <activity android:name=".view.MainMyAccountActivity" />
-        <activity android:name=".view.HomePage" />
+        <activity android:name=".view.HomePage" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".view.Home" />
         <activity android:name=".view.MyCartEmpty" />
         <activity android:name=".view.ChangePassword" />
-        <activity android:name=".view.AddDeliveryAddresss" />
+        <activity android:name=".view.AddDeliveryAddresss"/>
         <activity android:name=".view.DeactivateAccount" />
         <activity android:name=".view.AccountSetting" />
         <activity android:name=".view.MyAccountMain" />
@@ -23,11 +29,11 @@
         <activity
             android:name=".view.IntroductoryActivity"
             android:theme="@style/Theme.UGShop.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity android:name=".view.LoginActivity" />
         <activity
