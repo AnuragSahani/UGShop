@@ -1,7 +1,10 @@
 package com.example.ugshop
 
+import com.example.ugshop.Controller.NetworkController
+
 object UGRepository {
-    fun login(name : String, password : String) : Boolean {
-        return UGRetrofit.getRetrofit().login(name, password)
+    val networkController = NetworkController()
+    fun login(name : String, password : String) {
+        networkController.login(name, password)
     }
 }

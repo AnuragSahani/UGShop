@@ -5,6 +5,6 @@ import retrofit2.http.POST
 interface UGInterface {
 
     @POST("login")
-    fun login(email : String, password : String) : Boolean
+    fun login(email : String, password : String) : ResponseEntity<Boolean>
 
 }
