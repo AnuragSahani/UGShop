@@ -19,10 +19,12 @@
     <string name="close">Close</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
     <string name="login">Login</string>
-    <string name="forget_pswd">Forget Password</string>
+    <string name="forget_pswd">Forgot Password</string>
     <string name="name">Name</string>
     <string name="mobile_number">MobileNumber</string>
+    <string name="sign_up">SignUp</string>
 
     <!--   Login Tab Strings-->
     <string-array name="login_tabs">

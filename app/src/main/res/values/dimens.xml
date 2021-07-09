@@ -5,7 +5,11 @@
     <dimen name="edit_text_size">16sp</dimen>
     <dimen name="text_view_size_14">14sp</dimen>
     <dimen name="ten_dp">10dp</dimen>
+    <dimen name="fifteen_dp">15dp</dimen>
     <dimen name="twenty_dp">20dp</dimen>
+    <dimen name="thirty_dp">30dp</dimen>
+    <dimen name="forty_dp">40dp</dimen>
+    <dimen name="fifty_dp">50dp</dimen>
     <dimen tools:override="true"
         name="design_nevigation_separator_vertical_padding">20dp</dimen>
 </resources>

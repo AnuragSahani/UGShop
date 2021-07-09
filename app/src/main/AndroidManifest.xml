@@ -12,11 +12,11 @@
         <activity android:name=".view.AddDeliveryAddressActivity" />
         <activity android:name=".view.MainMyAccountActivity" />
         <activity android:name=".view.HomePage" >
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".view.Home" />
         <activity android:name=".view.MyCartEmpty" />
@@ -29,11 +29,10 @@
         <activity
             android:name=".view.IntroductoryActivity"
             android:theme="@style/Theme.UGShop.NoActionBar">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".view.LoginActivity" />
         <activity

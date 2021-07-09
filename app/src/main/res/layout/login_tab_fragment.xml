@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/ten_dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="@dimen/fifteen_dp">
 
     <EditText
         android:id="@+id/email"
         style="@style/TextViewStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fifteen_dp"
         android:background="@drawable/edit_text"
         android:hint="@string/email"
+        android:imeOptions="actionNext"
         android:inputType="textEmailAddress"
         android:nextFocusDown="@id/password"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,8 +25,10 @@
         style="@style/TextViewStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fifteen_dp"
         android:background="@drawable/edit_text"
         android:hint="@string/password"
+        android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:nextFocusDown="@id/login"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,12 +37,14 @@
 
     <TextView
         android:id="@+id/forget_password"
-        android:textSize="@dimen/text_view_size_14"
-        android:textColor="@color/grey_696969"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:clickable="true"
         android:padding="@dimen/ten_dp"
         android:text="@string/forget_pswd"
+        android:textColor="@color/grey_696969"
+        android:textSize="@dimen/text_view_size_14"
         app:layout_constraintEnd_toEndOf="@id/password"
         app:layout_constraintTop_toBottomOf="@id/password" />
 
@@ -46,13 +52,14 @@
         android:id="@+id/login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/twenty_dp"
+        android:layout_marginTop="@dimen/thirty_dp"
         android:background="@drawable/edit_text"
         android:text="@string/login"
         android:textSize="@dimen/edit_text_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/forget_password" />
+        app:layout_constraintTop_toBottomOf="@id/forget_password"
+        app:layout_constraintWidth_percent=".8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,11 @@
 <!--        <item name="android:textColor">@color/grey_696969</item>-->
         <item name="android:fontFamily">serif</item>
         <item name="android:textSize">@dimen/edit_text_size</item>
-        <item name="android:padding">@dimen/ten_dp</item>
-        <item name="android:layout_margin">@dimen/ten_dp</item>
+        <item name="singleLine">true</item>
+        <item name="android:paddingTop">@dimen/ten_dp</item>
+        <item name="android:paddingBottom">@dimen/ten_dp</item>
+        <item name="android:paddingStart">@dimen/twenty_dp</item>
+        <item name="android:paddingEnd">@dimen/twenty_dp</item>
+<!--        <item name="android:layout_margin">@dimen/ten_dp</item>-->
     </style>
 </resources>

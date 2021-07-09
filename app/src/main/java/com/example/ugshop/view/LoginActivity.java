@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.ugshop.R;
@@ -19,7 +18,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 public class LoginActivity extends AppCompatActivity {
@@ -28,12 +26,16 @@ public class LoginActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     float v = 0;
-    SignInButton google;
     GoogleSignInClient mGoogleSignInClient;
-    private  static int RC_SIGN_IN =100;
+    private static int RC_SIGN_IN = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+
+
         //GoogleLoginAPI.............................................1.........
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -55,11 +57,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 signIn();
-            };
+            }
+
+            ;
         });
         //GoogleLoginAPI..............................................1...........
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
@@ -90,16 +92,15 @@ public class LoginActivity extends AppCompatActivity {
 
         tabLayout.setupWithViewPager(viewPager);
 
-        google.setTranslationY(300);
+        signInButton.setTranslationY(300);
         tabLayout.setTranslationY(300);
 
-        google.setAlpha(v);
+        signInButton.setAlpha(v);
         tabLayout.setAlpha(v);
 
-        google.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
+        signInButton.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
         tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(100).start();
     }
-
 
 
     //GoogleLoginAPI..............................................2...........
@@ -136,16 +137,16 @@ public class LoginActivity extends AppCompatActivity {
                 String personId = acct.getId();
                 Uri personPhoto = acct.getPhotoUrl();
 
-                Toast toast = Toast.makeText(getApplicationContext(),"LoginSuccessful",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(), "LoginSuccessful", Toast.LENGTH_LONG);
                 toast.show();
                 finish();
             }
-            startActivity(new Intent(LoginActivity.this,HomePage.class));
+            startActivity(new Intent(LoginActivity.this, HomePage.class));
             // Signed in successfully, show authenticated UI.
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.d("Try Again",e.toString());
+            Log.d("Try Again", e.toString());
         }
     }
     //GoogleLoginAPI..............................................2...........
