@@ -1,6 +1,8 @@
 package com.example.ugshop.model.request;
 
-public class FetchProductListRequest {
+import com.example.ugshop.model.RequestEntity;
+
+public class FetchProductListRequest extends RequestEntity {
     //TODO::
 
 }

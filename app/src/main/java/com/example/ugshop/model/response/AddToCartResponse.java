@@ -1,8 +1,10 @@
 package com.example.ugshop.model.response;
 
-public class AddToCartResponse {
+import com.example.ugshop.model.ResponseEntity;
 
-    private  boolean successAddToCart;
+public class AddToCartResponse extends ResponseEntity {
+
+    private boolean successAddToCart;
 
     public boolean isSuccessAddToCart() {
         return successAddToCart;

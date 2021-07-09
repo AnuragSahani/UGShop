@@ -1,7 +1,9 @@
 package com.example.ugshop.model.request;
 
-public class RemoveAddressRequest {
-    private  String email;
+import com.example.ugshop.model.RequestEntity;
+
+public class RemoveAddressRequest extends RequestEntity {
+    private String email;
     private int addressId;
 
     public String getEmail() {

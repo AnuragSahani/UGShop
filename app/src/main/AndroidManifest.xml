@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ugshop">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +13,7 @@
         android:theme="@style/Theme.UGShop">
         <activity android:name=".view.AddDeliveryAddressActivity" />
         <activity android:name=".view.MainMyAccountActivity" />
-        <activity android:name=".view.HomePage" >
+        <activity android:name=".view.HomePage">
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +23,7 @@
         <activity android:name=".view.Home" />
         <activity android:name=".view.MyCartEmpty" />
         <activity android:name=".view.ChangePassword" />
-        <activity android:name=".view.AddDeliveryAddresss"/>
+        <activity android:name=".view.AddDeliveryAddresss" />
         <activity android:name=".view.DeactivateAccount" />
         <activity android:name=".view.AccountSetting" />
         <activity android:name=".view.MyAccountMain" />

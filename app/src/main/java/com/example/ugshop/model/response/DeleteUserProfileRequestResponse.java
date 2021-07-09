@@ -1,6 +1,8 @@
 package com.example.ugshop.model.response;
 
-public class DeleteUserProfileRequestResponse {
+import com.example.ugshop.model.ResponseEntity;
+
+public class DeleteUserProfileRequestResponse extends ResponseEntity {
     private boolean successfullyUserProfileDeleted;
 
     public boolean isSuccessfullyUserProfileDeleted() {

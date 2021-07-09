@@ -1,7 +1,9 @@
 package com.example.ugshop.model.response;
 
-public class RemoveFromCartResponse {
-    private  boolean successRemoveFromCart;
+import com.example.ugshop.model.ResponseEntity;
+
+public class RemoveFromCartResponse extends ResponseEntity {
+    private boolean successRemoveFromCart;
 
     public boolean isSuccessRemoveFromCart() {
         return successRemoveFromCart;

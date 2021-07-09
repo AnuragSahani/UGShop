@@ -1,7 +1,7 @@
 package com.example.ugshop.view;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +9,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.ugshop.R;
-import com.google.android.material.tabs.TabLayout;
+import com.example.ugshop.model.request.FetchAddressRequest;
+import com.example.ugshop.model.response.FetchAddressResponse;
+import com.example.ugshop.network.ApiResource;
+import com.example.ugshop.viewmodel.ApiViewModel;
 
 public class LoginTabFragment extends Fragment implements View.OnClickListener {
+    private final String TAG = LoginTabFragment.class.getSimpleName();
     EditText email;
     EditText password;
     Button login;
@@ -54,11 +57,44 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.login:
-                Intent homePageIntent = new Intent(getActivity(), HomePage.class);
-                startActivity(homePageIntent);
-                break;
+        if (view.getId() == R.id.login) {
+            ApiViewModel apiViewModel = ViewModelProviders.of(requireActivity()).get(ApiViewModel.class);
+            FetchAddressRequest request = new FetchAddressRequest();
+            request.setEmail("nt840071@gmail.com");
+            apiViewModel.fetchAddresses(request).observe(getViewLifecycleOwner(), new Observer<ApiResource<FetchAddressResponse>>() {
+                @Override
+                public void onChanged(ApiResource<FetchAddressResponse> response) {
+                    switch (response.getStatus()) {
+                        case LOADING:
+                            Log.i(TAG, "onChanged: Address fetching");
+                            break;
+                        case SUCCESS:
+                            Log.i(TAG, "onChanged: Address received : " + (response.getData() != null ? response.getData().getFetchResList() : "null"));
+                            break;
+                        case ERROR:
+                            Log.i(TAG, "onChanged: Address ERROR");
+                            break;
+                    }
+                }
+            });
+                /*apiViewModel.getCats().observe(getViewLifecycleOwner(), new Observer<ApiResource<CatsResponse>>() {
+                    @Override
+                    public void onChanged(ApiResource<CatsResponse> stringApiResource) {
+                        switch (stringApiResource.getStatus()) {
+                            case LOADING:
+                                Log.i(TAG, "onChanged: Cats fetching");
+                                break;
+                            case SUCCESS:
+                                Log.i(TAG, "onChanged: Cats received : " + stringApiResource.getData());
+                                break;
+                            case ERROR:
+                                Log.i(TAG, "onChanged: Cats Api ERROR");
+                                break;
+                        }
+                    }
+                });*/
+                /*Intent homePageIntent = new Intent(getActivity(), HomePage.class);
+                startActivity(homePageIntent);*/
         }
     }
 }

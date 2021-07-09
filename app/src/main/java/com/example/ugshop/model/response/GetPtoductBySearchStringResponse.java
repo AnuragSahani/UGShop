@@ -1,5 +1,7 @@
 package com.example.ugshop.model.response;
 
-public class GetPtoductBySearchStringResponse {
+import com.example.ugshop.model.ResponseEntity;
+
+public class GetPtoductBySearchStringResponse extends ResponseEntity {
     //TODO:: return null ;
 }

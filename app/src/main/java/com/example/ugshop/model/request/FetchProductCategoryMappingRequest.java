@@ -1,7 +1,9 @@
 package com.example.ugshop.model.request;
 
-public class FetchProductCategoryMappingRequest {
-   private int catId;
+import com.example.ugshop.model.RequestEntity;
+
+public class FetchProductCategoryMappingRequest extends RequestEntity {
+    private int catId;
 
     public int getCatId() {
         return catId;

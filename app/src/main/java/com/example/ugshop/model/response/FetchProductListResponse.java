@@ -1,11 +1,12 @@
 package com.example.ugshop.model.response;
 
+import com.example.ugshop.model.ResponseEntity;
 import com.example.ugshop.model.common.ProductModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FetchProductListResponse {
+public class FetchProductListResponse extends ResponseEntity {
     List<ProductModel> fetchingSuccessProductList = new ArrayList<ProductModel>();
 
     public List<ProductModel> getFetchingSuccessProductList() {

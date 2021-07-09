@@ -1,11 +1,8 @@
 package com.example.ugshop.model.response;
 
-import com.example.ugshop.model.common.AddressModel;
+import com.example.ugshop.model.ResponseEntity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class AddAddressResponse {
+public class AddAddressResponse extends ResponseEntity {
     private boolean successfullyAddAddress;
 
     public boolean isSuccessfullyAddAddress() {

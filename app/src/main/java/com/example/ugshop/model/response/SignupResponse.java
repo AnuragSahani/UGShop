@@ -1,6 +1,8 @@
 package com.example.ugshop.model.response;
 
-public class SignupResponse {
+import com.example.ugshop.model.ResponseEntity;
+
+public class SignupResponse extends ResponseEntity {
     //TODO:
 
 }

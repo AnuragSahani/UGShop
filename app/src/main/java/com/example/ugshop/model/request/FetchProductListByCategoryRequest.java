@@ -1,7 +1,9 @@
 package com.example.ugshop.model.request;
 
-public class FetchProductListByCategoryRequest {
-private int catId;
+import com.example.ugshop.model.RequestEntity;
+
+public class FetchProductListByCategoryRequest extends RequestEntity {
+    private int catId;
 
     public int getCatId() {
         return catId;

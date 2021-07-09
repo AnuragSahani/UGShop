@@ -1,8 +1,10 @@
 package com.example.ugshop.model.response;
 
-public class RemoveAddressResponse {
+import com.example.ugshop.model.ResponseEntity;
 
-    private  boolean successfullyRemoveAddress;
+public class RemoveAddressResponse extends ResponseEntity {
+
+    private boolean successfullyRemoveAddress;
 
     public boolean isSuccessfullyRemoveAddress() {
         return successfullyRemoveAddress;

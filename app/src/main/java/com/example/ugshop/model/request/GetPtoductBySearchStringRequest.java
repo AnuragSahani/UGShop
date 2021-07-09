@@ -1,6 +1,8 @@
 package com.example.ugshop.model.request;
 
-public class GetPtoductBySearchStringRequest {
+import com.example.ugshop.model.RequestEntity;
+
+public class GetPtoductBySearchStringRequest extends RequestEntity {
     private String inputSearch;
 
     public String getInputSearch() {

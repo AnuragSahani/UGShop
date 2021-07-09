@@ -1,6 +1,8 @@
 package com.example.ugshop.model.request;
 
-public class DeleteUserProfileRequest {
+import com.example.ugshop.model.RequestEntity;
+
+public class DeleteUserProfileRequest extends RequestEntity {
     private String email;
 
     public String getEmail() {

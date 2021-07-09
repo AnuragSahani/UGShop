@@ -1,9 +1,11 @@
 package com.example.ugshop.model.request;
 
+import com.example.ugshop.model.RequestEntity;
 import com.example.ugshop.model.common.AddressModel;
 
-public class AddAddressRequest {
+public class AddAddressRequest extends RequestEntity {
     private AddressModel address;
+
     public AddressModel getAddress() {
         return address;
     }

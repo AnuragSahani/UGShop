@@ -1,6 +1,8 @@
 package com.example.ugshop.model.request;
 
-public class LoginRequest {
+import com.example.ugshop.model.RequestEntity;
+
+public class LoginRequest extends RequestEntity {
 
     private String email;
     private String password;

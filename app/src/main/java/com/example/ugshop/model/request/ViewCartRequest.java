@@ -1,7 +1,9 @@
 package com.example.ugshop.model.request;
 
-public class ViewCartRequest {
-    private  String user;
+import com.example.ugshop.model.RequestEntity;
+
+public class ViewCartRequest extends RequestEntity {
+    private String user;
 
     public String getUser() {
         return user;

@@ -1,7 +1,9 @@
 package com.example.ugshop.model.request;
 
-public class FetchAddressRequest {
-    private  String email;
+import com.example.ugshop.model.RequestEntity;
+
+public class FetchAddressRequest extends RequestEntity {
+    private String email;
 
     public String getEmail() {
         return email;

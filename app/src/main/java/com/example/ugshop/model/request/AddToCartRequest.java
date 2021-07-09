@@ -1,11 +1,12 @@
 package com.example.ugshop.model.request;
 
+import com.example.ugshop.model.RequestEntity;
 import com.example.ugshop.model.common.ProductTypeModel;
 
-public class AddToCartRequest {
-    private  String userEmail;
+public class AddToCartRequest extends RequestEntity {
+    private String userEmail;
     private ProductTypeModel product;
-    private  int quantity;
+    private int quantity;
 
     public String getUserEmail() {
         return userEmail;

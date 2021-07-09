@@ -1,11 +1,12 @@
 package com.example.ugshop.model.response;
 
+import com.example.ugshop.model.ResponseEntity;
 import com.example.ugshop.model.common.ProductCategoryMappingModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FetchProductCategoryMappingResponse {
+public class FetchProductCategoryMappingResponse extends ResponseEntity {
     List<ProductCategoryMappingModel> listProCat = new ArrayList<ProductCategoryMappingModel>();
 
     public List<ProductCategoryMappingModel> getListProCat() {

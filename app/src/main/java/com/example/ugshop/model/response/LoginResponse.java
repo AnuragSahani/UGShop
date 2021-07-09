@@ -1,6 +1,8 @@
 package com.example.ugshop.model.response;
 
-public class LoginResponse {
+import com.example.ugshop.model.ResponseEntity;
+
+public class LoginResponse extends ResponseEntity {
 //TODO here we received a TOKEN
 
 }
