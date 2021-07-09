@@ -28,6 +28,7 @@ public class IntroductoryActivity extends AppCompatActivity {
         new Handler().postDelayed(()->{
             Intent intent = new Intent(IntroductoryActivity.this,LoginActivity.class);
             startActivity(intent);
+            finish();
         },3000);
     }
 
