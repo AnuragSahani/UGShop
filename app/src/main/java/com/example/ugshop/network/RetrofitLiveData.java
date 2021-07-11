@@ -27,7 +27,7 @@ public class RetrofitLiveData<T> extends LiveData<ApiResource<T>> {
 
         @Override
         public void onFailure(Call<T> call, Throwable t) {
-            Log.d(TAG, "Network Call Failed with : ");
+            Log.d(TAG, "Network Call Failed with : " + t.getMessage());
             setValue(ApiResource.failure(t.getMessage()));
         }
     };

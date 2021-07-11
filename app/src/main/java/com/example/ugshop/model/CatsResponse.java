@@ -1,6 +1,14 @@
 package com.example.ugshop.model;
 
 public class CatsResponse {
+    @Override
+    public String toString() {
+        return "CatsResponse{" +
+                "url='" + url + '\'' +
+                ", webpurl='" + webpurl + '\'' +
+                ", id=" + id +
+                '}';
+    }
 
     private String url;
     private String webpurl;

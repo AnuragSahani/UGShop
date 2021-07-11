@@ -1,5 +1,7 @@
 package com.example.ugshop.network;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -34,6 +36,7 @@ public class ApiResource<T> {
     }
 
     public static <T> ApiResource<T> create(Response<T> response) {
+        Log.d("Mariya", "response : " + response);
         if (!response.isSuccessful()) {
             try {
                 JSONObject jsonObject = new JSONObject(response.errorBody().string());

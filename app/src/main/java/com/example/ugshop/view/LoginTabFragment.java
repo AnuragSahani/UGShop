@@ -61,6 +61,7 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
             ApiViewModel apiViewModel = ViewModelProviders.of(requireActivity()).get(ApiViewModel.class);
             FetchAddressRequest request = new FetchAddressRequest();
             request.setEmail("nt840071@gmail.com");
+            Log.d("Mariya", "request : fetch address : " + request);
             apiViewModel.fetchAddresses(request).observe(getViewLifecycleOwner(), new Observer<ApiResource<FetchAddressResponse>>() {
                 @Override
                 public void onChanged(ApiResource<FetchAddressResponse> response) {
