@@ -31,4 +31,7 @@
         <item>Login</item>
         <item>Signup</item>
     </string-array>
+
+    <!--  Toast Messages  -->
+    <string name="login_failed">Login Failed</string>
 </resources>

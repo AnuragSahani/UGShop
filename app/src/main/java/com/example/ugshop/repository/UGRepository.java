@@ -26,7 +26,7 @@ public class UGRepository {
     }
 
     public LiveData<ApiResource<LoginResponse>> login(LoginRequest loginRequest) {
-        return null;
+        return new RetrofitLiveData<>(sNetworkApi.fetchLogIn(loginRequest));
     }
 
     public LiveData<ApiResource<FetchAddressResponse>> fetchAddress(FetchAddressRequest request) {

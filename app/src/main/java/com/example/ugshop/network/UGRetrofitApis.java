@@ -45,38 +45,38 @@ public interface UGRetrofitApis {
     @POST("fetchaddress")
     Call<FetchAddressResponse> fetchAddress(@Body FetchAddressRequest request);
 
-    @POST("addAddress")
+    @POST("addaddress")
     Call<AddAddressResponse>  addAddress (@Body AddAddressRequest request);
 
-    @POST("removeAddress")
+    @POST("removeaddress")
     Call<RemoveAddressResponse>  removeAddress (@Body RemoveAddressRequest request);
 
-    @GET("addToCart")
+    @GET("addtocart")
     Call<AddToCartResponse> addToCart (@Body AddToCartRequest request);
 
-    @POST("removeFromCart")
+    @POST("removefromcart")
     Call<RemoveFromCartResponse>  removeFromCart (@Body RemoveFromCartRequest request);
 
-    @POST("viewCart")
+    @POST("viewcart")
     Call<ViewCartResponse>  viewCart (@Body ViewCartRequest request);
 
-    @POST("fetchCategoryList")
+    @POST("categories")
     Call<FetchCategoryResponse>  fetchCategoryList (@Body FetchCategoryRequest request);
 //Doubt..............................
-    @POST("fetchLogIn")
+    @POST("login")
     Call<LoginResponse>  fetchLogIn (@Body LoginRequest request);
 //...................................
 
-    @POST("fetchProductList")
+    @POST("products")
     Call<FetchProductListResponse>  fetchProductList (@Body FetchProductListRequest request);
 
     @POST("fetchProductCategoryMapping")
     Call<FetchProductCategoryMappingResponse>  fetchProductCategoryMapping (@Body FetchProductCategoryMappingRequest request);
 
-    @POST("fetchProductListByCategory")
+    @POST("productbycategory")
     Call<FetchProductListByCategoryResponse>  fetchProductListByCategory  (@Body FetchProductListByCategoryRequest request);
 
-    @POST("fetchProductBySubCategory")
+    @POST("productbysubcategory")
     Call<FetchProductBySubCategoryresponse>  fetchProductBySubCategory  (@Body FetchProductBySubCategoryRequest request);
 
     @GET("getPtoductBySearchString")
