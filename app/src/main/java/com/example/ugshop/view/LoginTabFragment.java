@@ -3,6 +3,7 @@ package com.example.ugshop.view;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.ugshop.R;
+import com.example.ugshop.model.request.FetchAddressRequest;
+import com.example.ugshop.model.response.FetchAddressResponse;
+import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Helper;
 import com.example.ugshop.util.UGPreferences;
 import com.example.ugshop.viewmodel.LoginPageViewModel;
@@ -61,9 +66,10 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.login) {
+        if (view.getId() == R.id.login) {//View -> instance of ViewModel || ViewModel -> instance of Repository (network / database)
             LoginPageViewModel loginPageViewModel = ViewModelProviders.of(requireActivity()).get(LoginPageViewModel.class);
             final String emailText = email.getText().toString();
+            //validation
             loginPageViewModel.login(emailText, password.getText().toString())
                     .observe(getViewLifecycleOwner(), loginResponseApiResource -> {
                         if (getActivity() == null) {
@@ -77,6 +83,7 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
                                 preferences.addStringValue(Helper.LOGIN_ID, emailText);
                                 //launch home page
                                 Intent homePageIntent = new Intent(getActivity(), HomePage.class);
+                                homePageIntent.putExtra("EMAIL", emailText);
                                 startActivity(homePageIntent);
 
                                 getActivity().finish();
@@ -93,7 +100,6 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
 
 
 
-            /*
             FetchAddressRequest request = new FetchAddressRequest();
             request.setEmail("nt840071@gmail.com");
             Log.d("Mariya", "request : fetch address : " + request);
@@ -112,7 +118,7 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
                             break;
                     }
                 }
-            });*/
+            });
                 /*apiViewModel.getCats().observe(getViewLifecycleOwner(), new Observer<ApiResource<CatsResponse>>() {
                     @Override
                     public void onChanged(ApiResource<CatsResponse> stringApiResource) {

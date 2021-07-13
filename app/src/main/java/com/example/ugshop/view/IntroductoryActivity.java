@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.ugshop.R;
+import com.example.ugshop.util.Helper;
+import com.example.ugshop.util.UGPreferences;
 
 public class IntroductoryActivity extends AppCompatActivity {
     ImageView splashImg;
@@ -25,11 +28,22 @@ public class IntroductoryActivity extends AppCompatActivity {
         splashImg.animate().translationY(-1600).setDuration(1000).setStartDelay(4000);
         lottieAnimationView.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
 
-        new Handler().postDelayed(()->{
-            Intent intent = new Intent(IntroductoryActivity.this,LoginActivity.class);
-            startActivity(intent);
+        UGPreferences preferences = new UGPreferences(this);
+        String emailID = preferences.getStringValue(Helper.LOGIN_ID);
+        if (!TextUtils.isEmpty(emailID)) {
+            new Handler().postDelayed(()->{
+                Intent intent = new Intent(IntroductoryActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+            },3000);
+        } else {//TODO: launch home intent
+            Intent homePageIntent = new Intent(this, HomePage.class);
+            homePageIntent.putExtra("EMAIL", emailID);
+            startActivity(homePageIntent);
+
             finish();
-        },3000);
+        }
+
     }
 
 }

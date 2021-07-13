@@ -42,8 +42,8 @@ public class UGPreferences {
         editor.apply();
     }
 
-    public void getStringValue(String key) {
-        mPref.getString(key, null); // getting String
+    public String getStringValue(String key) {
+        return mPref.getString(key, null); // getting String
     }
 
     public void getIntValue(String key) {

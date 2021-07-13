@@ -69,9 +69,9 @@ public interface UGRetrofitApis {
 
     @POST("products")
     Call<FetchProductListResponse>  fetchProductList (@Body FetchProductListRequest request);
-
-    @POST("fetchProductCategoryMapping")
-    Call<FetchProductCategoryMappingResponse>  fetchProductCategoryMapping (@Body FetchProductCategoryMappingRequest request);
+//
+//    @POST("fetchProductCategoryMapping")
+//    Call<FetchProductCategoryMappingResponse>  fetchProductCategoryMapping (@Body FetchProductCategoryMappingRequest request);
 
     @POST("productbycategory")
     Call<FetchProductListByCategoryResponse>  fetchProductListByCategory  (@Body FetchProductListByCategoryRequest request);

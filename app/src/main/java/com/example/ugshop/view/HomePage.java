@@ -17,6 +17,21 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
 
         findViewById(R.id.cart).setOnClickListener(this);
         findViewById(R.id.menu_line).setOnClickListener(this);
+
+        makeNetworkCalls();
+    }
+
+    private void makeNetworkCalls() {
+        String email = getIntent().getStringExtra("EMAIL");///TODO: take value from shared preference
+        //TODO: fetch category list
+        //TODO: after response
+        //inflateData();
+    }
+
+    private void inflateData() {
+        //main_recycler : adapter
+        //TODO: Neeraj : top Products-> network call OR
+        //top_brand recycler view inflate with data
     }
 
     @Override

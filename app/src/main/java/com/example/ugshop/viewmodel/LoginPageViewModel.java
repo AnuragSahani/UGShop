@@ -16,11 +16,13 @@ import com.example.ugshop.repository.UGRepository;
 
 import java.util.Base64;
 
-public class LoginPageViewModel extends ViewModel {
+public class LoginPageViewModel extends ViewModel {//Model -> data -> view
 
     private final UGRepository repository = UGRepository.getInstance();
 
     public LiveData<ApiResource<LoginResponse>> login(String emailText, String password) {
+        //TODO: validate() : emailText not empty && it should be a proper email value
+        // TODO: password not empty
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setEmail(emailText);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
