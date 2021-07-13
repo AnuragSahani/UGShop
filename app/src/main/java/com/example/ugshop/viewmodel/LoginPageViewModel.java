@@ -25,9 +25,9 @@ public class LoginPageViewModel extends ViewModel {//Model -> data -> view
         // TODO: password not empty
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setEmail(emailText);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             loginRequest.setPassword(Base64.getEncoder().encodeToString(password.getBytes()));
-        } else {
+        } else */{
             loginRequest.setPassword(password);
         }
         return repository.login(loginRequest);

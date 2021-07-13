@@ -30,7 +30,7 @@ public class IntroductoryActivity extends AppCompatActivity {
 
         UGPreferences preferences = new UGPreferences(this);
         String emailID = preferences.getStringValue(Helper.LOGIN_ID);
-        if (!TextUtils.isEmpty(emailID)) {
+        if (TextUtils.isEmpty(emailID)) {
             new Handler().postDelayed(()->{
                 Intent intent = new Intent(IntroductoryActivity.this,LoginActivity.class);
                 startActivity(intent);

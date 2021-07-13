@@ -100,7 +100,7 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
 
 
 
-            FetchAddressRequest request = new FetchAddressRequest();
+            /*FetchAddressRequest request = new FetchAddressRequest();
             request.setEmail("nt840071@gmail.com");
             Log.d("Mariya", "request : fetch address : " + request);
             loginPageViewModel.fetchAddresses(request).observe(getViewLifecycleOwner(), new Observer<ApiResource<FetchAddressResponse>>() {
@@ -118,7 +118,7 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
                             break;
                     }
                 }
-            });
+            });*/
                 /*apiViewModel.getCats().observe(getViewLifecycleOwner(), new Observer<ApiResource<CatsResponse>>() {
                     @Override
                     public void onChanged(ApiResource<CatsResponse> stringApiResource) {
