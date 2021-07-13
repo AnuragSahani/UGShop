@@ -5,33 +5,27 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context=".view.HomePage">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/menu"
+        android:background="#FF3700B3">
 
         <RelativeLayout
             android:id="@+id/relative_layout"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:background="#FF3700B3">
-
-            <TextView
-                android:id="@+id/menu_line"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="9dp"
-                android:drawableStart="@drawable/menu" />
+            android:layout_gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
                 android:layout_marginTop="9dp"
-                android:layout_toRightOf="@+id/menu_line"
                 android:gravity="center"
                 android:text="UgShop"
                 android:textColor="@color/white"
@@ -74,7 +68,29 @@
 
         </RelativeLayout>
 
-    </com.google.android.material.appbar.AppBarLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        tools:openDrawer="start"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/navigation_view"
+            android:background="@color/design_default_color_primary_variant"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/activity_home_drawer"
+            app:itemIconTint="@color/white"
+            app:itemTextAppearance="@style/TextViewStyle"
+            app:itemBackground="@drawable/round_corner_bottom_navigation_bar"
+            app:itemTextColor="@color/white"
+            app:itemHorizontalPadding="40dp"/>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
