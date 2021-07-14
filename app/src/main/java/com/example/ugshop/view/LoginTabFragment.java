@@ -3,7 +3,6 @@ package com.example.ugshop.view;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ugshop.R;
-import com.example.ugshop.model.request.FetchAddressRequest;
-import com.example.ugshop.model.response.FetchAddressResponse;
-import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Helper;
 import com.example.ugshop.util.UGPreferences;
 import com.example.ugshop.viewmodel.LoginPageViewModel;
@@ -67,7 +62,8 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.login) {//View -> instance of ViewModel || ViewModel -> instance of Repository (network / database)
-            LoginPageViewModel loginPageViewModel = ViewModelProviders.of(requireActivity()).get(LoginPageViewModel.class);
+//            LoginPageViewModel loginPageViewModel = ViewModelProviders.of(requireActivity()).get(LoginPageViewModel.class);
+            LoginPageViewModel loginPageViewModel = new ViewModelProvider(this).get(LoginPageViewModel.class);
             final String emailText = email.getText().toString();
             //validation
             loginPageViewModel.login(emailText, password.getText().toString())

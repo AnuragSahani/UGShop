@@ -61,7 +61,7 @@ public interface UGRetrofitApis {
     Call<ViewCartResponse>  viewCart (@Body ViewCartRequest request);
 
     @POST("categories")
-    Call<FetchCategoryResponse>  fetchCategoryList (@Body FetchCategoryRequest request);
+    Call<FetchCategoryResponse>  fetchCategoryList ();
 //Doubt..............................
     @POST("login")
     Call<LoginResponse>  fetchLogIn (@Body LoginRequest request);

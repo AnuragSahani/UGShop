@@ -34,4 +34,5 @@
 
     <!--  Toast Messages  -->
     <string name="login_failed">Login Failed</string>
+    <string name="category_failed">Category Fetch Failed</string>
 </resources>
