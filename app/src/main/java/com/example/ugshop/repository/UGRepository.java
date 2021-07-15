@@ -5,9 +5,11 @@ import androidx.lifecycle.LiveData;
 import com.example.ugshop.model.CatsResponse;
 import com.example.ugshop.model.request.FetchAddressRequest;
 import com.example.ugshop.model.request.LoginRequest;
+import com.example.ugshop.model.request.SignupRequest;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.FetchCategoryResponse;
 import com.example.ugshop.model.response.LoginResponse;
+import com.example.ugshop.model.response.SignupResponse;
 import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.network.RetrofitLiveData;
 import com.example.ugshop.network.UGRetrofitApis;
@@ -28,6 +30,10 @@ public class UGRepository {
 
     public LiveData<ApiResource<LoginResponse>> login(LoginRequest loginRequest) {
         return new RetrofitLiveData<>(sNetworkApi.fetchLogIn(loginRequest));
+    }
+
+    public LiveData<ApiResource<SignupResponse>> signup(SignupRequest signupRequest) {
+        return new RetrofitLiveData<>(sNetworkApi.signup(signupRequest));
     }
 
     public LiveData<ApiResource<FetchCategoryResponse>> fetchCategories() {

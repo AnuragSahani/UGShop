@@ -1,8 +1,8 @@
 package com.example.ugshop.network;
 
 public class ErrorResponse {
-    public String errorMessage;
-    public int errorCode;
+    private String errorMessage;
+    private int errorCode;
 
     @Override
     public String toString() {

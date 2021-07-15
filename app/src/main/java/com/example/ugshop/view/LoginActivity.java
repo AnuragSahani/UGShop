@@ -20,7 +20,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
     TabLayout tabLayout;
@@ -53,14 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         SignInButton signInButton = findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
 
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIn();
-            }
-
-            ;
-        });
+        signInButton.setOnClickListener(this);
         //GoogleLoginAPI..............................................1...........
 
         tabLayout = findViewById(R.id.tab_layout);
@@ -127,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+            Log.d("Mariya", account + "  : " + acct);
 
 //            This Google Data we Use..............................................................
             if (acct != null) {
@@ -136,17 +130,26 @@ public class LoginActivity extends AppCompatActivity {
                 String personEmail = acct.getEmail();
                 String personId = acct.getId();
                 Uri personPhoto = acct.getPhotoUrl();
+                String token = acct.getIdToken();
+                //TODO: Should allow google token instead of password to login too
 
                 Toast toast = Toast.makeText(getApplicationContext(), "LoginSuccessful", Toast.LENGTH_LONG);
                 toast.show();
-                finish();
+//                finish();
             }
-            startActivity(new Intent(LoginActivity.this, HomePage.class));
+//            startActivity(new Intent(LoginActivity.this, HomePage.class));
             // Signed in successfully, show authenticated UI.
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.d("Try Again", e.toString());
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.sign_in_button) {
+            signIn();
         }
     }
     //GoogleLoginAPI..............................................2...........

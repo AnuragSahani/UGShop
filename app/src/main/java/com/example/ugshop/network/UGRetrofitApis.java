@@ -83,7 +83,7 @@ public interface UGRetrofitApis {
     Call<GetPtoductBySearchStringResponse>  getPtoductBySearchString (@Body GetPtoductBySearchStringRequest request);
 //.....................................
 
-    @GET("signup")
+    @POST("signup")
     Call<SignupResponse>  signup (@Body SignupRequest request);
 
     @POST("deleteUserProfile")
