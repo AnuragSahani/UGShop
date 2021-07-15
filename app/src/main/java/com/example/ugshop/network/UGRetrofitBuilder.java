@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UGRetrofitBuilder {
 
-    private static final String BASE_URL = "http://8004084dcdfc.ngrok.io";//"https://thatcopy.pw/";//
+    private static final String BASE_URL = "http://32d58146ed71.ngrok.io";//"https://thatcopy.pw/";//
     private static Retrofit sRetrofitInstance;
 
     private static Retrofit getRetrofit() {
@@ -18,10 +18,8 @@ public class UGRetrofitBuilder {
                     @Override
                     public okhttp3.Response intercept(Interceptor.Chain chain) throws IOException {
                         Request originalRequest = chain.request();
-
                         Request.Builder builder = originalRequest.newBuilder().header("Authorization",
                                 Credentials.basic("aUsername", "aPassword"));
-
                         Request newRequest = builder.build();
                         return chain.proceed(newRequest);
                     }

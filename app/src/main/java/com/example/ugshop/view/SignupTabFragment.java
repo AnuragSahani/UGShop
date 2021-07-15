@@ -28,6 +28,8 @@ public class SignupTabFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.signup_tab_fragment, container, false);
         mEmail = root.findViewById(R.id.email_signup);
         mUsername = root.findViewById(R.id.name);
@@ -58,9 +60,18 @@ public class SignupTabFragment extends Fragment implements View.OnClickListener{
                 switch (signupResponseApiResource.getStatus()) {
                     case SUCCESS:
                         //Save values to preference
-                        Log.d("Mariya", "response : " + signupResponseApiResource.getData());
 
+                        Log.d("Mariya", "response : " + signupResponseApiResource.getData());
+                        SignupResponse responce = signupResponseApiResource.getData();
+                        if (responce.isSigned()){
+                        UGPreferences preferences = new UGPreferences(getActivity());
+                        preferences.addStringValue(Helper.LOGIN_ID, emailText);
+                        //TODO: send call back to login activities to scroll page to login tab
+                        ((LoginActivity)getActivity()).setCurrentViewPagerItem(1);
+                        new Helper(getActivity()).showToast(R.string.sign_success);
+                        }
                         break;
+
                     case ERROR:
                         new Helper(getActivity()).showToast(R.string.signup_failed);
                         break;

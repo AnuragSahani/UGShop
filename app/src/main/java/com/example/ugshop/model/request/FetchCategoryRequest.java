@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FetchCategoryRequest extends RequestEntity {
-    private List<CategoryModel> fetchCategoryRequestList = new ArrayList<CategoryModel>();
 
-    public List<CategoryModel> getFetchCategoryRequestList() {
-        return fetchCategoryRequestList;
-    }
+//    private List<CategoryModel> fetchCategoryRequestList = new ArrayList<CategoryModel>();
+//
+//    public List<CategoryModel> getFetchCategoryRequestList() {
+//        return fetchCategoryRequestList;
+//    }
+//
+//    public void setFetchCategoryRequestList(List<CategoryModel> fetchCategoryRequestList) {
+//        this.fetchCategoryRequestList = fetchCategoryRequestList;
+//    }
 
-    public void setFetchCategoryRequestList(List<CategoryModel> fetchCategoryRequestList) {
-        this.fetchCategoryRequestList = fetchCategoryRequestList;
-    }
 }

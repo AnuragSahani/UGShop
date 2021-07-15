@@ -25,6 +25,8 @@
     <string name="name">Name</string>
     <string name="mobile_number">MobileNumber</string>
     <string name="sign_up">SignUp</string>
+    <string name="sign_success">SignUp Success</string>
+
 
     <!--   Login Tab Strings-->
     <string-array name="login_tabs">

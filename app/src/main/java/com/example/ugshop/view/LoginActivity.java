@@ -153,4 +153,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
     //GoogleLoginAPI..............................................2...........
+
+    public void setCurrentViewPagerItem(int index){
+        if (viewPager!=null){
+            viewPager.setCurrentItem(index);
+        }
+
+    }
 }

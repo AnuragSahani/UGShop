@@ -40,7 +40,6 @@ import retrofit2.http.POST;
 
 public interface UGRetrofitApis {
 
-
     @Headers({"Accept: application/json"})
     @POST("fetchaddress")
     Call<FetchAddressResponse> fetchAddress(@Body FetchAddressRequest request);
@@ -88,7 +87,6 @@ public interface UGRetrofitApis {
 
     @POST("deleteUserProfile")
     Call<DeleteUserProfileResponse> deleteUserProfile (@Body DeleteUserProfileRequest request);
-
 
     @GET("catapi/rest/")
     Call<CatsResponse> getCatsApi();//For testing
