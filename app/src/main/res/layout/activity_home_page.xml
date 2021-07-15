@@ -4,16 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".view.HomePage">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:navigationIcon="@drawable/menu"
-        android:background="#FF3700B3">
+        android:background="#FF3700B3"
+        app:navigationIcon="@drawable/menu">
 
         <RelativeLayout
             android:id="@+id/relative_layout"
@@ -73,32 +73,34 @@
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer"
         android:layout_width="match_parent"
-        tools:openDrawer="start"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:visibility="gone"
+        tools:openDrawer="start">
 
         <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/navigation_view"
-            android:background="@color/design_default_color_primary_variant"
             android:layout_gravity="start"
+            android:background="@color/design_default_color_primary_variant"
             app:headerLayout="@layout/nav_header"
-            app:menu="@menu/activity_home_drawer"
+            app:itemBackground="@drawable/round_corner_bottom_navigation_bar"
+            app:itemHorizontalPadding="40dp"
             app:itemIconTint="@color/white"
             app:itemTextAppearance="@style/TextViewStyle"
-            app:itemBackground="@drawable/round_corner_bottom_navigation_bar"
             app:itemTextColor="@color/white"
-            app:itemHorizontalPadding="40dp"/>
+            app:menu="@menu/activity_home_drawer" />
 
     </androidx.drawerlayout.widget.DrawerLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -120,11 +122,11 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/main_recycler"
-                android:contentDescription="@string/app_name"
                 android:layout_width="match_parent"
                 android:layout_height="141dp"
                 android:layout_marginTop="5dp"
                 android:background="@color/white"
+                android:contentDescription="@string/app_name"
                 tools:itemCount="2"
                 tools:listitem="@layout/item_list" />
 
@@ -197,8 +199,6 @@
                 android:background="@color/purple_700" />
 
         </LinearLayout>
-
-
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
 </LinearLayout>

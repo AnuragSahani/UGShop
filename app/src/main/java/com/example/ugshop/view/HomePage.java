@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,9 +17,11 @@ import android.view.View;
 import com.example.ugshop.R;
 import com.example.ugshop.model.common.CategoryModel;
 import com.example.ugshop.util.Helper;
+import com.example.ugshop.view.adapter.CategoriesAdapter;
 import com.example.ugshop.viewmodel.HomePageViewModel;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends AppCompatActivity implements View.OnClickListener {
@@ -76,20 +80,29 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
                         case SUCCESS:
                             List<CategoryModel> list = fetchCategoryResponseApiResource.getData().getListCat();
                             Log.d("Mandeep", "list size: "+list.size());
-                            inflateData();
+                            inflateData(list);
                             break;
                         case LOADING:
                             mProgressDialog.show();
                             break;
                     }
                 });
+        setUpCategoriesRecyclerView(new ArrayList<>());
     }
 
-    private void inflateData() {
-        //main_recycler : adapter
+    private void inflateData(List<CategoryModel> list) {
+        setUpCategoriesRecyclerView(list);
         //TODO: Neeraj : top Products-> network call OR
         //top_brand recycler view inflate with data
 
+    }
+
+    private void setUpCategoriesRecyclerView(List<CategoryModel> list) {
+        RecyclerView categoriesRecyclerView = findViewById(R.id.main_recycler);
+        CategoriesAdapter adapter = new CategoriesAdapter(this, list);
+        categoriesRecyclerView.setHasFixedSize(true);
+        categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        categoriesRecyclerView.setAdapter(adapter);
     }
 
     @Override

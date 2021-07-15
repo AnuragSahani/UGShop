@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FetchCategoryResponse extends ResponseEntity {
-    List<CategoryModel> listCat = new ArrayList<CategoryModel>();
+    List<CategoryModel> listCategories = new ArrayList<CategoryModel>();
 
     public List<CategoryModel> getListCat() {
-        return listCat;
+        return listCategories;
     }
 
     public void setListCat(List<CategoryModel> listCat) {
-        this.listCat = listCat;
+        this.listCategories = listCat;
     }
 }
