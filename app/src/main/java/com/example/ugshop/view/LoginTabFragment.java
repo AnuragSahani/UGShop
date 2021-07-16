@@ -61,6 +61,28 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        //Validation............................................................
+        final  String emailId= email.getText().toString();
+        final  String passwordField = password.getText().toString();
+        if (emailId.length()==0){
+            email.requestFocus();
+            email.setError("Email can't be Empty");
+        }
+        else if (!emailId.matches("^[A-Za-z0-9+_.-]+@(.+)$")){
+            email.requestFocus();
+            email.setError("Given email-id is not valid");
+        }
+        if (passwordField.length()==0){
+            password.requestFocus();
+            password.setError("Password can't be Empty");
+        }
+        else if(!passwordField.matches("^(?=.*[0-9])"
+                + "(?=.*[@#$%^&+=])"
+                + "(?=\\S+$).{8,20}$")){
+            password.requestFocus();
+            password.setError("Password at least 8 character.Please! Enter at least 1 digit & 1 special Symbol.Blank Space Not allowed");
+        }
+        //Validation...................................................................
         if (view.getId() == R.id.login) {//View -> instance of ViewModel || ViewModel -> instance of Repository (network / database)
 //            LoginPageViewModel loginPageViewModel = ViewModelProviders.of(requireActivity()).get(LoginPageViewModel.class);
             LoginPageViewModel loginPageViewModel = new ViewModelProvider(this).get(LoginPageViewModel.class);
@@ -93,9 +115,6 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
                                 break;
                         }
                     });
-
-
-
             /*FetchAddressRequest request = new FetchAddressRequest();
             request.setEmail("nt840071@gmail.com");
             Log.d("Mariya", "request : fetch address : " + request);

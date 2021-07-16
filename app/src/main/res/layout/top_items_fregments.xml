@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_marginTop="10dp"
+<LinearLayout android:layout_marginTop="10dp"
     android:layout_marginBottom="6dp"
     android:background="@color/white"
     android:elevation="3dp"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
-        android:id="@+id/men_cat"
+        android:id="@+id/kid_cat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:fontFamily="serif"
-            android:text="Top Products"
-            android:textColor="@color/black"
+            android:text="Best buy / Top Products"
+            android:textColor="@color/purple_700"
             android:textStyle="bold"
             android:textSize="20sp"/>
         <LinearLayout
@@ -28,25 +28,34 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:orientation="horizontal"
-            android:background="@color/purple_700">
+            android:background="@drawable/top_product_background">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/top_product_circle_image_slide"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/m_shirt"/>
-            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@drawable/trouser"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/m_t_shirt"/><de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/m_t_shirt"/>
-
-
-
+                android:fontFamily="serif"
+                android:text="Kid Trouser"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                />
 
         </LinearLayout>
         <LinearLayout
@@ -57,7 +66,19 @@
             android:layout_marginBottom="10dp"
             android:orientation="horizontal" >
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="serif"
+                android:text="Flat 30% off"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                />
 
         </LinearLayout>
+
+
     </LinearLayout>
+
 </LinearLayout>

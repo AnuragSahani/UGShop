@@ -22,6 +22,9 @@ import com.example.ugshop.util.UGPreferences;
 import com.example.ugshop.viewmodel.LoginPageViewModel;
 import com.example.ugshop.viewmodel.SignupViewModel;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class SignupTabFragment extends Fragment implements View.OnClickListener{
 
     private EditText mEmail, mUsername, mPassword, mMobileNum;
@@ -29,19 +32,61 @@ public class SignupTabFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.signup_tab_fragment, container, false);
         mEmail = root.findViewById(R.id.email_signup);
         mUsername = root.findViewById(R.id.name);
         mPassword = root.findViewById(R.id.password_signup);
         mMobileNum = root.findViewById(R.id.mobile_number);
-
         root.findViewById(R.id.Signup).setOnClickListener(this);
         return root;
     }
 
     @Override
     public void onClick(View view) {
+
+//Validation............................................................
+        final  String emailSignup= mEmail.getText().toString();
+        final  String passwordSignUpField = mPassword.getText().toString();
+        final String usernameSignup =mUsername.getText().toString();
+        final String mobileSignup = mMobileNum.getText().toString();
+
+        if (usernameSignup.length()==0){
+            mUsername.requestFocus();
+            mUsername.setError("Name field can't be empty");
+        }
+        else if(!usernameSignup.matches("[a-zA-Z ]+")){
+            mUsername.requestFocus();
+            mUsername.setError("ENTER ONLY ALPHABETICAL CHARACTER");
+        }
+        if (mobileSignup.length()==0){
+            mMobileNum.requestFocus();
+            mMobileNum.setError("Mobile number can't be Empty!");
+        }
+        else if(!mobileSignup.matches("^\\d{10}$")){
+            mMobileNum.requestFocus();
+            mMobileNum.setError("Invalid! Mobile Number");
+        }
+        if (emailSignup.length()==0){
+            mEmail.requestFocus();
+            mEmail.setError("Email can't be Empty");
+        }
+        else if (!emailSignup.matches("^[A-Za-z0-9+_.-]+@(.+)$")){
+            mEmail.requestFocus();
+            mEmail.setError("Given email-id is not valid");
+        }
+        if (passwordSignUpField.length()==0){
+            mPassword.requestFocus();
+            mPassword.setError("Password can't be Empty");
+        }
+        else if(!passwordSignUpField.matches("^(?=.*[0-9])"
+                + "(?=.*[@#$%^&+=])"
+                + "(?=\\S+$).{8,20}$")){
+            mPassword.requestFocus();
+            mPassword.setError("Password at least 8 character.Please! Enter at least 1 digit & 1 special Symbol.Blank Space Not allowed");
+        }
+// Validation...................................................................
+
+
         if (view.getId() == R.id.Signup) {
             makeSignupApiCall();
         }
