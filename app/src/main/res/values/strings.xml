@@ -10,7 +10,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-<!--    Landing page strings-->
+    <!--    Landing page strings-->
     <string name="location_tet">Location</string>
     <string name="title_activity_main2">MainActivity</string>
     <!-- TODO: Remove or change this placeholder text -->

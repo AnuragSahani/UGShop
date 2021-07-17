@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -18,13 +20,15 @@ import com.example.ugshop.util.Helper;
 import com.example.ugshop.util.UGPreferences;
 import com.example.ugshop.viewmodel.LoginPageViewModel;
 
+import org.jetbrains.annotations.NotNull;
+
 public class LoginTabFragment extends Fragment implements View.OnClickListener {
     private final String TAG = LoginTabFragment.class.getSimpleName();
 
     EditText email;
     EditText password;
     Button login;
-    TextView forgetpass;
+    private  TextView forgetpass;
     private ProgressDialog mProgressDialog;
 
     @Override
@@ -34,7 +38,7 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
         login = root.findViewById(R.id.login);
         email = root.findViewById(R.id.email);
         password = root.findViewById(R.id.password);
-        forgetpass = root.findViewById(R.id.forget_password);
+        forgetpass = (TextView) root.findViewById(R.id.forget_password);
 
         email.setTranslationX(800);
         password.setTranslationX(800);
@@ -57,6 +61,25 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
         mProgressDialog = new ProgressDialog(getActivity());
 
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        forgetpass .setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setTargetFragment(new Reset_Password_Fragment(),5);
+            }
+
+          /*  private void setFragment(Reset_Password_Fragment reset_password_fragment) {
+                Intent i = new Intent();
+                i.setClass(getActivity(), Reset_Password_Fragment.class);
+                startActivity(i);
+
+            }*/
+        });
     }
 
     @Override
