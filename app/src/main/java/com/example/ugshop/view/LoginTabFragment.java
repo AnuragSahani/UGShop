@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ugshop.R;
+import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
 import com.example.ugshop.util.UGPreferences;
 import com.example.ugshop.viewmodel.LoginPageViewModel;
@@ -28,7 +29,7 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
     EditText email;
     EditText password;
     Button login;
-    private  TextView forgetpass;
+    private TextView forgetpass;
     private ProgressDialog mProgressDialog;
 
     @Override
@@ -67,10 +68,10 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        forgetpass .setOnClickListener(new View.OnClickListener() {
+        forgetpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setTargetFragment(new Reset_Password_Fragment(),5);
+                setTargetFragment(new Reset_Password_Fragment(), 5);
             }
 
           /*  private void setFragment(Reset_Password_Fragment reset_password_fragment) {
@@ -87,23 +88,21 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         //Validation............................................................
-        final  String emailId= email.getText().toString();
-        final  String passwordField = password.getText().toString();
-        if (emailId.length()==0){
+        final String emailId = email.getText().toString();
+        final String passwordField = password.getText().toString();
+        if (emailId.length() == 0) {
             email.requestFocus();
             email.setError("Email can't be Empty");
-        }
-        else if (!emailId.matches("^[A-Za-z0-9+_.-]+@(.+)$")){
+        } else if (!emailId.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
             email.requestFocus();
             email.setError("Given email-id is not valid");
         }
-        if (passwordField.length()==0){
+        if (passwordField.length() == 0) {
             password.requestFocus();
             password.setError("Password can't be Empty");
-        }
-        else if(!passwordField.matches("^(?=.*[0-9])"
+        } else if (!passwordField.matches("^(?=.*[0-9])"
                 + "(?=.*[@#$%^&+=])"
-                + "(?=\\S+$).{8,20}$")){
+                + "(?=\\S+$).{8,20}$")) {
             password.requestFocus();
             password.setError("Password at least 8 character.Please! Enter at least 1 digit & 1 special Symbol.Blank Space Not allowed");
         }
@@ -126,7 +125,7 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
                                 preferences.addStringValue(Helper.LOGIN_ID, emailText);
                                 //launch home page
                                 Intent homePageIntent = new Intent(getActivity(), HomePage.class);
-                                homePageIntent.putExtra("EMAIL", emailText);
+                                homePageIntent.putExtra(Constants.EXTRA_EMAIL, emailText);
                                 startActivity(homePageIntent);
 
                                 getActivity().finish();

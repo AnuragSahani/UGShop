@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.ugshop.R;
+import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
 import com.example.ugshop.util.UGPreferences;
 
@@ -38,7 +39,7 @@ public class IntroductoryActivity extends AppCompatActivity {
             },3000);
         } else {//TODO: launch home intent
             Intent homePageIntent = new Intent(this, HomePage.class);
-            homePageIntent.putExtra("EMAIL", emailID);
+            homePageIntent.putExtra(Constants.EXTRA_EMAIL, emailID);
             startActivity(homePageIntent);
 
             finish();

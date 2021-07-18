@@ -16,6 +16,7 @@ import android.view.View;
 
 import com.example.ugshop.R;
 import com.example.ugshop.model.common.CategoryModel;
+import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
 import com.example.ugshop.view.adapter.CategoriesAdapter;
 import com.example.ugshop.viewmodel.HomePageViewModel;
@@ -68,7 +69,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
 
     private void makeNetworkCalls() {
         mProgressDialog.show();
-        String email = getIntent().getStringExtra("EMAIL");///TODO: take value from shared preference
+        String email = getIntent().getStringExtra(Constants.EXTRA_EMAIL);///TODO: take value from shared preference
         HomePageViewModel homePageViewModel = new ViewModelProvider(this).get(HomePageViewModel.class);
         homePageViewModel.fetchCategoryList()
                 .observe(this, fetchCategoryResponseApiResource -> {
