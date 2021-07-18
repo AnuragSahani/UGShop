@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ProductDescriptionFragment">
+
+    <TextView
+        android:id="@+id/txtView_product_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="If your T-shirts don't have a unique story, make the story about your customers. Help the customer imagine how your products fit into their life. Rather than calling your shirt “nice”, use power words that suit your tone like dazzling, spectacular, or kick ass."
+        android:layout_margin="16dp"
+        android:justificationMode="inter_word"
+        android:textColor="@color/black"
+        />
+</FrameLayout>

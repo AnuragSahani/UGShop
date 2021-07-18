@@ -79,6 +79,8 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
                 startActivity(i);
 
             }*/
+//          Intent forgetpasswordIntent = new Intent(forgetpass.getContext(),Reset_Password_Fragment.class);
+//                forgetpass.getContext().startActivity(forgetpasswordIntent);
         });
     }
 
