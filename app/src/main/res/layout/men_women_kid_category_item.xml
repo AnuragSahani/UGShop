@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
-<LinearLayout
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="6dp"
-    android:background="@color/white"
-    android:elevation="3dp"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-   <LinearLayout
-       android:id="@+id/men_cat"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/ten_dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,289 +13,60 @@
         android:fontFamily="serif"
         android:text="Stay at home essential | Men "
         android:textColor="@color/purple_700"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/m_shirt"/>
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/m_t_shirt"/>
-
-    </LinearLayout>
-
-    <LinearLayout
+    <GridView
+        android:id="@+id/men_sub_cat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal" >
+        android:layout_height="360dp"
+        android:gravity="center"
+        android:numColumns="2"
+        android:verticalSpacing="@dimen/twenty_dp" />
+    <!--
+                android:stretchMode="columnWidth"
+
+                android:footerDividersEnabled="false"-->
+
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:fontFamily="serif"
-        android:text="Shirt"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="serif"
-            android:text="T-Shirt"
-            android:textAlignment="center"
-            android:textColor="@color/black" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/m_trouse"/>
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/m_shorts"/>
-
-    </LinearLayout>
-
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal" >
+        android:layout_margin="10dp"
+        android:fontFamily="serif"
+        android:text="Stay at home essential | Women "
+        android:textColor="@color/purple_700"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <GridView
+        android:id="@+id/women_sub_cat"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:gravity="center"
+        android:numColumns="2"
+        android:verticalSpacing="@dimen/twenty_dp" />
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:fontFamily="serif"
-        android:text="Trouser"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        />
-        <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:fontFamily="serif"
-        android:text="Shorts"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        />
-    </LinearLayout>
-   </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/women_cat"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_margin="10dp"
+        android:fontFamily="serif"
+        android:text="Stay at home essential | Kids "
+        android:textColor="@color/purple_700"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="serif"
-            android:text="Stay at home essential | Women "
-            android:textColor="@color/purple_700"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/w_kurtis"/>
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/w_tees"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="serif"
-                android:text="Kurtis"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="serif"
-                android:text="Tees"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/w_tops"/>
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/w_trouser"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="serif"
-                android:text="Tops"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="serif"
-                android:text="Trouser"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/kid_cat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="serif"
-            android:text="Stay at home essential | Kids "
-            android:textColor="@color/purple_700"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/trouser"/>
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/shirt"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="serif"
-                android:text="Trouser"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="serif"
-                android:text="Shirt"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-
-
-
+    <GridView
+        android:id="@+id/kid_sub_cat"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:gravity="center"
+        android:numColumns="2"
+        android:verticalSpacing="@dimen/twenty_dp" />
 
 </LinearLayout>
-</ScrollView>
 
 
 

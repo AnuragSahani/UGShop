@@ -32,4 +32,16 @@ public class Helper {
         }
         return 0;
     }
+
+    public int getDrawableByCatId(int catId) {
+        switch (catId) {
+            case 1:
+                return R.drawable.men1;
+            case 2:
+                return R.drawable.kid;
+            case 3:
+                return R.drawable.women;
+        }
+        return 0;
+    }
 }

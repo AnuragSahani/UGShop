@@ -4,27 +4,20 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ugshop.R;
-import com.example.ugshop.model.common.CategoryModel;
-import com.example.ugshop.util.Helper;
-
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder> {
+public class TopBrandsRecyclerAdapter extends RecyclerView.Adapter<TopBrandsRecyclerAdapter.TopBrandsViewHolder> {
 
-    private final List<CategoryModel> mCategoriesList;
-    private final Helper mHelper;
-    private final int TOTAL_CATEGORIES = 3;
+    private final int TOP_BRANDS_CNT = 3;
 
-    public CategoriesAdapter(Activity context, List<CategoryModel> categoriesList) {
-        this.mCategoriesList = categoriesList;
-        mHelper = new Helper(context);
+    public TopBrandsRecyclerAdapter(Activity context) {
     }
 
     @Override
@@ -39,30 +32,31 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
     @NonNull
     @Override
-    public CategoriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
-
-        return new CategoriesViewHolder(view);
+    public TopBrandsRecyclerAdapter.TopBrandsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.top_items_fregments, parent, false);
+        return new TopBrandsRecyclerAdapter.TopBrandsViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoriesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TopBrandsRecyclerAdapter.TopBrandsViewHolder holder, int position) {
 //        holder.getCircleImageView().setImageResource(mHelper.getDrawableByCatId(mCategoriesList.get(position)));
-        holder.getCircleImageView().setImageResource(mHelper.getDrawableByCatId(position + 1));
     }
 
     @Override
     public int getItemCount() {
-        return TOTAL_CATEGORIES;//mCategoriesList.size();
+        return TOP_BRANDS_CNT;
     }
 
-    static class CategoriesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    static class TopBrandsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final CircleImageView mCircleImageView;
+        private final TextView mProductDescription, mDiscountTv;
 
-        public CategoriesViewHolder(View view) {
+        public TopBrandsViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
-            mCircleImageView = (CircleImageView) view.findViewById(R.id.category);
+            mCircleImageView = (CircleImageView) view.findViewById(R.id.top_product_circle_image_slide);
+            mProductDescription = (TextView) view.findViewById(R.id.product_name_tv);
+            mDiscountTv = (TextView) view.findViewById(R.id.discount_tv);
             mCircleImageView.setOnClickListener(this);
         }
 
@@ -78,5 +72,4 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         private void goToProductsPage() {
         }
     }
-
 }

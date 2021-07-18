@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/sub_cat_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:src="@drawable/m_shirt" />
+
+    <TextView
+        android:id="@+id/sub_cat_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:fontFamily="serif"
+        android:text="Shirt"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_view_size_14" />
+</LinearLayout>

@@ -39,4 +39,24 @@
     <string name="signup_failed">Signup Failed</string>
     <string name="category_failed">Category Fetch Failed</string>
     <string name="add_to_cart">ADD TO CART</string>
+    <string name="search">Search</string>
+
+    <string-array name="men_sub_cat">
+        <item>Shirt</item>
+        <item>T-Shirt</item>
+        <item>Trouser</item>
+        <item>Shorts</item>
+    </string-array>
+
+    <string-array name="women_sub_cat">
+        <item>Kurtis</item>
+        <item>Tees</item>
+        <item>Tops</item>
+        <item>Trouser</item>
+    </string-array>
+
+    <string-array name="kid_sub_cat">
+        <item>Trouser</item>
+        <item>Shirt</item>
+    </string-array>
 </resources>

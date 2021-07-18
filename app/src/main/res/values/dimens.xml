@@ -4,12 +4,17 @@
     <dimen name="view_pagerheiht">80dp</dimen>
     <dimen name="edit_text_size">16sp</dimen>
     <dimen name="text_view_size_14">14sp</dimen>
+
+    <dimen name="five_dp">5dp</dimen>
+    <dimen name="eight_dp">8dp</dimen>
     <dimen name="ten_dp">10dp</dimen>
     <dimen name="fifteen_dp">15dp</dimen>
     <dimen name="twenty_dp">20dp</dimen>
     <dimen name="thirty_dp">30dp</dimen>
     <dimen name="forty_dp">40dp</dimen>
     <dimen name="fifty_dp">50dp</dimen>
-    <dimen tools:override="true"
-        name="design_nevigation_separator_vertical_padding">20dp</dimen>
+
+    <dimen name="cat_height_width">110dp</dimen>
+
+    <dimen name="design_nevigation_separator_vertical_padding" tools:override="true">20dp</dimen>
 </resources>

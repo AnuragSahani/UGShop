@@ -13,12 +13,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 
 import com.example.ugshop.R;
 import com.example.ugshop.model.common.CategoryModel;
 import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
 import com.example.ugshop.view.adapter.CategoriesAdapter;
+import com.example.ugshop.view.adapter.SubCategoriesAdapter;
+import com.example.ugshop.view.adapter.TopBrandsRecyclerAdapter;
 import com.example.ugshop.viewmodel.HomePageViewModel;
 import com.google.android.material.navigation.NavigationView;
 
@@ -64,7 +68,9 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         });
         findViewById(R.id.cart).setOnClickListener(this);
         mProgressDialog = new ProgressDialog(this);
-        makeNetworkCalls();
+//      TODO: uncomment  makeNetworkCalls();
+
+        inflateData(new ArrayList<>());
     }
 
     private void makeNetworkCalls() {
@@ -88,14 +94,22 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
                             break;
                     }
                 });
-        setUpCategoriesRecyclerView(new ArrayList<>());
     }
 
     private void inflateData(List<CategoryModel> list) {
         setUpCategoriesRecyclerView(list);
         //TODO: Neeraj : top Products-> network call OR
         //top_brand recycler view inflate with data
+        setupTopBrandsRecyclerView();
+        setUpMenSubCatGridView();
+    }
 
+    private void setupTopBrandsRecyclerView() {
+        RecyclerView topBrandsRecyclerView = findViewById(R.id.top_brand);
+        TopBrandsRecyclerAdapter adapter = new TopBrandsRecyclerAdapter(this);
+        topBrandsRecyclerView.setHasFixedSize(true);
+        topBrandsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        topBrandsRecyclerView.setAdapter(adapter);
     }
 
     private void setUpCategoriesRecyclerView(List<CategoryModel> list) {
@@ -104,6 +118,28 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         categoriesRecyclerView.setHasFixedSize(true);
         categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         categoriesRecyclerView.setAdapter(adapter);
+    }
+
+    private void setUpMenSubCatGridView() {
+        GridView menSubCatGrid = findViewById(R.id.men_sub_cat);
+        SubCategoriesAdapter adapter = new SubCategoriesAdapter(this, Constants.CATEGORIES.MEN);
+        menSubCatGrid.setAdapter(adapter);
+        menSubCatGrid.setOnItemClickListener((parent, view, position, id) -> fetchProductsBySubCategory(1, position));
+
+        GridView womenSubCatGrid = findViewById(R.id.women_sub_cat);
+        SubCategoriesAdapter adapter2 = new SubCategoriesAdapter(this, Constants.CATEGORIES.WOMEN);
+        womenSubCatGrid.setAdapter(adapter2);
+        womenSubCatGrid.setOnItemClickListener((parent, view, position, id) -> fetchProductsBySubCategory(2, position));
+
+        GridView kidSubCatGrid = findViewById(R.id.kid_sub_cat);
+        SubCategoriesAdapter adapterKid = new SubCategoriesAdapter(this, Constants.CATEGORIES.KIDS);
+        kidSubCatGrid.setAdapter(adapterKid);
+        kidSubCatGrid.setOnItemClickListener((parent, view, position, id) -> fetchProductsBySubCategory(3, position));
+    }
+
+    private void fetchProductsBySubCategory(int catId, int subCatId) {
+        //TODO: land to products page by sub category id
+        Log.d("Mariya", "catId = " + catId +" : subCatId = " + (subCatId+1));
     }
 
     @Override

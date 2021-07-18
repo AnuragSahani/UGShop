@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".view.HomePage">
 
@@ -18,8 +17,7 @@
         <RelativeLayout
             android:id="@+id/relative_layout"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center">
+            android:layout_height="50dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -32,43 +30,34 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
                 android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="9dp"
-                android:drawableStart="@drawable/ic_baseline_shopping_cart_24"
-                android:drawablePadding="11dp"
-                tools:ignore="InvalidId" />
-        </RelativeLayout>
+                android:padding="5dp"
+                android:src="@drawable/ic_baseline_shopping_cart_24"
+                android:tint="@color/white" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#FF3700B3">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="7dp"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/searchbar_back"
-                android:drawableStart="@drawable/search"
-                android:hint="Search"
-                android:imeOptions="actionDone"
-                android:padding="9dp"
-                android:textSize="10sp" />
-
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/cart"
+                android:padding="5dp"
+                android:src="@drawable/search"
+                android:tint="@color/white" />
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:padding="@dimen/five_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer"
@@ -96,7 +85,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -122,13 +111,12 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/main_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="141dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/white"
-                android:contentDescription="@string/app_name"
-                tools:itemCount="2"
-                tools:listitem="@layout/item_list" />
+                android:contentDescription="@string/app_name" />
 
             <View
                 android:id="@+id/line"
@@ -162,15 +150,22 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/purple_700" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="serif"
+                android:text="Best buy / Top Products"
+                android:textColor="@color/purple_700"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/top_brand"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:orientation="horizontal"
-                tools:itemCount="2"
-                tools:listitem="@layout/top_items_fregments" />
+                android:orientation="horizontal" />
 
             <View
                 android:id="@+id/line5"
@@ -179,17 +174,19 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/purple_700" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/main_recyclermen"
+            <include
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                layout="@layout/men_women_kid_category_item" />
+            <!--<androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_recyclermen"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:background="@color/white"
                 tools:itemCount="2"
-                tools:listitem="@layout/men_women_kid_category_item">
-
-            </androidx.recyclerview.widget.RecyclerView>
+                tools:listitem="@layout/men_women_kid_category_item" />-->
 
             <View
                 android:id="@+id/line3"
