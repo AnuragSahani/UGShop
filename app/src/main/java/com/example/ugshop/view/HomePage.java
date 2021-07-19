@@ -175,6 +175,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         categoriesRecyclerView.setAdapter(adapter);
     }
 
+
     private void setUpSubCatGridView() {
         GridView menSubCatGrid = findViewById(R.id.men_sub_cat);
         SubCategoriesAdapter adapter = new SubCategoriesAdapter(this, Constants.CATEGORIES.MEN);

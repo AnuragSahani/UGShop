@@ -51,7 +51,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 //        holder.getCircleImageView().setImageResource(mHelper.getDrawableByCatId(mCategoriesList.get(position)));
         CircleImageView imageView = holder.getCircleImageView();
         imageView.setImageResource(mHelper.getDrawableByCatId(position + 1));
-        imageView.setTag((position+1));
+        imageView.setTag(position+1);
         imageView.setOnClickListener(this);
     }
 
@@ -90,6 +90,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         }
 
         private void goToProductsPage() {
+
         }
     }
 

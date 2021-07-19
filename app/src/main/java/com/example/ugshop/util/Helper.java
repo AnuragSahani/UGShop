@@ -45,4 +45,8 @@ public class Helper {
         }
         return 0;
     }
+
+    public int getAddressById(int i) {
+        return 0;
+    }
 }

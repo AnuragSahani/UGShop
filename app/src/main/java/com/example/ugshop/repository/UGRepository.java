@@ -7,6 +7,7 @@ import com.example.ugshop.model.request.AddAddressRequest;
 import com.example.ugshop.model.request.AddToCartRequest;
 import com.example.ugshop.model.request.FetchAddressRequest;
 import com.example.ugshop.model.request.LoginRequest;
+import com.example.ugshop.model.request.RemoveFromCartRequest;
 import com.example.ugshop.model.request.SignupRequest;
 import com.example.ugshop.model.request.ViewCartRequest;
 import com.example.ugshop.model.response.AddAddressResponse;
@@ -16,6 +17,7 @@ import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.FetchCategoryResponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
 import com.example.ugshop.model.response.LoginResponse;
+import com.example.ugshop.model.response.RemoveFromCartResponse;
 import com.example.ugshop.model.response.SignupResponse;
 import com.example.ugshop.model.response.ViewCartResponse;
 import com.example.ugshop.network.ApiResource;
@@ -72,5 +74,9 @@ public class UGRepository {
     }
     public RetrofitLiveData<CatsResponse> getCatsApi() {
         return new RetrofitLiveData<>(sNetworkApi.getCatsApi());
+    }
+
+    public LiveData<ApiResource<RemoveFromCartResponse>> removeFromCart(RemoveFromCartRequest removeFromCartRequest) {
+        return  new RetrofitLiveData<>(sNetworkApi.removeFromCart(removeFromCartRequest));
     }
 }

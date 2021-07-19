@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,10 +18,12 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ugshop.R;
+import com.example.ugshop.model.common.AddressModel;
 import com.example.ugshop.model.request.FetchAddressRequest;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Helper;
+import com.example.ugshop.view.adapter.AddressAdapter;
 import com.example.ugshop.viewmodel.AddressPageViewModel;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -27,6 +31,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -91,12 +97,12 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
             public void onChanged(ApiResource<FetchAddressResponse> fetchAddressResponseApiResource) {
                 switch (fetchAddressResponseApiResource.getStatus()){
                     case SUCCESS:
-                        FetchAddressResponse fetchAddressResponse = fetchAddressResponseApiResource.getData();
-                        if(fetchAddressResponse.getFetchResList().isEmpty()){
+                        FetchAddressResponse response = fetchAddressResponseApiResource.getData();
+                        if(response.getFetchResList().isEmpty() || response == null || response.getFetchResList() == null){
                             new Helper().showToast(R.string.suggestion_to_addAddress);
-                            break;
+                            return;
                         }else
-                        inflateData(fetchAddressResponse);
+                        inflateData(response.getFetchResList());
                         break;
                     case LOADING:
                         break;
@@ -108,15 +114,15 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
         });
     }
 
-    private void inflateData(FetchAddressResponse fetchAddressResponse) {
-        String city = fetchAddressResponse.getFetchResList().get(0).getCity();
-        String area = fetchAddressResponse.getFetchResList().get(0).getArea();
-        String landmark = fetchAddressResponse.getFetchResList().get(0).getLandmark();
-        String state = fetchAddressResponse.getFetchResList().get(0).getState();
-        int pin = fetchAddressResponse.getFetchResList().get(0).getPin();
-        String houseNo = fetchAddressResponse.getFetchResList().get(0).getHouseNo();
-        String typeOfAddress = fetchAddressResponse.getFetchResList().get(0).getTypeOfAddress();
-        addresses.setText(area + city+ state + pin);
+    private void inflateData(List<AddressModel> addressList) {
+        setUpAddressRecyclerView(addressList);
+    }
+
+    private void setUpAddressRecyclerView(List<AddressModel> listAddress){
+        RecyclerView recyclerView = findViewById(R.id.address_recycler);
+        AddressAdapter addressAdapter = new AddressAdapter(this,listAddress);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        recyclerView.setAdapter(addressAdapter);
     }
 
     private void signOut() {
