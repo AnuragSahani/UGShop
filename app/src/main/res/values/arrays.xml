@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="men_shirt">
+        <item>@drawable/mens_shirt_item1_1</item>
+        <item>@drawable/mens_shirt_item2_1</item>
+        <item>@drawable/mens_shirt_item3_1</item>
+        <item>@drawable/mens_shirt_item4_1</item>
+        <item>@drawable/mens_shirt_item5_1</item>
+        <item>@drawable/mens_shirt_item6_1</item>
+    </array>
+
+    <array name="men_t_shirt">
+        <item>@drawable/mens_tshirt_item1_1</item>
+        <item>@drawable/mens_tshirt_item2_1</item>
+        <item>@drawable/mens_tshirt_item3_1</item>
+        <item>@drawable/mens_tshirt_item4_1</item>
+        <item>@drawable/mens_tshirt_item5_1</item>
+        <item>@drawable/mens_tshirt_item6_1</item>
+    </array>
+
+    <array name="men_trouser">
+        <item>@drawable/mens_trouser_item1_1</item>
+        <item>@drawable/mens_trouser_item2_1</item>
+        <item>@drawable/mens_trouser_item3_1</item>
+        <item>@drawable/mens_trouser_item4_1</item>
+        <item>@drawable/mens_trouser_item5_1</item>
+        <item>@drawable/mens_trouser_item6_1</item>
+    </array>
+
+    <array name="men_shorts">
+        <item>@drawable/mens_shorts_item1_1</item>
+        <item>@drawable/mens_shorts_item2_1</item>
+        <item>@drawable/mens_shorts_item3_1</item>
+        <item>@drawable/mens_shorts_item4_1</item>
+        <item>@drawable/mens_shorts_item5_1</item>
+        <item>@drawable/mens_shorts_item6_1</item>
+    </array>
+
+    <array name="womens_kurties">
+        <item>@drawable/womens_kurties_item1_1</item>
+        <item>@drawable/womens_kurties_item2_1</item>
+        <item>@drawable/womens_kurties_item3_1</item>
+        <item>@drawable/womens_kurties_item4_1</item>
+        <item>@drawable/womens_kurties_item5_1</item>
+        <item>@drawable/womens_kurties_item6_1</item>
+    </array>
+
+     <array name="womens_tops">
+        <item>@drawable/womens_tops_item1_1</item>
+        <item>@drawable/womens_tops_item2_1</item>
+        <item>@drawable/womens_tops_item3_1</item>
+        <item>@drawable/womens_tops_item4_1</item>
+        <item>@drawable/womens_tops_item5_1</item>
+        <item>@drawable/womens_tops_item6_1</item>
+    </array>
+
+    <array name="womens_trousers">
+        <item>@drawable/womens_trousers_item1_1</item>
+        <item>@drawable/womens_trousers_item2_1</item>
+        <item>@drawable/womens_trousers_item3_1</item>
+        <item>@drawable/womens_trousers_item4_1</item>
+        <item>@drawable/womens_trousers_item5_1</item>
+    </array>
+    <array name="womens_tshirts">
+        <item>@drawable/womens_tshirts_item1_1</item>
+        <item>@drawable/womens_tshirts_item2_1</item>
+        <item>@drawable/womens_tshirts_item3_1</item>
+        <item>@drawable/womens_tshirts_item4_1</item>
+        <item>@drawable/womens_tshirts_item5_1</item>
+    </array>
+
+    <array name="kids_trousers">
+        <item>@drawable/kids_trousers_item1_1</item>
+        <item>@drawable/kids_trousers_item2_1</item>
+        <item>@drawable/kids_trousers_item3_1</item>
+        <item>@drawable/kids_trousers_item4_1</item>
+        <item>@drawable/kids_trousers_item5_1</item>
+        <item>@drawable/kids_trousers_item6_1</item>
+    </array>
+
+    <array name="kids_tshirts">
+        <item>@drawable/kids_tshirts_item1_1</item>
+        <item>@drawable/kids_tshirts_item2_1</item>
+        <item>@drawable/kids_tshirts_item3_1</item>
+        <item>@drawable/kids_tshirts_item4_1</item>
+        <item>@drawable/kids_tshirts_item5_1</item>
+        <item>@drawable/kids_tshirts_item6_1</item>
+    </array>
+
+
+</resources>

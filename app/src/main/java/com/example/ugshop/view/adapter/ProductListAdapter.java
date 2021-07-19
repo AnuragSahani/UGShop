@@ -1,6 +1,9 @@
 package com.example.ugshop.view.adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -52,13 +55,15 @@ public class ProductListAdapter extends BaseAdapter implements View.OnClickListe
 
         ProductModel productItem = mProductsList.get(position);
         ImageView itemImg = rootView.findViewById(R.id.item_img);
-        if(position % 2 == 0) {
+        itemImg.setImageDrawable(getDrawable(productItem.getCatId(),productItem.getSubCatId(),position));
+
+        /*if(position % 2 == 0) {
             itemImg.setImageResource(R.drawable.mens_shirt_item1_1);
         } else if (position % 3 == 0) {
             itemImg.setImageResource(R.drawable.mens_shirt_item2_1);
         } else {
             itemImg.setImageResource(R.drawable.mens_shirt_item3_1);
-        }
+        }*/
         TextView productName = rootView.findViewById(R.id.brand_name_item);
         TextView productDescription = rootView.findViewById(R.id.brand_description_item);
         TextView productPrice = rootView.findViewById(R.id.product_price);
@@ -74,6 +79,88 @@ public class ProductListAdapter extends BaseAdapter implements View.OnClickListe
         rootView.setTag(productItem);
 
         return rootView;
+    }
+    private static  int MenShirtCount= 0;
+    private static  int MenTshirt= 0;
+    private static  int MenTrouser=0;
+    private static  int MenShorts= 0;
+
+    private static  int WomenKurtiesCount= 0;
+    private static  int WomenTops= 0;
+    private static  int WomenTrouser=0;
+    private static  int WomenTshirt= 0;
+
+    private  static  int KidTrousersCount;
+    private  static  int KidTshirtCount;
+    private Drawable getDrawable(int cat_id, int sub_cat_id,int position){
+        Resources res = mContext.getResources();
+        switch (cat_id){
+            //cat ID must be 1, 2 ,3
+            case 1:
+                switch (sub_cat_id){
+                    case 1:
+                        TypedArray icons = res.obtainTypedArray(R.array.men_shirt);
+                        Drawable drawable = icons.getDrawable(MenShirtCount);
+                        MenShirtCount++;
+                        return drawable;
+                    case 2:
+                        icons = res.obtainTypedArray(R.array.men_t_shirt);
+                        drawable = icons.getDrawable(MenTshirt);
+                        MenTshirt++;
+                        return drawable;
+                    case 3:
+                        icons = res.obtainTypedArray(R.array.men_trouser);
+                        drawable = icons.getDrawable(MenTrouser);
+                        MenTrouser++;
+                        return drawable;
+                    case 4:
+                        icons = res.obtainTypedArray(R.array.men_shorts);
+                        drawable = icons.getDrawable(MenShorts);
+                        MenShorts++;
+                        return drawable;
+                }
+                break;
+            case 2:
+                switch (sub_cat_id){
+                    case 1:
+                        TypedArray icons = res.obtainTypedArray(R.array.womens_kurties);
+                        Drawable drawable = icons.getDrawable(WomenKurtiesCount);
+                        WomenKurtiesCount++;
+                        return drawable;
+                    case 2:
+                        icons = res.obtainTypedArray(R.array.womens_tops);
+                        drawable = icons.getDrawable(WomenTops);
+                        WomenTops++;
+                        return drawable;
+                    case 3:
+                        icons = res.obtainTypedArray(R.array.womens_trousers);
+                        drawable = icons.getDrawable(WomenTrouser);
+                        WomenTrouser++;
+                        return drawable;
+                    case 4:
+                        icons = res.obtainTypedArray(R.array.womens_tshirts);
+                        drawable = icons.getDrawable(WomenTshirt);
+                        WomenTshirt++;
+                        return drawable;
+                }
+                break;
+
+            case 3:
+                switch (sub_cat_id){
+                    case 1:
+                        TypedArray icons = res.obtainTypedArray(R.array.kids_trousers);
+                        Drawable drawable = icons.getDrawable(KidTrousersCount);
+                        KidTrousersCount++;
+                        return drawable;
+                    case 2:
+                        icons = res.obtainTypedArray(R.array.kids_tshirts);
+                        drawable = icons.getDrawable(KidTshirtCount);
+                        KidTshirtCount++;
+                        return drawable;
+                }
+                break;
+        }
+        return null;
     }
 
     @Override
