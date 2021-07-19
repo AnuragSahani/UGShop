@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UGShop"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Product_List_Activity"></activity>
+        <activity android:name=".ProductListActivity"></activity>
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".view.AddDeliveryAddressActivity" />
         <activity android:name=".view.MainMyAccountActivity" />

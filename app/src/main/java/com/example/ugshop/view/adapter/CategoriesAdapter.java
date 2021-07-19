@@ -1,6 +1,7 @@
 package com.example.ugshop.view.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +10,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ugshop.ProductListActivity;
 import com.example.ugshop.R;
 import com.example.ugshop.model.common.CategoryModel;
+import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
 
 import java.util.List;
@@ -22,8 +25,10 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     private final List<CategoryModel> mCategoriesList;
     private final Helper mHelper;
     private final int TOTAL_CATEGORIES = 3;
+    private final Activity mContext;
 
     public CategoriesAdapter(Activity context, List<CategoryModel> categoriesList) {
+        mContext = context;
         this.mCategoriesList = categoriesList;
         mHelper = new Helper(context);
     }
@@ -63,11 +68,14 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     @Override
     public void onClick(View view) {
         Integer catId = (Integer) view.getTag();
-        fetchProductsByCat(catId);
+        goToProductsListPage(catId);
     }
 
-    private void fetchProductsByCat(Integer catId) {
+    private void goToProductsListPage(Integer catId) {
         Log.d("Mariya", "catId Clicked = " + catId);
+        Intent productsList = new Intent(mContext, ProductListActivity.class);
+        productsList.putExtra(Constants.EXTRA_CAT_ID, catId);
+        mContext.startActivity(productsList);
     }
 
     static class CategoriesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

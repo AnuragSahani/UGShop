@@ -38,6 +38,7 @@
     <string name="login_failed">Login Failed</string>
     <string name="signup_failed">Signup Failed</string>
     <string name="category_failed">Category Fetch Failed</string>
+    <string name="add_to_cart_failed">Add To Cart Failed</string>
     <string name="add_to_cart">ADD TO CART</string>
     <string name="search">Search</string>
     <string name="cartAdded">Cart added</string>
@@ -45,6 +46,9 @@
     <string name="address_added">Address Added</string>
     <string name="suggestion_to_addAddress">Please add your address</string>
     <string name="something_error">Something error</string>
+    <string name="no_products_available">No products are currently available at your location</string>
+    <string name="item_added_to_cart">Product added to cart successfully</string>
+    <string name="get_products_list_failed">Get Products Failed!</string>
 
     <string-array name="men_sub_cat">
         <item>Shirt</item>

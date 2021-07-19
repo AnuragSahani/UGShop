@@ -35,7 +35,11 @@ public class RetrofitLiveData<T> extends LiveData<ApiResource<T>> {//Observable 
     @Override
     protected void onActive() {
         super.onActive();
-        call.enqueue(callback);
+        try {
+            call.enqueue(callback);
+        } catch (IllegalStateException e) {
+
+        }
     }
 
     @Override

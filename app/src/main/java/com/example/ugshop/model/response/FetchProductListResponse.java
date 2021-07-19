@@ -7,21 +7,22 @@ import com.example.ugshop.network.ErrorResponse;
 import java.util.List;
 
 public class FetchProductListResponse extends ResponseEntity {
-    private List<ProductModel> fetchingProductList;
-    private ErrorResponse errorResponse ;
+    private List<ProductModel> productList;
+    private ErrorResponse error ;
 
-    public List<ProductModel> getFetchingProductList() {
-        return fetchingProductList;
-    }
-    public void setFetchingProductList(List<ProductModel> fetchingProductList) {
-        this.fetchingProductList = fetchingProductList;
+    public List<ProductModel> getProductList() {
+        return productList;
     }
 
-    public ErrorResponse getErrorResponse() {
-        return errorResponse;
+    public void setProductList(List<ProductModel> productList) {
+        this.productList = productList;
     }
 
-    public void setErrorResponse(ErrorResponse errorResponse) {
-        this.errorResponse = errorResponse;
+    public ErrorResponse getError() {
+        return error;
+    }
+
+    public void setError(ErrorResponse error) {
+        this.error = error;
     }
 }
