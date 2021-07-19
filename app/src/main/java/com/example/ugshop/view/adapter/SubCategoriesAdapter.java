@@ -49,9 +49,7 @@ public class SubCategoriesAdapter extends BaseAdapter {
         return i;
     }
 
-    public long getItemId(int position) {
-        return position;
-    }
+    public long getItemId(int position) { return position; }
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {

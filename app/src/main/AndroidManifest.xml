@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ugshop">
 
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- can access internet -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UGShop"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Product_List_Activity"></activity>
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".view.AddDeliveryAddressActivity" />
         <activity android:name=".view.MainMyAccountActivity" />
@@ -58,10 +61,5 @@
             -->
         </activity>
     </application>
-
-
-    <!--    can access internet-->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

@@ -23,6 +23,7 @@
         android:gravity="center"
         android:numColumns="2"
         android:verticalSpacing="@dimen/twenty_dp" />
+
     <!--
                 android:stretchMode="columnWidth"
 
@@ -56,8 +57,6 @@
         android:textColor="@color/purple_700"
         android:textSize="20sp"
         android:textStyle="bold" />
-
-
     <GridView
         android:id="@+id/kid_sub_cat"
         android:layout_width="match_parent"

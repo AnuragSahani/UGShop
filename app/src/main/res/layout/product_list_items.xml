@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/item_img"
+        android:layout_width="139dp"
+        android:layout_height="157dp"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/m_shirt" />
+
+    <TextView
+        android:id="@+id/brand_name_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:paddingStart="8dp"
+        android:text="Roadster"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/item_img"
+        app:layout_constraintStart_toStartOf="@+id/item_img"
+        app:layout_constraintTop_toBottomOf="@+id/item_img" />
+
+    <TextView
+        android:id="@+id/brand_description_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Regular Fit Casual Denim Shirt"
+        android:textSize="10dp"
+
+        app:layout_constraintEnd_toEndOf="@+id/brand_name_item"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintStart_toStartOf="@+id/brand_name_item"
+        app:layout_constraintTop_toBottomOf="@+id/brand_name_item" />
+
+    <TextView
+        android:id="@+id/product_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rs.600/-"
+        android:textColor="@color/purple_700"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/brand_description_item"
+        app:layout_constraintTop_toBottomOf="@+id/brand_description_item" />
+
+    <TextView
+        android:id="@+id/cuttedPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="rs.1000/-"
+        app:layout_constraintBottom_toBottomOf="@+id/product_price"
+        app:layout_constraintStart_toEndOf="@+id/product_price" />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#80000000"
+        app:layout_constraintBottom_toBottomOf="@+id/cuttedPrice"
+        app:layout_constraintEnd_toEndOf="@+id/cuttedPrice"
+        app:layout_constraintStart_toStartOf="@+id/cuttedPrice"
+        app:layout_constraintTop_toTopOf="@+id/cuttedPrice" />
+</androidx.constraintlayout.widget.ConstraintLayout>
