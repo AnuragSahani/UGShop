@@ -97,7 +97,8 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
             email.requestFocus();
             email.setError("Given email-id is not valid");
         }
-        if (passwordField.length() == 0) {
+//      Here No Need to Validate Password////////////////////////////////////////
+      /*  if (passwordField.length() == 0) {
             password.requestFocus();
             password.setError("Password can't be Empty");
         } else if (!passwordField.matches("^(?=.*[0-9])"
@@ -105,7 +106,8 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
                 + "(?=\\S+$).{8,20}$")) {
             password.requestFocus();
             password.setError("Password at least 8 character.Please! Enter at least 1 digit & 1 special Symbol.Blank Space Not allowed");
-        }
+        }*/
+
         //Validation...................................................................
         if (view.getId() == R.id.login) {//View -> instance of ViewModel || ViewModel -> instance of Repository (network / database)
 //            LoginPageViewModel loginPageViewModel = ViewModelProviders.of(requireActivity()).get(LoginPageViewModel.class);

@@ -79,12 +79,16 @@ public class SignupTabFragment extends Fragment implements View.OnClickListener{
             mPassword.requestFocus();
             mPassword.setError("Password at least 8 character.Please! Enter at least 1 digit & 1 special Symbol.Blank Space Not allowed");
         }
+
+        else if (view.getId() == R.id.Signup){
+            makeSignUpApiCall();
+        }
 // Validation...................................................................
 
 
-        if (view.getId() == R.id.Signup) {
+     /*   if (view.getId() == R.id.Signup) {
             makeSignUpApiCall();
-        }
+        }*/
     }
 
     private void makeSignUpApiCall() {
