@@ -107,7 +107,7 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
                     case LOADING:
                         break;
                     case ERROR:
-                        new Helper().showToast(R.string.something_error);
+                        new Helper(MainMyAccountActivity.this).showToast(R.string.something_error);
                         break;
                 }
             }

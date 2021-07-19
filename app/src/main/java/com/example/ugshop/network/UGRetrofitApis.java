@@ -42,8 +42,8 @@ import retrofit2.http.POST;
 
 public interface UGRetrofitApis {
 
-    @Headers({"Accept: application/json"})
-    @GET("fetchaddress")
+//    @Headers({"Accept: application/json"})
+    @POST("fetchaddress")
     Call<FetchAddressResponse> fetchAddress(@Body FetchAddressRequest request);
 
     @POST("addaddress")

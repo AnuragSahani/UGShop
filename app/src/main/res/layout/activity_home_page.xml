@@ -1,201 +1,95 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
-    android:orientation="vertical"
-    tools:context=".view.HomePage">
+    android:background="@color/transparent"
+    android:visibility="visible"
+    tools:openDrawer="start">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FF3700B3"
-        app:navigationIcon="@drawable/menu">
-
-        <RelativeLayout
-            android:id="@+id/relative_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
-                android:layout_marginTop="9dp"
-                android:gravity="center"
-                android:text="UgShop"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/cart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:padding="5dp"
-                android:src="@drawable/ic_baseline_shopping_cart_24"
-                android:tint="@color/white" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@id/cart"
-                android:padding="5dp"
-                android:src="@drawable/search"
-                android:tint="@color/white" />
-        </RelativeLayout>
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
-        android:padding="@dimen/five_dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawer"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/transparent"
-        android:visibility="gone"
-        tools:openDrawer="start">
+        android:background="#fff"
+        android:orientation="vertical">
 
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navigation_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="@color/design_default_color_primary_variant"
-            app:headerLayout="@layout/nav_header"
-            app:itemBackground="@drawable/round_corner_bottom_navigation_bar"
-            app:itemHorizontalPadding="40dp"
-            app:itemIconTint="@color/white"
-            app:itemTextAppearance="@style/TextViewStyle"
-            app:itemTextColor="@color/white"
-            app:menu="@menu/activity_home_drawer" />
-
-    </androidx.drawerlayout.widget.DrawerLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="#FF3700B3"
+            android:fitsSystemWindows="true"
+            app:navigationIcon="@drawable/menu">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:fontFamily="serif"
-                android:text="Catalogues"
-                android:textColor="@color/purple_700"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <View
-                android:id="@+id/line4"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/grey_696969" />
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/main_recycler"
-                android:layout_gravity="center_horizontal"
+            <RelativeLayout
+                android:id="@+id/relative_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@color/white"
-                android:contentDescription="@string/app_name" />
+                android:layout_height="50dp">
 
-            <View
-                android:id="@+id/line"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/purple_700" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginTop="9dp"
+                    android:gravity="center"
+                    android:text="UgShop"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            <com.smarteist.autoimageslider.SliderView
-                android:id="@+id/imageSlider"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:sliderAnimationDuration="600"
-                app:sliderAutoCycleDirection="back_and_forth"
-                app:sliderAutoCycleEnabled="true"
-                app:sliderIndicatorAnimationDuration="600"
-                app:sliderIndicatorGravity="center_horizontal|bottom"
-                app:sliderIndicatorMargin="15dp"
-                app:sliderIndicatorOrientation="horizontal"
-                app:sliderIndicatorPadding="3dp"
-                app:sliderIndicatorRadius="2dp"
-                app:sliderIndicatorSelectedColor="#5A5A5A"
-                app:sliderIndicatorUnselectedColor="#FFF"
-                app:sliderScrollTimeInSec="1"/>
-<!--                app:sliderStartAutoCycle="true" />-->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_baseline_shopping_cart_24"
+                    android:tint="@color/white" />
 
-            <View
-                android:id="@+id/line1"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/purple_700" />
+                <!--<androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/cart"
+                    android:padding="5dp"
+                    android:src="@drawable/search"
+                    android:tint="@color/white" />-->
+            </RelativeLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:fontFamily="serif"
-                android:text="Best buy / Top Products"
-                android:textColor="@color/purple_700"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/top_brand"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="horizontal" />
+        <!--<androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/five_dp" />-->
 
-            <View
-                android:id="@+id/line5"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/purple_700" />
+        <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        <!--
+                    app:navGraph="@navigation/nav_graph"-->
+    </LinearLayout>
 
-            <include
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                layout="@layout/men_women_kid_category_item" />
-            <!--<androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/main_recyclermen"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@color/white"
-                tools:itemCount="2"
-                tools:listitem="@layout/men_women_kid_category_item" />-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/design_default_color_primary_variant"
+        app:headerLayout="@layout/nav_header"
+        app:itemBackground="@drawable/round_corner_bottom_navigation_bar"
+        app:itemHorizontalPadding="40dp"
+        app:itemIconTint="@color/white"
+        app:itemTextAppearance="@style/TextViewStyle"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/activity_home_drawer" />
 
-            <View
-                android:id="@+id/line3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/purple_700" />
-
-        </LinearLayout>
-    </ScrollView>
-
-</LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

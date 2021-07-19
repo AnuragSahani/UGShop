@@ -22,4 +22,10 @@
     <style name="Theme.UGShop.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.UGShop.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.UGShop.DrawerTheme" parent="Theme.UGShop">
+
+        <!--        For making status bar translucent on drawer layour-->
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
 </resources>
