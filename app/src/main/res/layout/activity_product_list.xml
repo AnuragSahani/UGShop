@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Product_List_Activity">
-
+    tools:context=".ProductListActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -17,12 +16,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/menu">
+
         <RelativeLayout
             android:id="@+id/relative_layout"
             android:layout_width="wrap_content"
             android:layout_height="50dp">
 
             <TextView
+                android:id="@+id/toolbarText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
@@ -47,7 +48,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
-        android:id="@+id/categories_item_tv"
+        android:id="@+id/categories_item_name_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -58,24 +59,18 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <GridView
-        android:id="@+id/men_item_grid_view"
+        android:id="@+id/products_grid_view"
         android:layout_width="match_parent"
-        android:layout_height="360dp"
-        android:layout_marginBottom="164dp"
+        android:layout_height="0dp"
         android:gravity="center"
         android:numColumns="2"
         android:verticalSpacing="@dimen/twenty_dp"
-        app:layout_constraintVertical_bias="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categories_item_tv">
-
-
-    </GridView>
+        app:layout_constraintTop_toBottomOf="@id/categories_item_name_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

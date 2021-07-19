@@ -27,9 +27,9 @@ public class Helper {
             case 1:
                 return R.drawable.men1;
             case 2:
-                return R.drawable.kid;
-            case 3:
                 return R.drawable.women;
+            case 3:
+                return R.drawable.kid;
         }
         return 0;
     }
@@ -39,9 +39,9 @@ public class Helper {
             case 1:
                 return R.drawable.men1;
             case 2:
-                return R.drawable.kid;
-            case 3:
                 return R.drawable.women;
+            case 3:
+                return R.drawable.kid;
         }
         return 0;
     }
