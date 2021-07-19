@@ -95,7 +95,7 @@ public class ProductListActivity extends AppCompatActivity {
         cartModelItem.setProductId(productModel.getProductId());
         cartModelItem.setQuantity(1);
         AddToCartRequest addToCartRequest = new AddToCartRequest();
-        addToCartRequest.setUserEmail(new UGPreferences(this).getStringValue(Constants.EXTRA_EMAIL));
+        addToCartRequest.setUserEmail("nt840071@gmail.com");//(new UGPreferences(this).getStringValue(Constants.EXTRA_EMAIL));
         addToCartRequest.setCartModel(cartModelItem);
 
         mProductListViewModel.addToCart(addToCartRequest)
