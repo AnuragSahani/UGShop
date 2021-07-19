@@ -24,7 +24,7 @@ public class ProductImagesAdapter extends PagerAdapter{
         //Through java code we can show the Images
         ImageView productImage = new ImageView(container.getContext());
         productImage.setImageResource(productImages.get(position));
-        container.addView(productImage,0);
+        container.addView(productImage);
         return  productImage;
     }
 
