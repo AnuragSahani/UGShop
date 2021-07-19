@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.ugshop.R;
 
-public class AddDeliveryAddresss extends AppCompatActivity {
+public class AddDeliveryAddress extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

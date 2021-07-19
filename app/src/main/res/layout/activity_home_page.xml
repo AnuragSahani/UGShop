@@ -140,8 +140,8 @@
                 app:sliderIndicatorRadius="2dp"
                 app:sliderIndicatorSelectedColor="#5A5A5A"
                 app:sliderIndicatorUnselectedColor="#FFF"
-                app:sliderScrollTimeInSec="1"
-                app:sliderStartAutoCycle="true" />
+                app:sliderScrollTimeInSec="1"/>
+<!--                app:sliderStartAutoCycle="true" />-->
 
             <View
                 android:id="@+id/line1"

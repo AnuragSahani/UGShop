@@ -5,7 +5,7 @@ public class ProductModel {
     private int productTypeId;
     private String name;
     private int price;
-    private String discreption;
+    private String description;
     private int quantity;
 
     public int getProductId() {
@@ -40,12 +40,12 @@ public class ProductModel {
         this.price = price;
     }
 
-    public String getDiscreption() {
-        return discreption;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscreption(String discreption) {
-        this.discreption = discreption;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getQuantity() {

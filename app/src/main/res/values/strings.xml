@@ -40,6 +40,11 @@
     <string name="category_failed">Category Fetch Failed</string>
     <string name="add_to_cart">ADD TO CART</string>
     <string name="search">Search</string>
+    <string name="cartAdded">Cart added</string>
+    <string name="add_address_failed">Failed</string>
+    <string name="address_added">Address Added</string>
+    <string name="suggestion_to_addAddress">Please add your address</string>
+    <string name="something_error">Something error</string>
 
     <string-array name="men_sub_cat">
         <item>Shirt</item>

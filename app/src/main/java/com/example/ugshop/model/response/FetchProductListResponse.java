@@ -2,18 +2,26 @@ package com.example.ugshop.model.response;
 
 import com.example.ugshop.model.ResponseEntity;
 import com.example.ugshop.model.common.ProductModel;
+import com.example.ugshop.network.ErrorResponse;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FetchProductListResponse extends ResponseEntity {
-    List<ProductModel> fetchingSuccessProductList = new ArrayList<ProductModel>();
+    private List<ProductModel> fetchingProductList;
+    private ErrorResponse errorResponse ;
 
-    public List<ProductModel> getFetchingSuccessProductList() {
-        return fetchingSuccessProductList;
+    public List<ProductModel> getFetchingProductList() {
+        return fetchingProductList;
+    }
+    public void setFetchingProductList(List<ProductModel> fetchingProductList) {
+        this.fetchingProductList = fetchingProductList;
     }
 
-    public void setFetchingSuccessProductList(List<ProductModel> fetchingSuccessProductList) {
-        this.fetchingSuccessProductList = fetchingSuccessProductList;
+    public ErrorResponse getErrorResponse() {
+        return errorResponse;
+    }
+
+    public void setErrorResponse(ErrorResponse errorResponse) {
+        this.errorResponse = errorResponse;
     }
 }

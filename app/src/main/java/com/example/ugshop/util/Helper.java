@@ -16,6 +16,7 @@ public class Helper {
     public Helper(Activity activity) {
         mActivty = activity;
     }
+    public Helper(){}
 
     public void showToast(int message) {
         Toast.makeText(mActivty, mActivty.getString(message), Toast.LENGTH_LONG).show();

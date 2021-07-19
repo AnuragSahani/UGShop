@@ -1,6 +1,5 @@
 package com.example.ugshop.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,11 +17,7 @@ import com.example.ugshop.model.response.SignupResponse;
 import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Helper;
 import com.example.ugshop.util.UGPreferences;
-import com.example.ugshop.viewmodel.LoginPageViewModel;
 import com.example.ugshop.viewmodel.SignupViewModel;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class SignupTabFragment extends Fragment implements View.OnClickListener{
 
@@ -90,11 +83,11 @@ public class SignupTabFragment extends Fragment implements View.OnClickListener{
 
 
         if (view.getId() == R.id.Signup) {
-            makeSignupApiCall();
+            makeSignUpApiCall();
         }
     }
 
-    private void makeSignupApiCall() {
+    private void makeSignUpApiCall() {
         SignupViewModel signupViewModel = new ViewModelProvider(this).get(SignupViewModel.class);
         String emailText = mEmail.getText().toString();
         String password = mPassword.getText().toString();

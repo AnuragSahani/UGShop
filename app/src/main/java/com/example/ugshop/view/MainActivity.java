@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-
-
             }
         ;
         //        FloatingActionButton fab = findViewById(R.id.fab);
@@ -66,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-  /*
+
     // This if for the navigation bar
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate (R.layout.activity_main,container,false);
-    }*/
+        return inflater.inflate (R.layout.activity_main_my_account,container,false);
+    }
 }

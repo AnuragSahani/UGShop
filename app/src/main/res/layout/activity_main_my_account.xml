@@ -149,6 +149,7 @@
             android:background="@color/grey_696969" />
 
         <TextView
+            android:id="@+id/addressText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"

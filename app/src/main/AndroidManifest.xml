@@ -27,7 +27,7 @@
         </activity>
         <activity android:name=".view.MyCartEmpty" />
         <activity android:name=".view.ChangePassword" />
-        <activity android:name=".view.AddDeliveryAddresss" />
+        <activity android:name=".view.AddDeliveryAddress" />
         <activity android:name=".view.DeactivateAccount" />
         <activity android:name=".view.AccountSetting" />
         <activity android:name=".view.MyAccountMain" />
@@ -56,5 +56,10 @@
             -->
         </activity>
     </application>
+
+
+    <!--    can access internet-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

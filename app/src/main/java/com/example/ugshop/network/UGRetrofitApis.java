@@ -18,6 +18,7 @@ import com.example.ugshop.model.request.SignupRequest;
 import com.example.ugshop.model.request.ViewCartRequest;
 import com.example.ugshop.model.response.AddAddressResponse;
 import com.example.ugshop.model.response.AddToCartResponse;
+import com.example.ugshop.model.response.ChangePasswordResponse;
 import com.example.ugshop.model.response.DeleteUserProfileResponse;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.FetchCategoryResponse;
@@ -31,6 +32,7 @@ import com.example.ugshop.model.response.RemoveAddressResponse;
 import com.example.ugshop.model.response.RemoveFromCartResponse;
 import com.example.ugshop.model.response.SignupResponse;
 import com.example.ugshop.model.response.ViewCartResponse;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -41,7 +43,7 @@ import retrofit2.http.POST;
 public interface UGRetrofitApis {
 
     @Headers({"Accept: application/json"})
-    @POST("fetchaddress")
+    @GET("fetchaddress")
     Call<FetchAddressResponse> fetchAddress(@Body FetchAddressRequest request);
 
     @POST("addaddress")
@@ -50,7 +52,7 @@ public interface UGRetrofitApis {
     @POST("removeaddress")
     Call<RemoveAddressResponse>  removeAddress (@Body RemoveAddressRequest request);
 
-    @GET("addtocart")
+    @POST("addtocart")
     Call<AddToCartResponse> addToCart (@Body AddToCartRequest request);
 
     @POST("removefromcart")
@@ -66,8 +68,11 @@ public interface UGRetrofitApis {
     Call<LoginResponse>  fetchLogIn (@Body LoginRequest request);
 //...................................
 
-    @POST("products")
-    Call<FetchProductListResponse>  fetchProductList (@Body FetchProductListRequest request);
+    @POST("changePassword")
+    Call<ChangePasswordResponse> changePassword(LoginRequest loginRequest);
+
+    @GET("products")
+    Call<FetchProductListResponse>  fetchProductList ();
 //
 //    @POST("fetchProductCategoryMapping")
 //    Call<FetchProductCategoryMappingResponse>  fetchProductCategoryMapping (@Body FetchProductCategoryMappingRequest request);
@@ -85,9 +90,11 @@ public interface UGRetrofitApis {
     @POST("signup")
     Call<SignupResponse>  signup (@Body SignupRequest request);
 
+
     @POST("deleteUserProfile")
     Call<DeleteUserProfileResponse> deleteUserProfile (@Body DeleteUserProfileRequest request);
 
     @GET("catapi/rest/")
     Call<CatsResponse> getCatsApi();//For testing
+
 }
