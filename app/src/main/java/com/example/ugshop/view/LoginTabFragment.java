@@ -21,8 +21,6 @@ import com.example.ugshop.util.Helper;
 import com.example.ugshop.util.UGPreferences;
 import com.example.ugshop.viewmodel.LoginPageViewModel;
 
-import org.jetbrains.annotations.NotNull;
-
 public class LoginTabFragment extends Fragment implements View.OnClickListener {
     private final String TAG = LoginTabFragment.class.getSimpleName();
 
@@ -65,7 +63,7 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         forgetpass.setOnClickListener(new View.OnClickListener() {

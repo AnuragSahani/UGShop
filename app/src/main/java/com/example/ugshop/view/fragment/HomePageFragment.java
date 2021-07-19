@@ -79,7 +79,6 @@ public class HomePageFragment extends Fragment {
                                 return;
                             }
                             List<CategoryModel> list = body.getListCat();
-                            Log.d("Mandeep", "list size: " + list.size());
                             inflateData(list);
                             break;
                         case LOADING:

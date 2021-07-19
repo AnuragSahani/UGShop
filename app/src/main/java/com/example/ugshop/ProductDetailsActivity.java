@@ -14,8 +14,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.ugshop.view.ProductImagesAdapter;
 import com.google.android.material.tabs.TabLayout;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,7 +86,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     //Search icon and Cart Icon Usage
     @Override
-    public boolean onOptionsItemSelected(@NonNull @NotNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.main_search_icon) {
             //TODO: Search ma'am please fix 2
