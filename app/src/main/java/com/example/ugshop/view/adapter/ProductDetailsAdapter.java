@@ -8,18 +8,16 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.ugshop.view.ProductDescriptionFragment;
 import com.example.ugshop.view.ProductSpecificationFragment;
 
-import org.jetbrains.annotations.NotNull;
 
 public class ProductDetailsAdapter extends FragmentPagerAdapter {
 
     private int totalTabs;
-    public ProductDetailsAdapter(@NonNull @NotNull FragmentManager fm, int totalTabs) {
+    public ProductDetailsAdapter(@NonNull FragmentManager fm, int totalTabs) {
         super(fm);
         this.totalTabs=totalTabs;
     }
 
     @NonNull
-    @NotNull
     @Override
     public Fragment getItem(int position) {
         switch (position){

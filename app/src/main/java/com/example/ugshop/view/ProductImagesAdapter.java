@@ -7,8 +7,6 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 public class ProductImagesAdapter extends PagerAdapter{
@@ -18,9 +16,8 @@ public class ProductImagesAdapter extends PagerAdapter{
         this.productImages = productImages;
     }
     @NonNull
-    @NotNull
     @Override
-    public Object instantiateItem(@NonNull @NotNull ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
         //Through java code we can show the Images
         ImageView productImage = new ImageView(container.getContext());
         productImage.setImageResource(productImages.get(position));
@@ -29,7 +26,7 @@ public class ProductImagesAdapter extends PagerAdapter{
     }
 
     @Override
-    public void destroyItem(@NonNull @NotNull ViewGroup container, int position, @NonNull @NotNull Object object) {
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
        container.removeView((ImageView)object);
     }
 
@@ -39,7 +36,7 @@ public class ProductImagesAdapter extends PagerAdapter{
     }
 
     @Override
-    public boolean isViewFromObject(@NonNull @NotNull View view, @NonNull @NotNull Object object) {
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return view==object;
     }
 }

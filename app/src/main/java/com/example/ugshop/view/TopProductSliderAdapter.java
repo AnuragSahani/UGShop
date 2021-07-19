@@ -9,8 +9,6 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.ugshop.R;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -24,9 +22,8 @@ public class TopProductSliderAdapter extends PagerAdapter {
     }
 
     @NonNull
-    @NotNull
     @Override
-    public Object instantiateItem(@NonNull @NotNull ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = LayoutInflater.from(container.getContext()).inflate(R.layout.top_items_fregments,container,false);
         CircleImageView banner = view.findViewById(R.id.top_product_circle_image_slide);
         banner.setImageResource(topProductsSliderModelList.get(position).getBanner());
@@ -35,12 +32,12 @@ public class TopProductSliderAdapter extends PagerAdapter {
     }
 
     @Override
-    public boolean isViewFromObject(@NonNull @NotNull View view, @NonNull @NotNull Object object) {
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return view==object;
     }
 
     @Override
-    public void destroyItem(@NonNull @NotNull ViewGroup container, int position, @NonNull @NotNull Object object) {
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);
     }
 

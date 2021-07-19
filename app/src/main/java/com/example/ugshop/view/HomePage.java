@@ -94,6 +94,8 @@ public class HomePage extends AppCompatActivity {
 
                 break;
             case R.id.nav_myorder:
+                Intent intent = new Intent(this, MakePayment.class);
+                startActivity(intent);
                 break;
             case R.id.nav_all_cat:
                 break;
