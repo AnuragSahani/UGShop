@@ -33,6 +33,8 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
     @Override
     public void onBindViewHolder(@NonNull AddressViewHolder holder, int position) {
         TextView textView = holder.getTextView();
+        AddressModel address = mAddressList.get(position);
+
         textView.setText(mHelper.getAddressById(position+1));
         textView.setTag(position+1);
     }

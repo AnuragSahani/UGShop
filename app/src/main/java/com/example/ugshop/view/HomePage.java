@@ -205,6 +205,8 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
                 Intent cartIntent = new Intent(this, MyCartEmpty.class);
                 startActivity(cartIntent);
                 break;
+            case R.id.searchView:
+
         }
     }
 }
