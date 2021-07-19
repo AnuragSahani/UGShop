@@ -15,7 +15,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class TopBrandsRecyclerAdapter extends RecyclerView.Adapter<TopBrandsRecyclerAdapter.TopBrandsViewHolder> {
 
-    private final int TOP_BRANDS_CNT = 3;
+    private final int TOP_BRANDS_CNT = 4;
 
     public TopBrandsRecyclerAdapter(Activity context) {
     }
@@ -40,6 +40,22 @@ public class TopBrandsRecyclerAdapter extends RecyclerView.Adapter<TopBrandsRecy
     @Override
     public void onBindViewHolder(@NonNull TopBrandsRecyclerAdapter.TopBrandsViewHolder holder, int position) {
 //        holder.getCircleImageView().setImageResource(mHelper.getDrawableByCatId(mCategoriesList.get(position)));
+
+
+            switch (position){
+                case 0: holder.getCircleImageView().setImageResource(R.drawable.mens_shirt_item4_1);
+                    holder.mProductName.setText("Men Shirt");
+                    holder.mDiscountTv.setText("Flat 20% Off");
+                    break;
+                case 1: holder.getCircleImageView().setImageResource(R.drawable.womens_kurties_item1_2);
+                    holder.mProductName.setText("Women Kurtie");
+                    holder.mDiscountTv.setText("Flat 35% Off");
+                break;
+                case 3: holder.getCircleImageView().setImageResource(R.drawable.womens_tops_item2_2);
+                    holder.mProductName.setText("Women Tops");
+                    holder.mDiscountTv.setText("Flat 25% Off");
+                break;
+            }
     }
 
     @Override
@@ -48,14 +64,14 @@ public class TopBrandsRecyclerAdapter extends RecyclerView.Adapter<TopBrandsRecy
     }
 
     static class TopBrandsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private final CircleImageView mCircleImageView;
-        private final TextView mProductDescription, mDiscountTv;
+         final CircleImageView mCircleImageView;
+         final TextView mProductName, mDiscountTv;
 
         public TopBrandsViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
             mCircleImageView = (CircleImageView) view.findViewById(R.id.top_product_circle_image_slide);
-            mProductDescription = (TextView) view.findViewById(R.id.product_name_tv);
+            mProductName = (TextView) view.findViewById(R.id.product_name_tv);
             mDiscountTv = (TextView) view.findViewById(R.id.discount_tv);
             mCircleImageView.setOnClickListener(this);
         }

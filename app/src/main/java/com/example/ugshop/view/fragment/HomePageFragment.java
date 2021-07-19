@@ -138,9 +138,9 @@ public class HomePageFragment extends Fragment {
     private void makeTopProductApiCall() {
         // Urls of our images.
 
-        String url1 = "https://source.unsplash.com/random/1080x600";
-        String url2 = "https://source.unsplash.com/random/1080x600";
-        String url3 = "https://source.unsplash.com/random/1080x600";
+        String url1 = "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2021/7/19/0561c26e-e90f-49e4-ba4f-3158a97179f21626700545599-Occasion_wear_Desk.jpg";
+        String url2 = "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2021/7/19/bc0bb077-6ca5-414f-a30a-b7f8e4e2e8c11626700392540-H-N_Desk_Banner--1-.jpg";
+        String url3 = "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2021/7/19/e32201fa-5b83-41aa-a945-b700877fc56c1626700797439-desktop-main-banner-1-reference.jpg";
 
         // we are creating array list for storing our image urls.
         ArrayList<SliderData> sliderDataArrayList = new ArrayList<>();
