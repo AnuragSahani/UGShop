@@ -1,6 +1,7 @@
 package com.example.ugshop.view.adapter;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder> {
+public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder> implements View.OnClickListener {
 
     private final List<CategoryModel> mCategoriesList;
     private final Helper mHelper;
@@ -48,12 +49,25 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     @Override
     public void onBindViewHolder(@NonNull CategoriesViewHolder holder, int position) {
 //        holder.getCircleImageView().setImageResource(mHelper.getDrawableByCatId(mCategoriesList.get(position)));
-        holder.getCircleImageView().setImageResource(mHelper.getDrawableByCatId(position + 1));
+        CircleImageView imageView = holder.getCircleImageView();
+        imageView.setImageResource(mHelper.getDrawableByCatId(position + 1));
+        imageView.setTag((position+1));
+        imageView.setOnClickListener(this);
     }
 
     @Override
     public int getItemCount() {
         return TOTAL_CATEGORIES;//mCategoriesList.size();
+    }
+
+    @Override
+    public void onClick(View view) {
+        Integer catId = (Integer) view.getTag();
+        fetchProductsByCat(catId);
+    }
+
+    private void fetchProductsByCat(Integer catId) {
+        Log.d("Mariya", "catId Clicked = " + catId);
     }
 
     static class CategoriesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

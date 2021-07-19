@@ -1,5 +1,12 @@
 package com.example.ugshop.view;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.GridView;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -8,16 +15,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
-
 import com.example.ugshop.R;
 import com.example.ugshop.model.common.CategoryModel;
+import com.example.ugshop.model.response.FetchCategoryResponse;
 import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
 import com.example.ugshop.view.adapter.CategoriesAdapter;
@@ -35,11 +35,15 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
     Toolbar toolbar;
     NavigationView navigationView;
     ProgressDialog mProgressDialog;
+    private Helper mHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        mHelper = new Helper(this);
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer);
@@ -49,21 +53,21 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         toggle.syncState();
         navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(item -> {
-            //                int id = MenuItem.getItemId();
-//                switch (id) {
-//                    case R.id.home:
-//                        break;
-//                    case R.id.search:
-//                        break;
-//                    case R.id.myOrder:
-//                        break;
-//                    case R.id.setting:
-//                        break;
-//                    case R.id.Account:
-//                        break;
-//                    default:
-//                        return true;
-//                }
+            int id = item.getItemId();
+            /*switch (id) {
+                case R.id.home:
+                    break;
+                case R.id.search:
+                    break;
+                case R.id.myOrder:
+                    break;
+                case R.id.setting:
+                    break;
+                case R.id.Account:
+                    break;
+                default:
+                    return true;
+            }*/
             return true;
         });
         findViewById(R.id.cart).setOnClickListener(this);
@@ -82,11 +86,16 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
                     mProgressDialog.dismiss();
                     switch (fetchCategoryResponseApiResource.getStatus()) {
                         case ERROR:
-                            new Helper(this).showToast(R.string.category_failed);
+                            mHelper.showToast(R.string.category_failed);
                             break;
                         case SUCCESS:
-                            List<CategoryModel> list = fetchCategoryResponseApiResource.getData().getListCat();
-                            Log.d("Mandeep", "list size: "+list.size());
+                            FetchCategoryResponse body = fetchCategoryResponseApiResource.getData();
+                            if (body == null || body.getListCat() == null || body.getListCat().isEmpty()) {
+                                mHelper.showToast(R.string.category_failed);
+                                return;
+                            }
+                            List<CategoryModel> list = body.getListCat();
+                            Log.d("Mandeep", "list size: " + list.size());
                             inflateData(list);
                             break;
                         case LOADING:
@@ -101,7 +110,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         //TODO: Neeraj : top Products-> network call OR
         //top_brand recycler view inflate with data
         setupTopBrandsRecyclerView();
-        setUpMenSubCatGridView();
+        setUpSubCatGridView();
     }
 
     private void setupTopBrandsRecyclerView() {
@@ -120,7 +129,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         categoriesRecyclerView.setAdapter(adapter);
     }
 
-    private void setUpMenSubCatGridView() {
+    private void setUpSubCatGridView() {
         GridView menSubCatGrid = findViewById(R.id.men_sub_cat);
         SubCategoriesAdapter adapter = new SubCategoriesAdapter(this, Constants.CATEGORIES.MEN);
         menSubCatGrid.setAdapter(adapter);
@@ -139,7 +148,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
 
     private void fetchProductsBySubCategory(int catId, int subCatId) {
         //TODO: land to products page by sub category id
-        Log.d("Mariya", "catId = " + catId +" : subCatId = " + (subCatId+1));
+        Log.d("Mariya", "catId = " + catId + " : subCatId = " + (subCatId + 1));
     }
 
     @Override
