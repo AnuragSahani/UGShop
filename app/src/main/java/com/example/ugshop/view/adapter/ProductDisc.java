@@ -53,7 +53,7 @@ public class ProductDisc extends AppCompatActivity implements View.OnClickListen
                         break;
                     case SUCCESS:
                         AddToCartResponse addToCartResponse = addToCartResponseApiResource.getData();
-                        if(addToCartResponse.isSuccessAddToCart()){
+                        if(addToCartResponse.isAdded()){
                             new Helper((Activity) getApplicationContext()).showToast(R.string.cartAdded);
                         }
                         break;

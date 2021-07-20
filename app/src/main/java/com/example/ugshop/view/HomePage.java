@@ -39,7 +39,7 @@ public class HomePage extends AppCompatActivity {
     private void addClickListeners() {
 
         findViewById(R.id.cart).setOnClickListener(view -> {
-            Intent cartIntent = new Intent(HomePage.this, MyCartEmpty.class);
+            Intent cartIntent = new Intent(HomePage.this, MyCartActivity.class);
             startActivity(cartIntent);
         });
     }

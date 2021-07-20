@@ -33,6 +33,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface UGRetrofitApis {
 
@@ -52,8 +53,8 @@ public interface UGRetrofitApis {
     @POST("removefromcart")
     Call<RemoveFromCartResponse> removeFromCart(@Body RemoveFromCartRequest request);
 
-    @POST("viewcart")
-    Call<ViewCartResponse> viewCart(@Body ViewCartRequest request);
+    @GET("viewcart")
+    Call<ViewCartResponse> viewCart(@Query("email") String email);
 
     @GET("categories")
     Call<FetchCategoryResponse> fetchCategoryList();

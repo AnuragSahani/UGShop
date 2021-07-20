@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ugshop.R;
+import com.example.ugshop.model.common.CartModel;
 import com.example.ugshop.model.common.CategoryModel;
 import com.example.ugshop.model.response.FetchCategoryResponse;
 import com.example.ugshop.util.Constants;

@@ -4,7 +4,7 @@ import com.example.ugshop.model.RequestEntity;
 import com.example.ugshop.model.common.CartModel;
 
 public class AddToCartRequest extends RequestEntity {
-    private String userEmail;
+    private String email;
     private CartModel cartModel;
 
     public CartModel getCartModel() {
@@ -15,13 +15,11 @@ public class AddToCartRequest extends RequestEntity {
         this.cartModel = cartModel;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
-
-
 }

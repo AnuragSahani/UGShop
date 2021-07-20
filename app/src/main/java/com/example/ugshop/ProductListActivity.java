@@ -4,9 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ugshop.model.common.CartModel;
@@ -16,7 +19,8 @@ import com.example.ugshop.model.response.AddToCartResponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
 import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
-import com.example.ugshop.util.UGPreferences;
+import com.example.ugshop.view.HomePage;
+import com.example.ugshop.view.MyCartActivity;
 import com.example.ugshop.view.adapter.ProductListAdapter;
 import com.example.ugshop.viewmodel.ProductListViewModel;
 
@@ -45,13 +49,82 @@ public class ProductListActivity extends AppCompatActivity {
         int catId = getIntent.getIntExtra(Constants.EXTRA_CAT_ID, -1);
         int subCatId = getIntent.getIntExtra(Constants.EXTRA_SUB_CAT_ID, -1);
 
+        TextView title = findViewById(R.id.categories_item_name_tv);
+        title.setText(getCatSubCatString(catId, subCatId));
         mProductListViewModel = new ViewModelProvider(this).get(ProductListViewModel.class);
 
         getProductList(catId, subCatId);
     }
 
-    private void setupToolBar() {
+    //    menShirt, menTShirt,menTrouser, menShorts,
+//    womenKurtis, womenTops, womenTrousers, womenTees,
+//    kidTrousers, kidTShirts
+    private String getCatSubCatString(int catId, int subCatId) {
+        StringBuilder str = new StringBuilder();
+        switch (catId) {
+            case 1:
+                str.append("Men");
+                switch (subCatId) {
+                    case 1:
+                        str.append(" | Shirt");
+                        break;
 
+                    case 2:
+                        str.append(" | T-Shirt");
+                        break;
+
+                    case 3:
+                        str.append(" | Trouser");
+                        break;
+                    case 4:
+                        str.append(" | Shorts");
+                        break;
+                }
+                break;
+
+            case 2:
+                str.append("Women");
+                switch (subCatId) {
+                    case 1:
+                        str.append(" | Kurtis");
+                        break;
+
+                    case 2:
+                        str.append(" | Tops");
+                        break;
+
+                    case 3:
+                        str.append(" | Trousers");
+                        break;
+                    case 4:
+                        str.append(" | T-Shirts");
+                        break;
+                }
+                break;
+
+            case 3:
+                switch (subCatId) {
+                    case 1:
+                        str.append(" | Trousers");
+                        break;
+
+                    case 2:
+                        str.append(" | T-Shirt");
+                        break;
+                }
+        }
+        return str.toString();
+    }
+
+    private void setupToolBar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.findViewById(R.id.cart).setOnClickListener(view -> {
+            Intent cartIntent = new Intent(ProductListActivity.this, MyCartActivity.class);
+            startActivity(cartIntent);
+        });
     }
 
     private void getProductList(int catId, int subCatId) {
@@ -95,7 +168,7 @@ public class ProductListActivity extends AppCompatActivity {
         cartModelItem.setProductId(productModel.getProductId());
         cartModelItem.setQuantity(1);
         AddToCartRequest addToCartRequest = new AddToCartRequest();
-        addToCartRequest.setUserEmail("nt840071@gmail.com");//(new UGPreferences(this).getStringValue(Constants.EXTRA_EMAIL));
+        addToCartRequest.setEmail("nt840071@gmail.com");//(new UGPreferences(this).getStringValue(Constants.EXTRA_EMAIL));
         addToCartRequest.setCartModel(cartModelItem);
 
         mProductListViewModel.addToCart(addToCartRequest)
@@ -107,8 +180,13 @@ public class ProductListActivity extends AppCompatActivity {
                             if (body == null) {
                                 mHelper.showToast(R.string.add_to_cart_failed);
                                 return;
-                            } else {
+                            }/* else {
                                 mHelper.showToast(R.string.item_added_to_cart);
+                            }*/
+                            if (body.isAdded()) {
+                                mHelper.showToast(R.string.item_added_to_cart);
+                            } else {
+                                mHelper.showToast(R.string.add_to_cart_failed);
                             }
                             break;
                         case ERROR:

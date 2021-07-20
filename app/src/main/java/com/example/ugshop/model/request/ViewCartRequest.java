@@ -3,13 +3,13 @@ package com.example.ugshop.model.request;
 import com.example.ugshop.model.RequestEntity;
 
 public class ViewCartRequest extends RequestEntity {
-    private String user;
+    private String email;
 
-    public String getUser() {
-        return user;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

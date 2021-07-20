@@ -29,7 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyCartEmpty" />
+        <activity android:name=".view.MyCartActivity" />
         <activity android:name=".view.ChangePassword" />
         <activity android:name=".view.AddDeliveryAddress" />
         <activity android:name=".view.DeactivateAccount" />

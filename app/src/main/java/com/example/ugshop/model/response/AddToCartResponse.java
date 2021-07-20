@@ -5,22 +5,30 @@ import com.example.ugshop.network.ErrorResponse;
 
 public class AddToCartResponse extends ResponseEntity {
 
-    private boolean successAddToCart;
-    private ErrorResponse errorResponse;
+    private boolean added;
+    private ErrorResponse error;
 
-    public ErrorResponse getErrorResponse() {
-        return errorResponse;
+    @Override
+    public String toString() {
+        return "AddToCartResponse{" +
+                "added=" + added +
+                ", error=" + error +
+                '}';
     }
 
-    public void setErrorResponse(ErrorResponse errorResponse) {
-        this.errorResponse = errorResponse;
+    public boolean isAdded() {
+        return added;
     }
 
-    public boolean isSuccessAddToCart() {
-        return successAddToCart;
+    public void setAdded(boolean added) {
+        this.added = added;
     }
 
-    public void setSuccessAddToCart(boolean successAddToCart) {
-        this.successAddToCart = successAddToCart;
+    public ErrorResponse getError() {
+        return error;
+    }
+
+    public void setError(ErrorResponse error) {
+        this.error = error;
     }
 }

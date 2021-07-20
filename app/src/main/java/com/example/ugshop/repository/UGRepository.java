@@ -69,8 +69,8 @@ public class UGRepository {
     public LiveData<ApiResource<ChangePasswordResponse>> changePassword(LoginRequest loginRequest) {
         return new RetrofitLiveData<>(sNetworkApi.changePassword(loginRequest));
     }
-    public LiveData<ApiResource<ViewCartResponse>> viewCart(ViewCartRequest viewCartRequest) {
-        return  new RetrofitLiveData<>(sNetworkApi.viewCart(viewCartRequest));
+    public LiveData<ApiResource<ViewCartResponse>> viewCart(String email) {
+        return  new RetrofitLiveData<>(sNetworkApi.viewCart(email));
     }
     public RetrofitLiveData<CatsResponse> getCatsApi() {
         return new RetrofitLiveData<>(sNetworkApi.getCatsApi());

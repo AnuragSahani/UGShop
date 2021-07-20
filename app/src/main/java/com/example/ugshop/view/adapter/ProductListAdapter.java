@@ -25,6 +25,21 @@ public class ProductListAdapter extends BaseAdapter implements View.OnClickListe
     public ProductListAdapter(Context context, List<ProductModel> productList) {
         mContext = context;
         mProductsList = productList;
+
+
+        Resources res = mContext.getResources();
+        menShirt = res.obtainTypedArray(R.array.men_shirt);
+        menTShirt = res.obtainTypedArray(R.array.men_t_shirt);
+        menTrouser = res.obtainTypedArray(R.array.men_trouser);
+        menShorts = res.obtainTypedArray(R.array.men_shorts);
+
+        womenKurtis = res.obtainTypedArray(R.array.womens_kurties);
+        womenTops = res.obtainTypedArray(R.array.womens_tops);
+        womenTrousers = res.obtainTypedArray(R.array.womens_trousers);
+        womenTees = res.obtainTypedArray(R.array.womens_tshirts);
+
+        kidTrousers = res.obtainTypedArray(R.array.kids_trousers);
+        kidTShirts = res.obtainTypedArray(R.array.kids_tshirts);
     }
 
     @Override
@@ -76,7 +91,7 @@ public class ProductListAdapter extends BaseAdapter implements View.OnClickListe
         productPrice.setText("Rs. " + productItem.getPrice());
         originalPrice.setText("Rs. " + (1.2 * productItem.getPrice()));
 
-        rootView.setTag(productItem);
+        addToCart.setTag(productItem);
 
         return rootView;
     }
@@ -92,75 +107,70 @@ public class ProductListAdapter extends BaseAdapter implements View.OnClickListe
 
     private  static  int KidTrousersCount;
     private  static  int KidTshirtCount;
+
+    private final TypedArray menShirt, menTShirt,menTrouser, menShorts,
+    womenKurtis, womenTops, womenTrousers, womenTees,
+    kidTrousers, kidTShirts;
+
     private Drawable getDrawable(int cat_id, int sub_cat_id,int position){
-        Resources res = mContext.getResources();
+        Drawable drawable = null;
         switch (cat_id){
             //cat ID must be 1, 2 ,3
             case 1:
                 switch (sub_cat_id){
                     case 1:
-                        TypedArray icons = res.obtainTypedArray(R.array.men_shirt);
-                        Drawable drawable = icons.getDrawable(MenShirtCount);
+                        drawable = menShirt.getDrawable(MenShirtCount%menShirt.length());
                         MenShirtCount++;
-                        return drawable;
+                        break;
                     case 2:
-                        icons = res.obtainTypedArray(R.array.men_t_shirt);
-                        drawable = icons.getDrawable(MenTshirt);
+                        drawable = menTShirt.getDrawable(MenTshirt%menTShirt.length());
                         MenTshirt++;
-                        return drawable;
+                        break;
                     case 3:
-                        icons = res.obtainTypedArray(R.array.men_trouser);
-                        drawable = icons.getDrawable(MenTrouser);
+                        drawable = menTrouser.getDrawable(MenTrouser%menTrouser.length());
                         MenTrouser++;
-                        return drawable;
+                        break;
                     case 4:
-                        icons = res.obtainTypedArray(R.array.men_shorts);
-                        drawable = icons.getDrawable(MenShorts);
+                        drawable = menShorts.getDrawable(MenShorts%menShorts.length());
                         MenShorts++;
-                        return drawable;
+                        break;
                 }
                 break;
             case 2:
                 switch (sub_cat_id){
                     case 1:
-                        TypedArray icons = res.obtainTypedArray(R.array.womens_kurties);
-                        Drawable drawable = icons.getDrawable(WomenKurtiesCount);
+                        drawable = womenKurtis.getDrawable(WomenKurtiesCount%womenKurtis.length());
                         WomenKurtiesCount++;
-                        return drawable;
+                        break;
                     case 2:
-                        icons = res.obtainTypedArray(R.array.womens_tops);
-                        drawable = icons.getDrawable(WomenTops);
+                        drawable = womenTops.getDrawable(WomenTops%womenTops.length());
                         WomenTops++;
-                        return drawable;
+                        break;
                     case 3:
-                        icons = res.obtainTypedArray(R.array.womens_trousers);
-                        drawable = icons.getDrawable(WomenTrouser);
+                        drawable = womenTrousers.getDrawable(WomenTrouser%womenTrousers.length());
                         WomenTrouser++;
-                        return drawable;
+                        break;
                     case 4:
-                        icons = res.obtainTypedArray(R.array.womens_tshirts);
-                        drawable = icons.getDrawable(WomenTshirt);
+                        drawable = womenTees.getDrawable(WomenTshirt%womenTees.length());
                         WomenTshirt++;
-                        return drawable;
+                        break;
                 }
                 break;
 
             case 3:
                 switch (sub_cat_id){
                     case 1:
-                        TypedArray icons = res.obtainTypedArray(R.array.kids_trousers);
-                        Drawable drawable = icons.getDrawable(KidTrousersCount);
+                        drawable = kidTrousers.getDrawable(KidTrousersCount%kidTrousers.length());
                         KidTrousersCount++;
-                        return drawable;
+                        break;
                     case 2:
-                        icons = res.obtainTypedArray(R.array.kids_tshirts);
-                        drawable = icons.getDrawable(KidTshirtCount);
+                        drawable = kidTShirts.getDrawable(KidTshirtCount%kidTShirts.length());
                         KidTshirtCount++;
-                        return drawable;
+                        break;
                 }
                 break;
         }
-        return null;
+        return drawable;
     }
 
     @Override

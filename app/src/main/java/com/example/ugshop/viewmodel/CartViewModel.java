@@ -18,22 +18,19 @@ public class CartViewModel extends ViewModel {
     private final UGRepository repository = UGRepository.getInstance();
 
     public LiveData<ApiResource<ViewCartResponse>> viewCart(String email){
-        ViewCartRequest viewCartRequest = new ViewCartRequest();
-        viewCartRequest.setUser(email);
-        return  repository.viewCart(viewCartRequest);
+        return  repository.viewCart(email);
     }
-
 
     public LiveData<ApiResource<AddToCartResponse>> addToCart(String email, CartModel cartModel){
         AddToCartRequest addToCartRequest = new AddToCartRequest();
         addToCartRequest.setCartModel(cartModel);
-        addToCartRequest.setUserEmail(email);
+        addToCartRequest.setEmail(email);
         return  repository.addToCart(addToCartRequest);
     }
 
     public LiveData<ApiResource<RemoveFromCartResponse>> removeFromCart(String email, CartModel cartModel){
         RemoveFromCartRequest removeFromCartRequest = new RemoveFromCartRequest();
-        removeFromCartRequest.setUser(email);
+        removeFromCartRequest.setEmail(email);
         removeFromCartRequest.setCartModel(cartModel);
         return  repository.removeFromCart(removeFromCartRequest);
     }
