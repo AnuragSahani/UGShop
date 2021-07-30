@@ -40,7 +40,7 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
 
     Button signOut;
     GoogleSignInClient mGoogleSignInClient;
-    TextView name,email, cellNo, addresses;
+    TextView name,email,cellNo, addresses;
     CircleImageView pic;
     private Object CircleImageView;
 
@@ -65,6 +65,7 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onClick(View view) {
                 signOut();
+                finish();
             }
         });
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
@@ -130,11 +131,12 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        // ...
-
+                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(intent);
+                        finishAffinity();
                         Toast toast = Toast.makeText(getApplicationContext(),"SignOutSuccess",Toast.LENGTH_LONG);
                         toast.show();
-                        finish();
+
                     }
                 });
     }

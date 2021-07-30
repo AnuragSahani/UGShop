@@ -132,6 +132,7 @@ public class HomePageFragment extends Fragment {
 
     private void fetchProductsBySubCategory(int catId, int subCatId) {
         //TODO: land to products page by sub category id
+
         Log.d("Mariya", "catId = " + catId + " : subCatId = " + (subCatId + 1));
     }
 

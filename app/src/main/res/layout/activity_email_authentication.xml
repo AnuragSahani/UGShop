@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Email_Authentication">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="325dp"
+                    android:background="@drawable/valid_user"
+                    android:orientation="vertical"
+                    android:paddingTop="75dp">
+                    <!--<View
+                        android:layout_width="80dp"
+                        android:layout_height="4dp"
+                        android:background="@color/purple_500"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="215dp"/>-->
+
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="4dp"
+                    android:layout_marginTop="-60dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginHorizontal="24dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="12dp"
+                        android:background="@color/white">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Validate"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            android:layout_margin="16dp"
+                            android:layout_gravity="center_horizontal"
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/Email_ID_Authentication"
+                                android:layout_width="match_parent"
+                                android:inputType="textEmailAddress"
+                                android:layout_height="wrap_content"
+                                android:hint="Enter Your Email ID"
+                                android:textColor="@color/purple_500"
+                                android:background="@drawable/edit_text"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/Enter_otp_Authentication"
+                                android:layout_width="match_parent"
+                                android:inputType="number"
+                                android:layout_height="wrap_content"
+                                android:hint="Enter OTP"
+                                android:visibility="gone"
+                                android:textColor="@color/red_FF0000"
+                                android:background="@drawable/edit_text"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/timer_Authentication"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time"
+                            android:textColor="@color/red_FF0000"
+                            android:textSize="15dp"
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="100dp"
+                            android:layout_marginTop="10dp"
+                            android:paddingBottom="10dp"/>
+
+
+
+
+
+
+                        <!--android:background="@drawable/edit_text"
+                        android:hint="Enter Your Email ID"
+                        android:paddingLeft="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"-->
+
+                    </LinearLayout>
+
+
+
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/Send_otp_btn_Authentication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:layout_marginTop="10dp"
+                    android:text="Send OTP"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginHorizontal="19dp"
+                    />
+                <Button
+                    android:id="@+id/Verify_otp_Authentication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:layout_marginTop="10dp"
+                    android:text="VERIFY"
+                    android:visibility="gone"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginHorizontal="19dp"
+                    />
+                <Button
+                    android:id="@+id/Resend_otp_Authentication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:layout_marginTop="10dp"
+                    android:text="RESEND OTP"
+                    android:visibility="gone"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginHorizontal="19dp"
+                    />
+            </LinearLayout>
+
+
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

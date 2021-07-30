@@ -61,6 +61,7 @@ public class HomePage extends AppCompatActivity {
         toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.open, R.string.close);
         toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
         mDrawer.addDrawerListener(toggle);
+
         toggle.syncState();
 
 //        nvDrawer.setCheckedItem(R.id.home_page);

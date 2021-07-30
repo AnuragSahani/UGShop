@@ -14,7 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UGShop"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ProductListActivity"></activity>
+        <activity android:name=".Email_Authentication">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ProductListActivity" />
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".view.AddDeliveryAddressActivity" />
         <activity android:name=".view.MainMyAccountActivity" />
@@ -23,11 +30,13 @@
             android:name=".view.HomePage"
             android:theme="@style/Theme.UGShop.DrawerTheme">
 
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            -->
         </activity>
         <activity android:name=".view.MyCartActivity" />
         <activity android:name=".view.ChangePassword" />

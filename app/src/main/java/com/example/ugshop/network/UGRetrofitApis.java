@@ -22,11 +22,13 @@ import com.example.ugshop.model.response.FetchCategoryResponse;
 import com.example.ugshop.model.response.FetchProductBySubCategoryresponse;
 import com.example.ugshop.model.response.FetchProductListByCategoryResponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
+import com.example.ugshop.model.response.GenerateOtpResponse;
 import com.example.ugshop.model.response.GetPtoductBySearchStringResponse;
 import com.example.ugshop.model.response.LoginResponse;
 import com.example.ugshop.model.response.RemoveAddressResponse;
 import com.example.ugshop.model.response.RemoveFromCartResponse;
 import com.example.ugshop.model.response.SignupResponse;
+import com.example.ugshop.model.response.VerifyOtpResponse;
 import com.example.ugshop.model.response.ViewCartResponse;
 
 import retrofit2.Call;
@@ -93,4 +95,9 @@ public interface UGRetrofitApis {
     @GET("catapi/rest/")
     Call<CatsResponse> getCatsApi();//For testing
 
+    @GET("generateotp")
+    Call<GenerateOtpResponse> generateOtp (@Query("email") String email);
+
+    @GET("verifyotp")
+    Call<VerifyOtpResponse> verifyOtp(@Query("otpCode") int otpCode, @Query("email") String email);
 }
