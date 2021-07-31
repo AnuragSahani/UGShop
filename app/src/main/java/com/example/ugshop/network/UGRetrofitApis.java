@@ -4,7 +4,6 @@ import com.example.ugshop.model.CatsResponse;
 import com.example.ugshop.model.request.AddAddressRequest;
 import com.example.ugshop.model.request.AddToCartRequest;
 import com.example.ugshop.model.request.DeleteUserProfileRequest;
-import com.example.ugshop.model.request.FetchProductListByCategoryRequest;
 import com.example.ugshop.model.request.GetPtoductBySearchStringRequest;
 import com.example.ugshop.model.request.LoginRequest;
 import com.example.ugshop.model.request.RemoveAddressRequest;
@@ -16,7 +15,6 @@ import com.example.ugshop.model.response.ChangePasswordResponse;
 import com.example.ugshop.model.response.DeleteUserProfileResponse;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.FetchCategoryResponse;
-import com.example.ugshop.model.response.FetchProductListByCategoryResponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
 import com.example.ugshop.model.response.GenerateOtpResponse;
 import com.example.ugshop.model.response.GetPtoductBySearchStringResponse;
@@ -72,7 +70,7 @@ public interface UGRetrofitApis {
 //    Call<FetchProductCategoryMappingResponse>  fetchProductCategoryMapping (@Body FetchProductCategoryMappingRequest request);
 
     @GET("productbycategory")
-    Call<FetchProductListByCategoryResponse> fetchProductListByCategory(@Body FetchProductListByCategoryRequest request);
+    Call<FetchProductListResponse> fetchProductListByCategory(@Query("catId") int catId);
 
     @GET("productbysubcategory")
     Call<FetchProductListResponse> fetchProductBySubCategory(@Query("catId") int catId, @Query("subCatId") int subCatId);

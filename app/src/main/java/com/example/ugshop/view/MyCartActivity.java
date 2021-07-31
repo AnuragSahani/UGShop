@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -59,6 +60,7 @@ public class MyCartActivity extends AppCompatActivity {
                             break;
                         case SUCCESS:
                             ViewCartResponse viewCartRes = viewCartResponseApiResource.getData();
+                            Log.d("Anurag","response : " + viewCartRes);
                             if(viewCartRes != null && viewCartRes.getProductList() != null && !viewCartRes.getProductList().isEmpty()){
                                 List<ProductModel> productList = viewCartRes.getProductList();
                                 inflateProducts(productList);

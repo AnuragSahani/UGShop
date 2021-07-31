@@ -93,4 +93,7 @@ public class UGRepository {
     public LiveData<ApiResource<FetchProductListResponse>> fetchProductBySubCategory(int catId, int subCatId) {
         return new RetrofitLiveData<>(sNetworkApi.fetchProductBySubCategory(catId, subCatId));
     }
+    public LiveData<ApiResource<FetchProductListResponse>> fetchProductByCategory(int catId) {
+        return new RetrofitLiveData<>(sNetworkApi.fetchProductListByCategory(catId));
+    }
 }

@@ -163,6 +163,32 @@ public class ProductListActivity extends AppCompatActivity {
 
     private void fetchProductsByCatId(int catId) {
 
+        ProductListViewModel productListViewModel = new ViewModelProvider(this).get(ProductListViewModel.class);
+        productListViewModel.fetchProductByCategory(catId)
+                .observe(ProductListActivity.this, new Observer<ApiResource<FetchProductListResponse>>() {
+                    @Override
+                    public void onChanged(ApiResource<FetchProductListResponse> fetchProductBySubCategoryresponseApiResource) {
+                        switch (fetchProductBySubCategoryresponseApiResource.getStatus()) {
+                            case SUCCESS:
+                                //Save values to preference
+
+                                Log.d("Mariya", "response : " + fetchProductBySubCategoryresponseApiResource.getData());
+                                FetchProductListResponse response = fetchProductBySubCategoryresponseApiResource.getData();
+                                List<ProductModel> productsList = response.getProductList();
+                                Log.d("Mariya", "list size: " + productsList.size());
+                                inflateDataForProductsAdapter(productsList);
+                                break;
+                            case ERROR:
+                                new Helper(ProductListActivity.this).showToast(R.string.fetching_data_Error);
+                                break;
+                            case LOADING:
+//                        mProgressDialog.show();
+                                break;
+                        }
+                    }
+                });
+
+
     }
 
     private void fetchProductsBySubCategory(int catId, int subCatId) {

@@ -24,7 +24,8 @@
         <activity android:name=".ProductListActivity" />
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".view.AddDeliveryAddressActivity" />
-        <activity android:name=".view.MainMyAccountActivity" />
+        <activity android:name=".view.MainMyAccountActivity"
+            />
         <activity android:name=".view.MakePayment" />
         <activity
             android:name=".view.HomePage"

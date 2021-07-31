@@ -52,15 +52,17 @@
         android:id="@+id/first_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:background="@drawable/edit_text"
-        android:hint="  First_Name"
+        android:hint="First_Name"
+        android:paddingLeft="@dimen/twenty_dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change_img_Acc_setting_LL"
-        app:layout_constraintVertical_bias="0.063"
+        app:layout_constraintTop_toBottomOf="@+id/email_accountSetting"
+        app:layout_constraintVertical_bias="0"
         app:layout_constraintWidth_percent=".8">
 
     </EditText>
@@ -71,7 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/edit_text"
-        android:hint="  Last_Name"
+        android:hint="Last_Name"
+        android:paddingLeft="@dimen/twenty_dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,8 +91,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/edit_text"
-        android:hint="  Mobile_Number"
+        android:hint="Mobile_Number"
         android:inputType="number"
+        android:paddingLeft="@dimen/twenty_dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -102,11 +106,12 @@
     </EditText>
 
     <EditText
-        android:id="@+id/email_id_acc_setting"
+        android:id="@+id/password_accountSetting"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/edit_text"
-        android:hint="  Email_ID"
+        android:hint="@string/password"
+        android:paddingLeft="@dimen/twenty_dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -114,6 +119,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mobile_num"
         app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintWidth_percent=".8">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/email_accountSetting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_disabled"
+        android:clickable="false"
+        android:enabled="false"
+        android:hint="@string/email"
+        android:paddingLeft="@dimen/twenty_dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_img_Acc_setting_LL"
         app:layout_constraintWidth_percent=".8">
 
     </EditText>
@@ -129,43 +153,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_id_acc_setting"
+
+        app:layout_constraintTop_toBottomOf="@+id/password_accountSetting"
         app:layout_constraintVertical_bias="0.138"
         app:layout_constraintWidth_percent=".8" />
 
     <TextView
-        android:id="@+id/change_password"
+        android:id="@+id/deactivate_account"
         android:layout_width="178dp"
         android:layout_height="31dp"
-        android:text="Change Password"
+        android:layout_marginTop="@dimen/thirty_dp"
+        android:drawableLeft="@drawable/ic_settings"
+        android:drawablePadding="@dimen/ten_dp"
+        android:gravity="center"
+        android:text="Deactivate Account"
         android:textColor="@color/purple_700"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@id/Update_acc_setting">
 
     </TextView>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="60dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="128dp"
-        android:paddingStart="40dp"
-        android:src="@drawable/ic_settings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.633"
-        tools:ignore="RtlSymmetry">
-
-
-    </ImageView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

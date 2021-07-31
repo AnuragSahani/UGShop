@@ -1,5 +1,14 @@
 package com.example.ugshop.view;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -7,19 +16,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.example.ugshop.R;
 import com.example.ugshop.model.common.AddressModel;
-import com.example.ugshop.model.request.FetchAddressRequest;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Helper;
@@ -40,9 +39,9 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
 
     Button signOut;
     GoogleSignInClient mGoogleSignInClient;
-    TextView name,email,cellNo, addresses;
+    TextView name, email, cellNo, addresses, accountSetting;
     CircleImageView pic;
-    private Object CircleImageView;
+    private CircleImageView CircleImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +52,11 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
         cellNo = findViewById(R.id.cellNo);
         CircleImageView = findViewById(R.id.pic);
         addresses = findViewById(R.id.addressText);
+        accountSetting = findViewById(R.id.account_setting);
+        ImageView pen_setting = findViewById(R.id.acc_pen);
+
+        pen_setting.setOnClickListener(this);
+        accountSetting.setOnClickListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -96,14 +100,14 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
         addressPageViewModel.fetchAddresses(email).observe(this, new Observer<ApiResource<FetchAddressResponse>>() {
             @Override
             public void onChanged(ApiResource<FetchAddressResponse> fetchAddressResponseApiResource) {
-                switch (fetchAddressResponseApiResource.getStatus()){
+                switch (fetchAddressResponseApiResource.getStatus()) {
                     case SUCCESS:
                         FetchAddressResponse response = fetchAddressResponseApiResource.getData();
-                        if(response.getFetchResList().isEmpty() || response == null || response.getFetchResList() == null){
+                        if (response == null || response.getFetchResList().isEmpty() || response.getFetchResList() == null) {
                             new Helper().showToast(R.string.suggestion_to_addAddress);
                             return;
-                        }else
-                        inflateData(response.getFetchResList());
+                        } else
+                            inflateData(response.getFetchResList());
                         break;
                     case LOADING:
                         break;
@@ -119,10 +123,10 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
         setUpAddressRecyclerView(addressList);
     }
 
-    private void setUpAddressRecyclerView(List<AddressModel> listAddress){
+    private void setUpAddressRecyclerView(List<AddressModel> listAddress) {
         RecyclerView recyclerView = findViewById(R.id.address_recycler);
-        AddressAdapter addressAdapter = new AddressAdapter(this,listAddress);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        AddressAdapter addressAdapter = new AddressAdapter(this, listAddress);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(addressAdapter);
     }
 
@@ -134,7 +138,7 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
                         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                         startActivity(intent);
                         finishAffinity();
-                        Toast toast = Toast.makeText(getApplicationContext(),"SignOutSuccess",Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(getApplicationContext(), "SignOutSuccess", Toast.LENGTH_LONG);
                         toast.show();
 
                     }
@@ -148,6 +152,12 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
                 Intent addAddressIntent = new Intent(this, AddDeliveryAddressActivity.class);
                 startActivity(addAddressIntent);
                 break;
+            case R.id.account_setting:
+            case R.id.acc_pen:
+                Intent updateProfile = new Intent(this, AccountSetting.class);
+                startActivity(updateProfile);
+                break;
+
         }
     }
 }

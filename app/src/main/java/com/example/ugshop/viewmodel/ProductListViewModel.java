@@ -23,4 +23,8 @@ public class ProductListViewModel extends ViewModel {
     public LiveData<ApiResource<FetchProductListResponse>> fetchProductBySubCategory(int catId, int subCatId) {
         return repository.fetchProductBySubCategory(catId, subCatId);
     }
+    public LiveData<ApiResource<FetchProductListResponse>> fetchProductByCategory(int catId) {
+        return repository.fetchProductByCategory(catId);
+    }
+
 }
