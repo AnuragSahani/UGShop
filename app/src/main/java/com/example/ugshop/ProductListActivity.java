@@ -4,12 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ugshop.model.common.CartModel;
@@ -17,9 +17,9 @@ import com.example.ugshop.model.common.ProductModel;
 import com.example.ugshop.model.request.AddToCartRequest;
 import com.example.ugshop.model.response.AddToCartResponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
+import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
-import com.example.ugshop.view.HomePage;
 import com.example.ugshop.view.MyCartActivity;
 import com.example.ugshop.view.adapter.ProductListAdapter;
 import com.example.ugshop.viewmodel.ProductListViewModel;
@@ -129,6 +129,13 @@ public class ProductListActivity extends AppCompatActivity {
 
     private void getProductList(int catId, int subCatId) {
         if (catId != -1) {
+            if (subCatId != -1) {
+                fetchProductsBySubCategory(catId, subCatId);
+            } else {
+                fetchProductsByCatId(catId);//TODO:
+            }
+
+        } else {
             mProductListViewModel.fetchProductList()
                     .observe(this, fetchProductListResponseApiResource -> {
                         mProgressDialog.dismiss();
@@ -152,6 +159,41 @@ public class ProductListActivity extends AppCompatActivity {
                         }
                     });
         }
+    }
+
+    private void fetchProductsByCatId(int catId) {
+
+    }
+
+    private void fetchProductsBySubCategory(int catId, int subCatId) {
+        //TODO: land to products page by sub category id
+        Log.d("Mariya", "catId = " + catId + " : subCatId = " + (subCatId + 1));
+
+        ProductListViewModel productListViewModel = new ViewModelProvider(this).get(ProductListViewModel.class);
+        productListViewModel.fetchProductBySubCategory(catId, subCatId)
+                .observe(ProductListActivity.this, new Observer<ApiResource<FetchProductListResponse>>() {
+                    @Override
+                    public void onChanged(ApiResource<FetchProductListResponse> fetchProductBySubCategoryresponseApiResource) {
+                        switch (fetchProductBySubCategoryresponseApiResource.getStatus()) {
+                            case SUCCESS:
+                                //Save values to preference
+
+                                Log.d("Mariya", "response : " + fetchProductBySubCategoryresponseApiResource.getData());
+                                FetchProductListResponse response = fetchProductBySubCategoryresponseApiResource.getData();
+                                List<ProductModel> productsList = response.getProductList();
+                                Log.d("Mariya", "list size: " + productsList.size());
+                                inflateDataForProductsAdapter(productsList);
+                                break;
+                            case ERROR:
+                                new Helper(ProductListActivity.this).showToast(R.string.fetching_data_Error);
+                                break;
+                            case LOADING:
+//                        mProgressDialog.show();
+                                break;
+                        }
+                    }
+                });
+
     }
 
     private void inflateDataForProductsAdapter(List<ProductModel> productsList) {

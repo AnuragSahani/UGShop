@@ -4,22 +4,22 @@ import com.example.ugshop.network.ErrorResponse;
 
 public class GenerateOtpResponse {
 
-    private ErrorResponse errorResponse;
-    private  boolean isGenerated;
+    private ErrorResponse error;
+    private  boolean sent;
 
-    public ErrorResponse getErrorResponse() {
-        return errorResponse;
+    public ErrorResponse getError() {
+        return error;
     }
 
-    public void setErrorResponse(ErrorResponse errorResponse) {
-        this.errorResponse = errorResponse;
+    public void setError(ErrorResponse error) {
+        this.error = error;
     }
 
-    public boolean isGenerated() {
-        return isGenerated;
+    public boolean isSent() {
+        return sent;
     }
 
-    public void setGenerated(boolean generated) {
-        isGenerated = generated;
+    public void setSent(boolean sent) {
+        this.sent = sent;
     }
 }

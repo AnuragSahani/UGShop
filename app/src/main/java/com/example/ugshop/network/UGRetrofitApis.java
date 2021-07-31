@@ -4,22 +4,18 @@ import com.example.ugshop.model.CatsResponse;
 import com.example.ugshop.model.request.AddAddressRequest;
 import com.example.ugshop.model.request.AddToCartRequest;
 import com.example.ugshop.model.request.DeleteUserProfileRequest;
-import com.example.ugshop.model.request.FetchAddressRequest;
-import com.example.ugshop.model.request.FetchProductBySubCategoryRequest;
 import com.example.ugshop.model.request.FetchProductListByCategoryRequest;
 import com.example.ugshop.model.request.GetPtoductBySearchStringRequest;
 import com.example.ugshop.model.request.LoginRequest;
 import com.example.ugshop.model.request.RemoveAddressRequest;
 import com.example.ugshop.model.request.RemoveFromCartRequest;
 import com.example.ugshop.model.request.SignupRequest;
-import com.example.ugshop.model.request.ViewCartRequest;
 import com.example.ugshop.model.response.AddAddressResponse;
 import com.example.ugshop.model.response.AddToCartResponse;
 import com.example.ugshop.model.response.ChangePasswordResponse;
 import com.example.ugshop.model.response.DeleteUserProfileResponse;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.FetchCategoryResponse;
-import com.example.ugshop.model.response.FetchProductBySubCategoryresponse;
 import com.example.ugshop.model.response.FetchProductListByCategoryResponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
 import com.example.ugshop.model.response.GenerateOtpResponse;
@@ -79,7 +75,7 @@ public interface UGRetrofitApis {
     Call<FetchProductListByCategoryResponse> fetchProductListByCategory(@Body FetchProductListByCategoryRequest request);
 
     @GET("productbysubcategory")
-    Call<FetchProductBySubCategoryresponse> fetchProductBySubCategory(@Query("catId") int catId, @Query("subCatId") int subCatId);
+    Call<FetchProductListResponse> fetchProductBySubCategory(@Query("catId") int catId, @Query("subCatId") int subCatId);
 
     @GET("getPtoductBySearchString")
     Call<GetPtoductBySearchStringResponse> getPtoductBySearchString(@Body GetPtoductBySearchStringRequest request);
@@ -96,7 +92,7 @@ public interface UGRetrofitApis {
     Call<CatsResponse> getCatsApi();//For testing
 
     @GET("generateotp")
-    Call<GenerateOtpResponse> generateOtp (@Query("email") String email);
+    Call<GenerateOtpResponse> generateOtp(@Query("email") String email);
 
     @GET("verifyotp")
     Call<VerifyOtpResponse> verifyOtp(@Query("otpCode") int otpCode, @Query("email") String email);

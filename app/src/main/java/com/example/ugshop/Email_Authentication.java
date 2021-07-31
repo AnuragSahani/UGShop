@@ -58,9 +58,6 @@ public class Email_Authentication extends AppCompatActivity {
          sendOtpBtn.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 otp_et.setVisibility(View.VISIBLE);
-                 timer.setVisibility(View.VISIBLE);
-                 verifyBtn.setVisibility(View.VISIBLE);
                  sendOtpBtn.setVisibility(View.INVISIBLE);
                  countDownTimer.start();
                  generateOTP(email_et.getText().toString());
@@ -105,11 +102,13 @@ public class Email_Authentication extends AppCompatActivity {
                             case SUCCESS:
                                 VerifyOtpResponse response = verifyOtpResponseApiResource.getData();
                                 if(response.isVerified()){
-                                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                                    //TODO: change toast msg
+                                    new Helper(Email_Authentication.this).showToast(R.string.OTP_Send_Sucessfully);
+                                    Intent intent = new Intent(Email_Authentication.this,LoginActivity.class);
                                     startActivity(intent);
                                     finish();
-                                    new Helper((Activity) getApplicationContext()).showToast(R.string.OTP_Send_Sucessfully);
-                                    Toast.makeText(getApplicationContext(),"Verified Successfully",Toast.LENGTH_LONG).show();
+
+                                   // Toast.makeText(getApplicationContext(),"Verified Successfully",Toast.LENGTH_LONG).show();
                                 }
                                 else {
                                     //TODO: ma'am why it's comes in the else part always????????
@@ -134,6 +133,17 @@ public class Email_Authentication extends AppCompatActivity {
                 });
     }
 
+    private void setVerifyLayoutVisibility(boolean visibility) {
+        if (visibility) {
+            otp_et.setVisibility(View.VISIBLE);
+            timer.setVisibility(View.VISIBLE);
+            verifyBtn.setVisibility(View.VISIBLE);
+        } else {
+            otp_et.setVisibility(View.GONE);
+            timer.setVisibility(View.GONE);
+            verifyBtn.setVisibility(View.GONE);
+        }
+    }
     private void generateOTP(String email_send){
         //TODO: network call (From here send the email and receive OTP)
         GenerateOtpViewModel generateOtpViewModel = new ViewModelProvider(this).get(GenerateOtpViewModel.class);
@@ -145,11 +155,13 @@ public class Email_Authentication extends AppCompatActivity {
 
                             case SUCCESS:
                                 GenerateOtpResponse generateOtpResponse = generateOtpResponseApiResource.getData();
-                                if(generateOtpResponse.isGenerated()){
-                                    new Helper((Activity) getApplicationContext()).showToast(R.string.OTP_Send_Sucessfully);
+                                if(generateOtpResponse.isSent()){
+                                    setVerifyLayoutVisibility(true);
+//                                    new Helper((Activity) getApplicationContext()).showToast(R.string.OTP_Send_Sucessfully);
                                     Toast.makeText(getApplicationContext(),"Sending Successfully",Toast.LENGTH_LONG).show();
                                 }
                                 else {
+                                    setVerifyLayoutVisibility(false);
                                     Toast.makeText(getApplicationContext(),"Sending Failed",Toast.LENGTH_LONG).show();
                                 }
                                 break;

@@ -5,17 +5,14 @@ import androidx.lifecycle.LiveData;
 import com.example.ugshop.model.CatsResponse;
 import com.example.ugshop.model.request.AddAddressRequest;
 import com.example.ugshop.model.request.AddToCartRequest;
-import com.example.ugshop.model.request.FetchAddressRequest;
 import com.example.ugshop.model.request.LoginRequest;
 import com.example.ugshop.model.request.RemoveFromCartRequest;
 import com.example.ugshop.model.request.SignupRequest;
-import com.example.ugshop.model.request.ViewCartRequest;
 import com.example.ugshop.model.response.AddAddressResponse;
 import com.example.ugshop.model.response.AddToCartResponse;
 import com.example.ugshop.model.response.ChangePasswordResponse;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.FetchCategoryResponse;
-import com.example.ugshop.model.response.FetchProductBySubCategoryresponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
 import com.example.ugshop.model.response.GenerateOtpResponse;
 import com.example.ugshop.model.response.LoginResponse;
@@ -27,8 +24,6 @@ import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.network.RetrofitLiveData;
 import com.example.ugshop.network.UGRetrofitApis;
 import com.example.ugshop.network.UGRetrofitBuilder;
-
-import java.util.List;
 
 public class UGRepository {
 
@@ -62,36 +57,40 @@ public class UGRepository {
     public LiveData<ApiResource<FetchAddressResponse>> fetchAddress(String email) {
         return new RetrofitLiveData<>(sNetworkApi.fetchAddress(email));
     }
-    public  LiveData<ApiResource<AddAddressResponse>> addAddress(AddAddressRequest request){
-        return  new RetrofitLiveData<>(sNetworkApi.addAddress(request));
+
+    public LiveData<ApiResource<AddAddressResponse>> addAddress(AddAddressRequest request) {
+        return new RetrofitLiveData<>(sNetworkApi.addAddress(request));
     }
 
-    public  LiveData<ApiResource<AddToCartResponse>> addToCart(AddToCartRequest addToCartRequest){
+    public LiveData<ApiResource<AddToCartResponse>> addToCart(AddToCartRequest addToCartRequest) {
         return new RetrofitLiveData<>(sNetworkApi.addToCart(addToCartRequest));
     }
+
     public LiveData<ApiResource<ChangePasswordResponse>> changePassword(LoginRequest loginRequest) {
         return new RetrofitLiveData<>(sNetworkApi.changePassword(loginRequest));
     }
+
     public LiveData<ApiResource<ViewCartResponse>> viewCart(String email) {
-        return  new RetrofitLiveData<>(sNetworkApi.viewCart(email));
+        return new RetrofitLiveData<>(sNetworkApi.viewCart(email));
     }
+
     public RetrofitLiveData<CatsResponse> getCatsApi() {
         return new RetrofitLiveData<>(sNetworkApi.getCatsApi());
     }
 
     public LiveData<ApiResource<RemoveFromCartResponse>> removeFromCart(RemoveFromCartRequest removeFromCartRequest) {
-        return  new RetrofitLiveData<>(sNetworkApi.removeFromCart(removeFromCartRequest));
+        return new RetrofitLiveData<>(sNetworkApi.removeFromCart(removeFromCartRequest));
     }
 
     public LiveData<ApiResource<GenerateOtpResponse>> generateOtp(String email) {
-        return  new RetrofitLiveData<>(sNetworkApi.generateOtp(email));
+        return new RetrofitLiveData<>(sNetworkApi.generateOtp(email));
     }
 
     public LiveData<ApiResource<VerifyOtpResponse>> verifyOtp(int otp, String email) {
-        return  new RetrofitLiveData<>(sNetworkApi.verifyOtp(otp,email));
+        return new RetrofitLiveData<>(sNetworkApi.verifyOtp(otp, email));
     }
 
-    public LiveData<ApiResource<FetchProductBySubCategoryresponse>> fetchProductBySubCategory(int catId, int subCatId) {
-        return  new RetrofitLiveData<>(sNetworkApi.fetchProductBySubCategory(catId,subCatId));
+    public LiveData<ApiResource<FetchProductListResponse>> fetchProductBySubCategory(int catId, int subCatId) {
+        return new RetrofitLiveData<>(sNetworkApi.fetchProductBySubCategory(catId, subCatId));
     }
 }

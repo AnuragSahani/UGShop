@@ -4,22 +4,22 @@ import com.example.ugshop.network.ErrorResponse;
 
 public class VerifyOtpResponse {
 
-    private boolean isVerified;
-    private ErrorResponse errorResponse;
+    private boolean verified;
+    private ErrorResponse error;
 
     public boolean isVerified() {
-        return isVerified;
+        return verified;
     }
 
     public void setVerified(boolean verified) {
-        isVerified = verified;
+        verified = verified;
     }
 
     public ErrorResponse getErrorResponse() {
-        return errorResponse;
+        return error;
     }
 
     public void setErrorResponse(ErrorResponse errorResponse) {
-        this.errorResponse = errorResponse;
+        this.error = errorResponse;
     }
 }

@@ -2,8 +2,8 @@ package com.example.ugshop.view.fragment;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,29 +12,22 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ugshop.ProductListActivity;
 import com.example.ugshop.R;
-import com.example.ugshop.model.common.CartModel;
 import com.example.ugshop.model.common.CategoryModel;
 import com.example.ugshop.model.response.FetchCategoryResponse;
-import com.example.ugshop.model.response.FetchProductBySubCategoryresponse;
-import com.example.ugshop.model.response.SignupResponse;
-import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
-import com.example.ugshop.util.UGPreferences;
-import com.example.ugshop.view.LoginActivity;
 import com.example.ugshop.view.SliderAdapter;
 import com.example.ugshop.view.SliderData;
 import com.example.ugshop.view.adapter.CategoriesAdapter;
 import com.example.ugshop.view.adapter.SubCategoriesAdapter;
 import com.example.ugshop.view.adapter.TopBrandsRecyclerAdapter;
 import com.example.ugshop.viewmodel.HomePageViewModel;
-import com.example.ugshop.viewmodel.ProductListViewModel;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
@@ -138,35 +131,12 @@ public class HomePageFragment extends Fragment {
     }
 
     private void fetchProductsBySubCategory(int catId, int subCatId) {
-        //TODO: land to products page by sub category id
-        Log.d("Mariya", "catId = " + catId + " : subCatId = " + (subCatId + 1));
-
-        ProductListViewModel productListViewModel = new ViewModelProvider(this).get(ProductListViewModel.class);
-        productListViewModel.fetchProductBySubCategory(catId,subCatId)
-                .observe(getViewLifecycleOwner(), new Observer<ApiResource<FetchProductBySubCategoryresponse>>() {
-            @Override
-            public void onChanged(ApiResource<FetchProductBySubCategoryresponse> fetchProductBySubCategoryresponseApiResource) {
-                switch (fetchProductBySubCategoryresponseApiResource.getStatus()) {
-                    case SUCCESS:
-                        //Save values to preference
-
-                        Log.d("Mariya", "response : " + fetchProductBySubCategoryresponseApiResource.getData());
-                        FetchProductBySubCategoryresponse response = fetchProductBySubCategoryresponseApiResource.getData();
-
-
-                        break;
-
-                    case ERROR:
-                        new Helper(getActivity()).showToast(R.string.fetching_data_Error);
-                        break;
-                    case LOADING:
-//                        mProgressDialog.show();
-                        break;
-                }
-            }
-        });
-
+        Intent productListActivity = new Intent(getActivity(), ProductListActivity.class);
+        productListActivity.putExtra(Constants.EXTRA_CAT_ID, catId);
+        productListActivity.putExtra(Constants.EXTRA_SUB_CAT_ID, subCatId+1);
+        startActivity(productListActivity);
     }
+
 
     private void makeTopProductApiCall() {
         // Urls of our images.
