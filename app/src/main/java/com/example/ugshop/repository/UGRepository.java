@@ -15,6 +15,7 @@ import com.example.ugshop.model.response.AddToCartResponse;
 import com.example.ugshop.model.response.ChangePasswordResponse;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.FetchCategoryResponse;
+import com.example.ugshop.model.response.FetchProductBySubCategoryresponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
 import com.example.ugshop.model.response.GenerateOtpResponse;
 import com.example.ugshop.model.response.LoginResponse;
@@ -58,8 +59,8 @@ public class UGRepository {
         return new RetrofitLiveData<>(sNetworkApi.fetchProductList());
     }
 
-    public LiveData<ApiResource<FetchAddressResponse>> fetchAddress(FetchAddressRequest request) {
-        return new RetrofitLiveData<>(sNetworkApi.fetchAddress(request));
+    public LiveData<ApiResource<FetchAddressResponse>> fetchAddress(String email) {
+        return new RetrofitLiveData<>(sNetworkApi.fetchAddress(email));
     }
     public  LiveData<ApiResource<AddAddressResponse>> addAddress(AddAddressRequest request){
         return  new RetrofitLiveData<>(sNetworkApi.addAddress(request));
@@ -88,5 +89,9 @@ public class UGRepository {
 
     public LiveData<ApiResource<VerifyOtpResponse>> verifyOtp(int otp, String email) {
         return  new RetrofitLiveData<>(sNetworkApi.verifyOtp(otp,email));
+    }
+
+    public LiveData<ApiResource<FetchProductBySubCategoryresponse>> fetchProductBySubCategory(int catId, int subCatId) {
+        return  new RetrofitLiveData<>(sNetworkApi.fetchProductBySubCategory(catId,subCatId));
     }
 }

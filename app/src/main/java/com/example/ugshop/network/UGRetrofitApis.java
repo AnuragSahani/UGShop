@@ -40,8 +40,8 @@ import retrofit2.http.Query;
 public interface UGRetrofitApis {
 
     //    @Headers({"Accept: application/json"})
-    @POST("fetchaddress")
-    Call<FetchAddressResponse> fetchAddress(@Body FetchAddressRequest request);
+    @GET("fetchaddress")
+    Call<FetchAddressResponse> fetchAddress(@Query("email") String email);
 
     @POST("addaddress")
     Call<AddAddressResponse> addAddress(@Body AddAddressRequest request);
@@ -75,11 +75,11 @@ public interface UGRetrofitApis {
 //    @POST("fetchProductCategoryMapping")
 //    Call<FetchProductCategoryMappingResponse>  fetchProductCategoryMapping (@Body FetchProductCategoryMappingRequest request);
 
-    @POST("productbycategory")
+    @GET("productbycategory")
     Call<FetchProductListByCategoryResponse> fetchProductListByCategory(@Body FetchProductListByCategoryRequest request);
 
-    @POST("productbysubcategory")
-    Call<FetchProductBySubCategoryresponse> fetchProductBySubCategory(@Body FetchProductBySubCategoryRequest request);
+    @GET("productbysubcategory")
+    Call<FetchProductBySubCategoryresponse> fetchProductBySubCategory(@Query("catId") int catId, @Query("subCatId") int subCatId);
 
     @GET("getPtoductBySearchString")
     Call<GetPtoductBySearchStringResponse> getPtoductBySearchString(@Body GetPtoductBySearchStringRequest request);

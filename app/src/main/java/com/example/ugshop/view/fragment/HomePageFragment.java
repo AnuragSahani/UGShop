@@ -12,6 +12,7 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,14 +21,20 @@ import com.example.ugshop.R;
 import com.example.ugshop.model.common.CartModel;
 import com.example.ugshop.model.common.CategoryModel;
 import com.example.ugshop.model.response.FetchCategoryResponse;
+import com.example.ugshop.model.response.FetchProductBySubCategoryresponse;
+import com.example.ugshop.model.response.SignupResponse;
+import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
+import com.example.ugshop.util.UGPreferences;
+import com.example.ugshop.view.LoginActivity;
 import com.example.ugshop.view.SliderAdapter;
 import com.example.ugshop.view.SliderData;
 import com.example.ugshop.view.adapter.CategoriesAdapter;
 import com.example.ugshop.view.adapter.SubCategoriesAdapter;
 import com.example.ugshop.view.adapter.TopBrandsRecyclerAdapter;
 import com.example.ugshop.viewmodel.HomePageViewModel;
+import com.example.ugshop.viewmodel.ProductListViewModel;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
@@ -132,13 +139,37 @@ public class HomePageFragment extends Fragment {
 
     private void fetchProductsBySubCategory(int catId, int subCatId) {
         //TODO: land to products page by sub category id
-
         Log.d("Mariya", "catId = " + catId + " : subCatId = " + (subCatId + 1));
+
+        ProductListViewModel productListViewModel = new ViewModelProvider(this).get(ProductListViewModel.class);
+        productListViewModel.fetchProductBySubCategory(catId,subCatId)
+                .observe(getViewLifecycleOwner(), new Observer<ApiResource<FetchProductBySubCategoryresponse>>() {
+            @Override
+            public void onChanged(ApiResource<FetchProductBySubCategoryresponse> fetchProductBySubCategoryresponseApiResource) {
+                switch (fetchProductBySubCategoryresponseApiResource.getStatus()) {
+                    case SUCCESS:
+                        //Save values to preference
+
+                        Log.d("Mariya", "response : " + fetchProductBySubCategoryresponseApiResource.getData());
+                        FetchProductBySubCategoryresponse response = fetchProductBySubCategoryresponseApiResource.getData();
+
+
+                        break;
+
+                    case ERROR:
+                        new Helper(getActivity()).showToast(R.string.fetching_data_Error);
+                        break;
+                    case LOADING:
+//                        mProgressDialog.show();
+                        break;
+                }
+            }
+        });
+
     }
 
     private void makeTopProductApiCall() {
         // Urls of our images.
-
         String url1 = "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2021/7/19/0561c26e-e90f-49e4-ba4f-3158a97179f21626700545599-Occasion_wear_Desk.jpg";
         String url2 = "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2021/7/19/bc0bb077-6ca5-414f-a30a-b7f8e4e2e8c11626700392540-H-N_Desk_Banner--1-.jpg";
         String url3 = "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2021/7/19/e32201fa-5b83-41aa-a945-b700877fc56c1626700797439-desktop-main-banner-1-reference.jpg";

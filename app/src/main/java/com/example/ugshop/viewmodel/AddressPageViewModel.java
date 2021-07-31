@@ -13,8 +13,8 @@ import com.example.ugshop.repository.UGRepository;
 public class AddressPageViewModel extends ViewModel {
     private final UGRepository repository = UGRepository.getInstance();
 
-    public LiveData<ApiResource<FetchAddressResponse>> fetchAddresses(FetchAddressRequest request) {
-        return repository.fetchAddress(request);
+    public LiveData<ApiResource<FetchAddressResponse>> fetchAddresses(String email) {
+        return repository.fetchAddress(email);
     }
 
     public LiveData<ApiResource<AddAddressResponse>> addAddress(AddAddressRequest request) {

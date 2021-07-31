@@ -90,10 +90,10 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
 
     private void makeAddressApiCall() {
         AddressPageViewModel addressPageViewModel = new ViewModelProvider(this).get(AddressPageViewModel.class);
-        String email = "";
-        FetchAddressRequest addressRequest = new FetchAddressRequest();
-        addressRequest.setEmail(email);
-        addressPageViewModel.fetchAddresses(addressRequest).observe(this, new Observer<ApiResource<FetchAddressResponse>>() {
+        String email = "nt840071@gmail.com";
+//        FetchAddressRequest addressRequest = new FetchAddressRequest();
+//        addressRequest.setEmail(email);
+        addressPageViewModel.fetchAddresses(email).observe(this, new Observer<ApiResource<FetchAddressResponse>>() {
             @Override
             public void onChanged(ApiResource<FetchAddressResponse> fetchAddressResponseApiResource) {
                 switch (fetchAddressResponseApiResource.getStatus()){

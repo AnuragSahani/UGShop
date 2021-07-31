@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.ugshop.model.request.AddToCartRequest;
 import com.example.ugshop.model.response.AddToCartResponse;
+import com.example.ugshop.model.response.FetchProductBySubCategoryresponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
 import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.repository.UGRepository;
@@ -20,5 +21,9 @@ public class ProductListViewModel extends ViewModel {
 
     public LiveData<ApiResource<AddToCartResponse>> addToCart(AddToCartRequest request){
         return repository.addToCart(request);
+    }
+
+    public LiveData<ApiResource<FetchProductBySubCategoryresponse>> fetchProductBySubCategory (int catId, int subCatId){
+        return  repository.fetchProductBySubCategory ( catId,subCatId);
     }
 }

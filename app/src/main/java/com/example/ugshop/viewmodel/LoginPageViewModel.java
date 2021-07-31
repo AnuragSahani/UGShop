@@ -33,8 +33,8 @@ public class LoginPageViewModel extends ViewModel {//Model -> data -> view
         return repository.login(loginRequest);
     }
 
-    public LiveData<ApiResource<FetchAddressResponse>> fetchAddresses(FetchAddressRequest request) {
-        return repository.fetchAddress(request);
+    public LiveData<ApiResource<FetchAddressResponse>> fetchAddresses(String email) {
+        return repository.fetchAddress(email);
     }
 
     public RetrofitLiveData<CatsResponse> getCats() {
