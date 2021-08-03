@@ -15,7 +15,9 @@ public class ProductModel {
     private String name;
     private int price;
     private String description;
-    private int quantity;
+    private int stockQuantity;
+    private UrlModel urlModel;
+    private int productCartQuantity;
     private int catId;
 
     @Override
@@ -26,7 +28,7 @@ public class ProductModel {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
-                ", quantity=" + quantity +
+                ", quantity=" + stockQuantity +
                 ", catId=" + catId +
                 '}';
     }
@@ -63,12 +65,12 @@ public class ProductModel {
         this.description = description;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getStockQuantity() {
+        return stockQuantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 
     public int getSubCatId() {
@@ -85,5 +87,21 @@ public class ProductModel {
 
     public void setCatId(int catId) {
         this.catId = catId;
+    }
+
+    public UrlModel getUrlModel() {
+        return urlModel;
+    }
+
+    public void setUrlModel(UrlModel urlModel) {
+        this.urlModel = urlModel;
+    }
+
+    public int getProductCartQuantity() {
+        return productCartQuantity;
+    }
+
+    public void setProductCartQuantity(int productCartQuantity) {
+        this.productCartQuantity = productCartQuantity;
     }
 }

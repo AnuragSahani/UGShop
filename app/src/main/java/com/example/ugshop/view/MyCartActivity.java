@@ -1,7 +1,6 @@
 package com.example.ugshop.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +17,6 @@ import com.example.ugshop.model.common.CartModel;
 import com.example.ugshop.model.common.ProductModel;
 import com.example.ugshop.model.response.RemoveFromCartResponse;
 import com.example.ugshop.model.response.ViewCartResponse;
-import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Helper;
 import com.example.ugshop.view.adapter.CartAdapter;
 import com.example.ugshop.viewmodel.CartViewModel;
@@ -70,7 +68,7 @@ public class MyCartActivity extends AppCompatActivity {
                                 ProductModel productModel = new ProductModel();
                                 productModel.setProductId(3);
                                 productModel.setCatId(1);
-                                productModel.setQuantity(1);
+                                productModel.setStockQuantity(1);
                                 productModel.setPrice(1200);
                                 productModel.setDescription("100% cotton fabric");
                                 productModel.setSubCatId(1);
@@ -118,7 +116,7 @@ public class MyCartActivity extends AppCompatActivity {
         CartViewModel cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
         CartModel cartModel = new CartModel();
         cartModel.setProductId(product.getProductId());
-        cartModel.setQuantity(product.getQuantity());
+        cartModel.setQuantity(product.getStockQuantity());
         cartViewModel.removeFromCart("nt840071@gmail.com", cartModel)
                 .observe(this, removeFromCartResponseApiResource -> {
                     switch(removeFromCartResponseApiResource.getStatus()){
