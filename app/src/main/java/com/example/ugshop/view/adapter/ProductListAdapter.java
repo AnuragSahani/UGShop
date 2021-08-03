@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.ugshop.ProductListActivity;
 import com.example.ugshop.R;
 import com.example.ugshop.model.common.ProductModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -70,7 +71,10 @@ public class ProductListAdapter extends BaseAdapter implements View.OnClickListe
 
         ProductModel productItem = mProductsList.get(position);
         ImageView itemImg = rootView.findViewById(R.id.item_img);
-        itemImg.setImageDrawable(getDrawable(productItem.getCatId(),productItem.getSubCatId(),position));
+        Picasso.get()
+                .load(productItem.getUrlModel().getBaseUrl())
+                .into(itemImg);
+//        itemImg.setImageDrawable(getDrawable(productItem.getCatId(),productItem.getSubCatId(),position));
 
         /*if(position % 2 == 0) {
             itemImg.setImageResource(R.drawable.mens_shirt_item1_1);

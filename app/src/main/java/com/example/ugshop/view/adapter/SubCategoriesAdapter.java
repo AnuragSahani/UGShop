@@ -67,10 +67,8 @@ public class SubCategoriesAdapter extends BaseAdapter {
         }
 //        imageView.setImageResource(mThumbIds[position]);
         AppCompatImageView imageView = rootView.findViewById(R.id.sub_cat_imageview);
-//        .setImageResource(mSubCatDrawableIds[position]);
-        Picasso.get()
-                .load("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/13503044/2021/3/3/3cf0a13f-fac2-41d9-aad0-c976ee2b41f41614755062899-JUNEBERRY-Women-Tshirts-9541614755060585-1.jpg")
-                .into(imageView);
+        imageView.setImageResource(mSubCatDrawableIds[position]);
+
         ((TextView) rootView.findViewById(R.id.sub_cat_textview)).setText(mSubCatNames[position]);
         rootView.setTag(position);
         return rootView;
