@@ -40,6 +40,7 @@ public class MyCartActivity extends AppCompatActivity {
 
     private void initView() {
         mEmptyCartView = findViewById(R.id.empty_cart_view);
+        mEmptyCartView.findViewById(R.id.shop_now_empty_cart).setOnClickListener(view -> finish());
         mBottomLayout = findViewById(R.id.bottom_layout);
         mCartItemsRecyclerView = findViewById(R.id.cart_items_recycler_view);
 
