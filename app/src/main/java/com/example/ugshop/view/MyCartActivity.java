@@ -126,7 +126,7 @@ public class MyCartActivity extends AppCompatActivity {
                             break;
                         case SUCCESS:
                             RemoveFromCartResponse removeFromCartRes = removeFromCartResponseApiResource.getData();
-                            if(removeFromCartRes != null && removeFromCartRes.isSuccessRemoveFromCart()){
+                            if(removeFromCartRes != null && removeFromCartRes.isRemoved()){
                                 makeViewCartCall();
                             }
                             break;
