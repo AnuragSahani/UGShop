@@ -16,7 +16,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.ugshop.Email_Authentication;
 import com.example.ugshop.R;
+import com.example.ugshop.model.response.LoginResponse;
 import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
 import com.example.ugshop.util.UGPreferences;
@@ -30,6 +32,9 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
     private Button login;
     private TextView forgetpass;
     private ProgressDialog mProgressDialog;
+    private TextView username;
+    private TextView mobileNumder;
+    private TextView emailAccount;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +44,9 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
         email = root.findViewById(R.id.email);
         password = root.findViewById(R.id.password);
         forgetpass = (TextView) root.findViewById(R.id.forget_password);
+        username = root.findViewById(R.id.name);
+        mobileNumder = root.findViewById(R.id.cellNo);
+        emailAccount = root.findViewById(R.id.email);
 
         email.setTranslationX(800);
         password.setTranslationX(800);
@@ -117,18 +125,26 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
                         mProgressDialog.dismiss();
                         switch (loginResponseApiResource.getStatus()) {
                             case SUCCESS:
-                                //Save values to preference
-                                UGPreferences preferences = new UGPreferences(getActivity());
-                                preferences.addStringValue(Helper.LOGIN_ID, emailText);
-                                //launch home page
-                                Intent homePageIntent = new Intent(getActivity(), HomePage.class);
-                                homePageIntent.putExtra(Constants.EXTRA_EMAIL, emailText);
-                                startActivity(homePageIntent);
-
-                                getActivity().finish();
-
+                                LoginResponse response = loginResponseApiResource.getData();
+                                if(response.isLoginStatus()) {
+                                    if (response.getLoginModel().getVerified() == 1) {
+                                        //Save values to preference
+                                        UGPreferences preferences = new UGPreferences(getActivity());
+                                        preferences.addStringValue(Helper.LOGIN_ID, emailText);
+                                        //launch home page
+                                        Intent homePageIntent = new Intent(getActivity(), HomePage.class);
+                                        homePageIntent.putExtra(Constants.EXTRA_EMAIL, emailText);
+                                        startActivity(homePageIntent);
+                                        getActivity().finish();
+                                    } else {
+                                        new Helper(getActivity()).showToast(R.string.verify_account);
+                                        Intent intent = new Intent(getActivity(), Email_Authentication.class);
+                                        startActivity(intent);
+                                    }
+                                }
                                 break;
                             case ERROR:
+
                                 new Helper(getActivity()).showToast(R.string.login_failed);
                                 break;
                             case LOADING:

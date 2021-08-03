@@ -11,15 +11,15 @@ public class Helper {
     public static final String LOGIN_ID = "LoginEmail";
     public static final String PASSWORD = "LoginPassword";
 
-    private Activity mActivty;
+    private Activity mActivity;
 
     public Helper(Activity activity) {
-        mActivty = activity;
+        mActivity = activity;
     }
     public Helper(){}
 
     public void showToast(int message) {
-        Toast.makeText(mActivty, mActivty.getString(message), Toast.LENGTH_LONG).show();
+        Toast.makeText(mActivity, mActivity.getString(message), Toast.LENGTH_LONG).show();
     }
 
     public int getDrawableByCatId(CategoryModel categoryModel) {

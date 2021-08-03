@@ -5,8 +5,8 @@ import com.example.ugshop.model.request.LoginRequest;
 import com.example.ugshop.network.ErrorResponse;
 
 public class LoginResponse extends ResponseEntity {
-    ErrorResponse error;
-    boolean loginStatus;
+    private ErrorResponse error;
+    private boolean loginStatus;
     private LoginRequest loginModel;
 
     public ErrorResponse getError() {

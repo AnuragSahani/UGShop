@@ -4,13 +4,13 @@ import com.example.ugshop.model.RequestEntity;
 import com.example.ugshop.model.common.AddressModel;
 
 public class AddAddressRequest extends RequestEntity {
-    private AddressModel address;
+    private AddressModel addressModel;
 
-    public AddressModel getAddress() {
-        return address;
+    public AddressModel getAddressModel() {
+        return addressModel;
     }
 
-    public void setAddress(AddressModel address) {
-        this.address = address;
+    public void setAddressModel(AddressModel addressModel) {
+        this.addressModel = addressModel;
     }
 }

@@ -75,6 +75,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewho
             mTotalOriginalPrice += originalPrice;
             holder.originalPrice.setText("Rs. " + originalPrice);
             holder.quantity.setText(product.getQuantity()+"");
+
             holder.removeItemLayout.setOnClickListener(view -> {
                 callRemoveFromCartApi(product);
             });

@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.ugshop.R;
 import com.example.ugshop.model.response.SignupResponse;
 import com.example.ugshop.network.ApiResource;
+import com.example.ugshop.network.ErrorResponse;
 import com.example.ugshop.util.Helper;
 import com.example.ugshop.util.UGPreferences;
 import com.example.ugshop.viewmodel.SignupViewModel;
@@ -106,18 +107,24 @@ public class SignupTabFragment extends Fragment implements View.OnClickListener{
                         //Save values to preference
 
                         Log.d("Mariya", "response : " + signupResponseApiResource.getData());
-                        SignupResponse responce = signupResponseApiResource.getData();
-                        if (responce.isSigned()){
+                        SignupResponse response = signupResponseApiResource.getData();
+                        if (response.isSigned()){
                         UGPreferences preferences = new UGPreferences(getActivity());
                         preferences.addStringValue(Helper.LOGIN_ID, emailText);
                         //TODO: send call back to login activities to scroll page to login tab
                         ((LoginActivity)getActivity()).setCurrentViewPagerItem(1);
                         new Helper(getActivity()).showToast(R.string.sign_success);
                         }
+                        else
+                            new Helper(getActivity()).showToast(R.string.something_error);
                         break;
 
                     case ERROR:
-                        new Helper(getActivity()).showToast(R.string.signup_failed);
+                          response = signupResponseApiResource.getData();
+                        if(response.getError().getErrorCode()==400)
+                            new Helper(getActivity()).showToast(R.string.user_already_exist);
+                        else if(response.getError().getErrorCode() == 404)
+                            new Helper(getActivity()).showToast(R.string.signup_failed);
                         break;
                     case LOADING:
 //                        mProgressDialog.show();

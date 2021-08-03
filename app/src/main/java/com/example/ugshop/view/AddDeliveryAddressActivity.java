@@ -16,10 +16,8 @@ import com.example.ugshop.R;
 import com.example.ugshop.model.common.AddressModel;
 import com.example.ugshop.model.request.AddAddressRequest;
 import com.example.ugshop.model.response.AddAddressResponse;
-import com.example.ugshop.model.response.SignupResponse;
 import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Helper;
-import com.example.ugshop.util.UGPreferences;
 import com.example.ugshop.viewmodel.AddressPageViewModel;
 
 public class AddDeliveryAddressActivity extends AppCompatActivity implements View.OnClickListener {
@@ -42,7 +40,7 @@ public class AddDeliveryAddressActivity extends AppCompatActivity implements Vie
         pinV = findViewById(R.id.Pin);
         addressHome = findViewById(R.id.Home);
         addressWork = findViewById(R.id.Work);
-        findViewById(R.id.save_address).setOnClickListener(this::onClick);
+        findViewById(R.id.save_address).setOnClickListener(this);
 
     }
     public void onRadioButtonClicked(View view) {
@@ -80,12 +78,14 @@ public class AddDeliveryAddressActivity extends AppCompatActivity implements Vie
 //            typeOfAddress = "W";
 //        }
 
-        if (view.getId() == R.id.Signup) {
+        if (view.getId() == R.id.save_address) {
             makeAddAddressApiCall();
         }
+
     }
 
     private void makeAddAddressApiCall() {
+        String email ="anuragsahani0123@gmail.com";
         String name = nameV.getText().toString();
         String mobileNumber = mobile_numberV.getText().toString();
         String alterMobile = alternate_mobileV.getText().toString();
@@ -110,8 +110,9 @@ public class AddDeliveryAddressActivity extends AppCompatActivity implements Vie
         address.setState(state);
         address.setTypeOfAddress(typeOfAddress);
         address.setLandmark(landmark);
+        address.setEmail(email);
         AddAddressRequest addAddressRequest = new AddAddressRequest();
-        addAddressRequest.setAddress(address);
+        addAddressRequest.setAddressModel(address);
         AddressPageViewModel addressPageViewModel = new ViewModelProvider(this).get(AddressPageViewModel.class);
         addressPageViewModel.addAddress(addAddressRequest).observe(this, new Observer<ApiResource<AddAddressResponse>>() {
             @Override
@@ -119,23 +120,22 @@ public class AddDeliveryAddressActivity extends AppCompatActivity implements Vie
                 switch (addAddressResponseApiResource.getStatus()){
                 case SUCCESS:
                 //Save values to preference
-
-                Log.d("Mariya", "response : " + addAddressResponseApiResource.getData());
-               AddAddressResponse response = addAddressResponseApiResource.getData();
-                if (response.isSuccessfullyAddAddress()){
-                    Intent intent = new Intent(getApplicationContext(),MainMyAccountActivity.class);
-                    startActivity(intent);
-                    new Helper((Activity) getApplicationContext()).showToast(R.string.address_added);
-                    finish();
-                }
-                break;
+                    Log.d("Mariya", "response : " + addAddressResponseApiResource.getData());
+                    AddAddressResponse response = addAddressResponseApiResource.getData();
+                    if (response.isSuccessfullyAddAddress()){
+                        Intent intent = new Intent(getApplicationContext(), MainMyAccountActivity.class);
+                        startActivity(intent);
+                        new Helper((Activity) getApplicationContext()).showToast(R.string.address_added);
+                        finish();
+                    }
+                    break;
 
                 case ERROR:
-                new Helper().showToast(R.string.add_address_failed);
-                break;
+                    new Helper().showToast(R.string.add_address_failed);
+                    break;
                 case LOADING:
 //                        mProgressDialog.show();
-                break;
+                    break;
             }
             }
         });

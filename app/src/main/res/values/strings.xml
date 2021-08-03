@@ -53,6 +53,8 @@
     <string name="fetching_data_Error">fetching_data_Error</string>
     <string name="password_send">Password send</string>
     <string name="check_connection">Check your connection</string>
+    <string name="user_already_exist">User already exist</string>
+    <string name="verify_account">Please verify your account first</string>
 
     <string-array name="men_sub_cat">
         <item>Shirt</item>

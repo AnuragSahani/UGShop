@@ -34,7 +34,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
     public void onBindViewHolder(@NonNull AddressViewHolder holder, int position) {
         TextView textView = holder.getTextView();
         AddressModel address = mAddressList.get(position);
-        textView.setText(address.getHouseNo()+","+address.getLandmark()+","+ address.getArea()+","+address.getCity()+","+address.getState()+","+address.getPin());
+        textView.setText(address.getHouseNo()+", "+address.getLandmark()+", "+ address.getArea()+", "+address.getCity()+", "+address.getState()+", "+address.getPin());
         textView.setTag(position+1);
     }
 

@@ -38,7 +38,7 @@ public class ProductDisc extends AppCompatActivity implements View.OnClickListen
 
     private void makeAddToCartApiCall() {
 //        TODO -- get current email
-        String email = "nt840071@gmail.com";
+        String email = "anuragsahani0123@gmail.com";
 // TODO- get selected product's productId
         CartModel cartModel = new CartModel();
         cartModel.setProductId(3); // put productId
