@@ -58,7 +58,7 @@ public class ProductDisc extends AppCompatActivity implements View.OnClickListen
                         }
                         break;
                     case ERROR:
-                        new Helper().showToast(R.string.add_address_failed);
+                        new Helper(ProductDisc.this).showToast(R.string.add_address_failed);
                         break;
                 }
             }

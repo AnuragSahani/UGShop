@@ -131,7 +131,7 @@ public class AddDeliveryAddressActivity extends AppCompatActivity implements Vie
                     break;
 
                 case ERROR:
-                    new Helper().showToast(R.string.add_address_failed);
+                    new Helper(AddDeliveryAddressActivity.this).showToast(R.string.add_address_failed);
                     break;
                 case LOADING:
 //                        mProgressDialog.show();

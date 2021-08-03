@@ -105,7 +105,7 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
                     case SUCCESS:
                         FetchAddressResponse response = fetchAddressResponseApiResource.getData();
                         if (response == null || response.getFetchResList().isEmpty() || response.getFetchResList() == null) {
-                            new Helper().showToast(R.string.suggestion_to_addAddress);
+                            new Helper(MainMyAccountActivity.this).showToast(R.string.suggestion_to_addAddress);
                             return;
                         } else
                             inflateData(response.getFetchResList());

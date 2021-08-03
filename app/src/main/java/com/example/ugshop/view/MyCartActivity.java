@@ -79,7 +79,7 @@ public class MyCartActivity extends AppCompatActivity {
                             }
                             break;
                         case ERROR:
-                            new Helper().showToast(R.string.add_address_failed);
+                            new Helper(MyCartActivity.this).showToast(R.string.add_address_failed);
                             break;
                     }
                 });
