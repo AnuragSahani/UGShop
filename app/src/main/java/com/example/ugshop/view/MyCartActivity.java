@@ -116,7 +116,7 @@ public class MyCartActivity extends AppCompatActivity {
         CartViewModel cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
         CartModel cartModel = new CartModel();
         cartModel.setProductId(product.getProductId());
-        cartModel.setQuantity(product.getStockQuantity());
+        cartModel.setQuantity(product.getProductCartQuantity());
         cartViewModel.removeFromCart("nt840071@gmail.com", cartModel)
                 .observe(this, removeFromCartResponseApiResource -> {
                     switch(removeFromCartResponseApiResource.getStatus()){

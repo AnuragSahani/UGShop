@@ -76,7 +76,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewho
             int originalPrice = (int) (product.getPrice() * 1.2);
             mTotalOriginalPrice += originalPrice;
             holder.originalPrice.setText("Rs. " + originalPrice);
-            holder.quantity.setText(product.getStockQuantity()+"");
+            holder.quantity.setText(product.getProductCartQuantity()+"");
             Picasso.get()
                     .load(product.getUrlModel().getBaseUrl())
                     .into(holder.productImage);
