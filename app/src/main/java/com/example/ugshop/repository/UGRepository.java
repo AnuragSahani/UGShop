@@ -14,6 +14,7 @@ import com.example.ugshop.model.response.ChangePasswordResponse;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.FetchCategoryResponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
+import com.example.ugshop.model.response.ForgetPasswordResponse;
 import com.example.ugshop.model.response.GenerateOtpResponse;
 import com.example.ugshop.model.response.LoginResponse;
 import com.example.ugshop.model.response.RemoveFromCartResponse;
@@ -95,5 +96,9 @@ public class UGRepository {
     }
     public LiveData<ApiResource<FetchProductListResponse>> fetchProductByCategory(int catId) {
         return new RetrofitLiveData<>(sNetworkApi.fetchProductListByCategory(catId));
+    }
+
+    public RetrofitLiveData<ForgetPasswordResponse> forgetPassword(String email) {
+        return  new RetrofitLiveData<>(sNetworkApi.forgetPassword(email));
     }
 }

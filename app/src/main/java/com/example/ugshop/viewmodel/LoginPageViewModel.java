@@ -1,20 +1,16 @@
 package com.example.ugshop.viewmodel;
 
-import android.os.Build;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.ugshop.model.CatsResponse;
-import com.example.ugshop.model.request.FetchAddressRequest;
 import com.example.ugshop.model.request.LoginRequest;
 import com.example.ugshop.model.response.FetchAddressResponse;
+import com.example.ugshop.model.response.ForgetPasswordResponse;
 import com.example.ugshop.model.response.LoginResponse;
 import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.network.RetrofitLiveData;
 import com.example.ugshop.repository.UGRepository;
-
-import java.util.Base64;
 
 public class LoginPageViewModel extends ViewModel {//Model -> data -> view
 
@@ -39,5 +35,9 @@ public class LoginPageViewModel extends ViewModel {//Model -> data -> view
 
     public RetrofitLiveData<CatsResponse> getCats() {
         return repository.getCatsApi();
+    }
+
+    public RetrofitLiveData<ForgetPasswordResponse> forgetPassword(String email){
+        return  repository.forgetPassword(email);
     }
 }

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,9 +25,9 @@ import com.example.ugshop.viewmodel.LoginPageViewModel;
 public class LoginTabFragment extends Fragment implements View.OnClickListener {
     private final String TAG = LoginTabFragment.class.getSimpleName();
 
-    EditText email;
-    EditText password;
-    Button login;
+    private EditText email;
+    private EditText password;
+    private Button login;
     private TextView forgetpass;
     private ProgressDialog mProgressDialog;
 
@@ -55,60 +56,56 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
         forgetpass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
         login.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
 
+        forgetpass.setOnClickListener(this);
         login.setOnClickListener(this);
-
+        forgetpass.setOnClickListener(this);
         mProgressDialog = new ProgressDialog(getActivity());
-
         return root;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
-        forgetpass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setTargetFragment(new Reset_Password_Fragment(), 5);
-            }
 
-          /*  private void setFragment(Reset_Password_Fragment reset_password_fragment) {
-                Intent i = new Intent();
-                i.setClass(getActivity(), Reset_Password_Fragment.class);
-                startActivity(i);
-
-            }*/
-//          Intent forgetpasswordIntent = new Intent(forgetpass.getContext(),Reset_Password_Fragment.class);
-//                forgetpass.getContext().startActivity(forgetpasswordIntent);
-        });
-    }
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//        forgetpass.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                setTargetFragment(new Reset_Password_Fragment(), 5);
+//            }
+////            private void setFragment(Reset_Password_Fragment reset_password_fragment) {
+////                Intent i = new Intent();
+////                i.setClass(getActivity(), Reset_Password_Fragment.class);
+////                startActivity(i);
+////            }
+//////          Intent forgetpasswordIntent = new Intent(forgetpass.getContext(),Reset_Password_Fragment.class);
+////                forgetpass.getContext().startActivity(forgetpasswordIntent);
+//        });
+//    }
 
     @Override
     public void onClick(View view) {
-        //Validation............................................................
-        final String emailId = email.getText().toString();
-        final String passwordField = password.getText().toString();
-        if (emailId.length() == 0) {
-            email.requestFocus();
-            email.setError("Email can't be Empty");
-        } else if (!emailId.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
-            email.requestFocus();
-            email.setError("Given email-id is not valid");
-        }
-//      Here No Need to Validate Password////////////////////////////////////////
-      /*  if (passwordField.length() == 0) {
-            password.requestFocus();
-            password.setError("Password can't be Empty");
-        } else if (!passwordField.matches("^(?=.*[0-9])"
-                + "(?=.*[@#$%^&+=])"
-                + "(?=\\S+$).{8,20}$")) {
-            password.requestFocus();
-            password.setError("Password at least 8 character.Please! Enter at least 1 digit & 1 special Symbol.Blank Space Not allowed");
-        }*/
-
         //Validation...................................................................
         if (view.getId() == R.id.login) {//View -> instance of ViewModel || ViewModel -> instance of Repository (network / database)
 //            LoginPageViewModel loginPageViewModel = ViewModelProviders.of(requireActivity()).get(LoginPageViewModel.class);
+            final String emailId = email.getText().toString();
+            final String passwordField = password.getText().toString();
+            if (emailId.length() == 0) {
+                email.requestFocus();
+                email.setError("Email can't be Empty");
+                return;
+            } else if (!emailId.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+                email.requestFocus();
+                email.setError("Given email-id is not valid");
+                return;
+            }
+            else if (passwordField.length() == 0) {
+                password.requestFocus();
+                password.setError("Password can't be Empty");
+                return;
+            }
+
             LoginPageViewModel loginPageViewModel = new ViewModelProvider(this).get(LoginPageViewModel.class);
             final String emailText = email.getText().toString();
             //validation
@@ -174,6 +171,10 @@ public class LoginTabFragment extends Fragment implements View.OnClickListener {
                         }
                     }
                 });*/
+        }
+         else if(R.id.forget_password == view.getId()){
+            Intent intent = new Intent(getContext(), Reset_Password_Fragment.class);
+            startActivity(intent);
         }
     }
 }

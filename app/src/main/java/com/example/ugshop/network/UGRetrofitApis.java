@@ -16,6 +16,7 @@ import com.example.ugshop.model.response.DeleteUserProfileResponse;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.FetchCategoryResponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
+import com.example.ugshop.model.response.ForgetPasswordResponse;
 import com.example.ugshop.model.response.GenerateOtpResponse;
 import com.example.ugshop.model.response.GetPtoductBySearchStringResponse;
 import com.example.ugshop.model.response.LoginResponse;
@@ -94,4 +95,7 @@ public interface UGRetrofitApis {
 
     @GET("verifyotp")
     Call<VerifyOtpResponse> verifyOtp(@Query("otpCode") int otpCode, @Query("email") String email);
+
+    @GET("forgetpassword")
+    Call<ForgetPasswordResponse> forgetPassword(@Query("email") String email);
 }

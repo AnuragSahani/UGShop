@@ -36,6 +36,7 @@ public class SubCategoriesAdapter extends BaseAdapter {
     private int getSubCatCntFromCat(Constants.CATEGORIES category) {
         switch (category) {
             case MEN:
+
             case WOMEN:
                 return 4;
             case KIDS:

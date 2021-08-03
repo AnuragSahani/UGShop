@@ -51,6 +51,8 @@
     <string name="get_products_list_failed">Get Products Failed!</string>
     <string name="OTP_Send_Sucessfully">OTP Send Sucessfully</string>
     <string name="fetching_data_Error">fetching_data_Error</string>
+    <string name="password_send">Password send</string>
+    <string name="check_connection">Check your connection</string>
 
     <string-array name="men_sub_cat">
         <item>Shirt</item>
