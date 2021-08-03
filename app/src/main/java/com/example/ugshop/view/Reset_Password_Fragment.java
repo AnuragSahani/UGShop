@@ -1,15 +1,16 @@
 package com.example.ugshop.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import com.example.ugshop.R;
 import com.example.ugshop.model.response.ForgetPasswordResponse;
@@ -56,6 +57,8 @@ public class Reset_Password_Fragment extends AppCompatActivity implements View.O
 //    }
     private Button forgetBtn;
     private EditText emailId;
+    private TextView back_to_login;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +69,8 @@ public class Reset_Password_Fragment extends AppCompatActivity implements View.O
 //        }
         forgetBtn = findViewById(R.id.reset_password_btn);
         emailId = findViewById(R.id.forgot_password_email);
+        back_to_login = findViewById(R.id.forgot_password_go_back);
+        back_to_login.setOnClickListener(this);
         forgetBtn.setOnClickListener(this);
     }
 
@@ -78,6 +83,49 @@ public class Reset_Password_Fragment extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.reset_password_btn:
+                if (view.getId() == R.id.reset_password_btn) {
+                    String email = String.valueOf(emailId.getText());
+                    if (email.length() == 0) {
+                        emailId.requestFocus();
+                        emailId.setError("Email can't be Empty");
+                        return;
+                    } else if (!email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+                        emailId.requestFocus();
+                        emailId.setError("Given email-id is not valid");
+                        return;
+                    }
+                    LoginPageViewModel loginPageViewModel = new ViewModelProvider(this).get(LoginPageViewModel.class);
+                    loginPageViewModel.forgetPassword(email)
+                            .observe(this, new Observer<ApiResource<ForgetPasswordResponse>>() {
+                                @Override
+                                public void onChanged(ApiResource<ForgetPasswordResponse> forgetPasswordResponseApiResource) {
+                                    switch (forgetPasswordResponseApiResource.getStatus()) {
+                                        case LOADING:
+                                            break;
+                                        case SUCCESS:
+                                            ForgetPasswordResponse response = forgetPasswordResponseApiResource.getData();
+                                            if (response.isSend()) {
+                                                new Helper(Reset_Password_Fragment.this).showToast(R.string.password_send);
+                                            } else {
+                                                new Helper(Reset_Password_Fragment.this).showToast(R.string.something_error);
+                                            }
+                                            break;
+                                        case ERROR:
+                                            new Helper(Reset_Password_Fragment.this).showToast(R.string.check_connection);
+                                            break;
+                                    }
+                                }
+                            });
+                }
+                break;
+            case R.id.forgot_password_go_back:
+                Intent backlogin = new Intent(this, LoginActivity.class);
+                startActivity(backlogin);
+                break;
+        }
 //        String email = String.valueOf(emailId.getText());
 //        if (email.length() == 0) {
 //            emailId.requestFocus();
@@ -88,40 +136,6 @@ public class Reset_Password_Fragment extends AppCompatActivity implements View.O
 //            emailId.setError("Given email-id is not valid");
 //            return;
 //        }
-        if(view.getId() == R.id.reset_password_btn){
-            String email = String.valueOf(emailId.getText());
-            if (email.length() == 0) {
-                emailId.requestFocus();
-                emailId.setError("Email can't be Empty");
-                return;
-            } else if (!email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
-                emailId.requestFocus();
-                emailId.setError("Given email-id is not valid");
-                return;
-            }
-            LoginPageViewModel loginPageViewModel = new ViewModelProvider(this).get(LoginPageViewModel.class);
-            loginPageViewModel.forgetPassword(email)
-                    .observe(this, new Observer<ApiResource<ForgetPasswordResponse>>() {
-                @Override
-                public void onChanged(ApiResource<ForgetPasswordResponse> forgetPasswordResponseApiResource) {
-                    switch (forgetPasswordResponseApiResource.getStatus()){
-                        case LOADING:
-                            break;
-                        case SUCCESS:
-                            ForgetPasswordResponse response = forgetPasswordResponseApiResource.getData();
-                            if(response.isSend()){
-                                new Helper(Reset_Password_Fragment.this).showToast(R.string.password_send);
-                            }
-                            else{
-                                new Helper(Reset_Password_Fragment.this).showToast(R.string.something_error);
-                            }
-                            break;
-                        case ERROR:
-                            new Helper(Reset_Password_Fragment.this).showToast(R.string.check_connection);
-                            break;
-                    }
-                }
-            });
-        }
+
     }
 }
