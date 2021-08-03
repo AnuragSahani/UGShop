@@ -1,7 +1,6 @@
 package com.example.ugshop.view.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -11,6 +10,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 import com.example.ugshop.R;
 import com.example.ugshop.util.Constants;
+import com.squareup.picasso.Picasso;
 
 public class SubCategoriesAdapter extends BaseAdapter {
     private Context mContext;
@@ -50,7 +50,9 @@ public class SubCategoriesAdapter extends BaseAdapter {
         return i;
     }
 
-    public long getItemId(int position) { return position; }
+    public long getItemId(int position) {
+        return position;
+    }
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -64,7 +66,11 @@ public class SubCategoriesAdapter extends BaseAdapter {
             rootView = (View) convertView;
         }
 //        imageView.setImageResource(mThumbIds[position]);
-        ((AppCompatImageView)rootView.findViewById(R.id.sub_cat_imageview)).setImageResource(mSubCatDrawableIds[position]);
+        AppCompatImageView imageView = rootView.findViewById(R.id.sub_cat_imageview);
+//        .setImageResource(mSubCatDrawableIds[position]);
+        Picasso.get()
+                .load("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/13503044/2021/3/3/3cf0a13f-fac2-41d9-aad0-c976ee2b41f41614755062899-JUNEBERRY-Women-Tshirts-9541614755060585-1.jpg")
+                .into(imageView);
         ((TextView) rootView.findViewById(R.id.sub_cat_textview)).setText(mSubCatNames[position]);
         rootView.setTag(position);
         return rootView;
