@@ -14,27 +14,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UGShop"
         android:usesCleartextTraffic="true">
+        <activity android:name=".OrderStatusActivity"></activity>
         <activity android:name=".Email_Authentication">
-       <!--  <intent-filter>
+
+            <!--
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity android:name=".ProductListActivity" />
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".view.AddDeliveryAddressActivity" />
-        <activity android:name=".view.MainMyAccountActivity"
-            />
+        <activity android:name=".view.MainMyAccountActivity" />
         <activity android:name=".view.MakePayment" />
         <activity
             android:name=".view.HomePage"
             android:theme="@style/Theme.UGShop.DrawerTheme">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity android:name=".view.MyCartActivity" />
         <activity android:name=".view.ChangePassword" />
@@ -43,7 +49,7 @@
         <activity android:name=".view.AccountSetting" />
         <activity android:name=".view.MyAccountMain" />
         <activity android:name=".view.ActivityBottomNavigation" />
-        <activity android:name=".view.Reset_Password_Fragment"/>
+        <activity android:name=".view.Reset_Password_Fragment" />
         <activity
             android:name=".view.IntroductoryActivity"
             android:theme="@style/Theme.UGShop.NoActionBar">

@@ -29,6 +29,7 @@ public class MyCartActivity extends AppCompatActivity {
     private ViewGroup mEmptyCartView, mBottomLayout;
     private RecyclerView mCartItemsRecyclerView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +95,7 @@ public class MyCartActivity extends AppCompatActivity {
         mCartItemsRecyclerView.setAdapter(adapter);
 
         ((TextView)mBottomLayout.findViewById(R.id.total_cart_amount)).setText("Rs. " + adapter.getTotalPrice());
+
     }
 
     private void setEmptyCartVisible(boolean isEmpty) {
