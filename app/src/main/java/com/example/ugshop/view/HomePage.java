@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.ugshop.ProductListActivity;
 import com.example.ugshop.R;
 import com.example.ugshop.view.fragment.HomePageFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -99,6 +100,8 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.nav_all_product:
+                Intent intentP = new Intent(this, ProductListActivity.class);
+                startActivity(intentP);
                 break;
             case R.id.nav_my_account:
                 Intent myAccount = new Intent(this, MainMyAccountActivity.class);
