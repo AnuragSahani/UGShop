@@ -18,9 +18,9 @@
             android:title="My Orders"/>
 
         <item
-            android:id="@+id/nav_all_cat"
+            android:id="@+id/nav_all_product"
             android:icon="@drawable/ic_all_catgeories"
-            android:title="All Categories"/>
+            android:title="All Products"/>
         <item
             android:id="@+id/nav_my_account"
             android:icon="@drawable/ic_my_acc"

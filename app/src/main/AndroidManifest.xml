@@ -15,7 +15,7 @@
         android:theme="@style/Theme.UGShop"
         android:usesCleartextTraffic="true">
         <activity android:name=".Email_Authentication">
-          <!--  <intent-filter>
+       <!--  <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,12 +30,11 @@
         <activity
             android:name=".view.HomePage"
             android:theme="@style/Theme.UGShop.DrawerTheme">
-
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".view.MyCartActivity" />
         <activity android:name=".view.ChangePassword" />
@@ -48,11 +47,11 @@
         <activity
             android:name=".view.IntroductoryActivity"
             android:theme="@style/Theme.UGShop.NoActionBar">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
         <activity android:name=".view.LoginActivity" />
         <activity

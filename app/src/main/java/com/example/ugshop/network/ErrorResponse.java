@@ -28,3 +28,4 @@ public class ErrorResponse {
         this.errorCode = errorCode;
     }
 }
+//TODO: make ErrorResponse class var name is appError in all response classes.
