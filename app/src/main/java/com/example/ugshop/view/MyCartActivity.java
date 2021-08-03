@@ -63,8 +63,9 @@ public class MyCartActivity extends AppCompatActivity {
                                 List<ProductModel> productList = viewCartRes.getProductList();
                                 inflateProducts(productList);
                             } else {
+                                setEmptyCartVisible(true);
                                 //For tesing only
-                                List<ProductModel> productList = new ArrayList<>();
+                                /*List<ProductModel> productList = new ArrayList<>();
                                 ProductModel productModel = new ProductModel();
                                 productModel.setProductId(3);
                                 productModel.setCatId(1);
@@ -74,7 +75,7 @@ public class MyCartActivity extends AppCompatActivity {
                                 productModel.setSubCatId(1);
 
                                 productList.add(productModel);
-                                inflateProducts(productList);
+                                inflateProducts(productList);*/
                             }
                             break;
                         case ERROR:
