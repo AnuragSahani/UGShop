@@ -1,8 +1,13 @@
-package com.example.ugshop.model.common;
+package com.example.ugshop.model.request;
+
+import com.example.ugshop.model.common.DeliveryStatus;
+import com.example.ugshop.model.common.OrderStatus;
+import com.example.ugshop.model.common.PaymentStatus;
+import com.example.ugshop.model.common.ProductModel;
 
 import java.util.List;
 
-public class OrderModel {
+public class FetchOrderModelRequest {
     private DeliveryStatus deliveryStatus;
     private String email;
     private int orderId;

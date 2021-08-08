@@ -101,10 +101,6 @@
             android:layout_marginTop="10dp"
             android:background="@color/purple_700" />
 
-        <include
-            layout="@layout/men_women_kid_category_item"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
         <!--<androidx.recyclerview.widget.RecyclerView
             android:id="@+id/main_recyclermen"
             android:layout_width="match_parent"
@@ -114,6 +110,11 @@
             android:background="@color/white"
             tools:itemCount="2"
             tools:listitem="@layout/men_women_kid_category_item" />-->
+
+        <include
+            layout="@layout/men_women_kid_category_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <View
             android:id="@+id/line3"

@@ -6,6 +6,7 @@ import com.example.ugshop.model.request.AddToCartRequest;
 import com.example.ugshop.model.request.DeleteUserProfileRequest;
 import com.example.ugshop.model.request.GetPtoductBySearchStringRequest;
 import com.example.ugshop.model.request.LoginRequest;
+import com.example.ugshop.model.request.PlaceOrderRequest;
 import com.example.ugshop.model.request.RemoveAddressRequest;
 import com.example.ugshop.model.request.RemoveFromCartRequest;
 import com.example.ugshop.model.request.SignupRequest;
@@ -15,13 +16,16 @@ import com.example.ugshop.model.response.ChangePasswordResponse;
 import com.example.ugshop.model.response.DeleteUserProfileResponse;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.FetchCategoryResponse;
+import com.example.ugshop.model.response.FetchOrderResponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
 import com.example.ugshop.model.response.ForgetPasswordResponse;
 import com.example.ugshop.model.response.GenerateOtpResponse;
 import com.example.ugshop.model.response.GetPtoductBySearchStringResponse;
 import com.example.ugshop.model.response.LoginResponse;
+import com.example.ugshop.model.response.PlaceOrderResponse;
 import com.example.ugshop.model.response.RemoveAddressResponse;
 import com.example.ugshop.model.response.RemoveFromCartResponse;
+import com.example.ugshop.model.response.RemoveUserResponse;
 import com.example.ugshop.model.response.SignupResponse;
 import com.example.ugshop.model.response.VerifyOtpResponse;
 import com.example.ugshop.model.response.ViewCartResponse;
@@ -98,4 +102,13 @@ public interface UGRetrofitApis {
 
     @GET("forgetpassword")
     Call<ForgetPasswordResponse> forgetPassword(@Query("email") String email);
+
+    @POST("placeorder")
+    Call<PlaceOrderResponse> placeOrder(@Body PlaceOrderRequest placeOrderRequest);
+
+    @GET("fetchorderlist")
+    Call<FetchOrderResponse> fetchOrderList(@Query("email") String email);
+
+    @POST("removeuser")
+    Call<RemoveUserResponse> removeUserProfile(@Body LoginRequest loginRequest);
 }

@@ -19,11 +19,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.ugshop.R;
 import com.example.ugshop.model.common.AddressModel;
+import com.example.ugshop.model.common.OrderModel;
 import com.example.ugshop.model.response.FetchAddressResponse;
+import com.example.ugshop.model.response.FetchOrderResponse;
+import com.example.ugshop.model.response.LoginResponse;
 import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Helper;
+import com.example.ugshop.util.UGPreferences;
 import com.example.ugshop.view.adapter.AddressAdapter;
+import com.example.ugshop.view.adapter.OrderAdapter;
 import com.example.ugshop.viewmodel.AddressPageViewModel;
+import com.example.ugshop.viewmodel.OrderViewModel;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -90,11 +96,24 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
 
         makeAddressApiCall();
         findViewById(R.id.add_address).setOnClickListener(this);
+
+//        setUserNameAndDetails();
+    }
+
+    private void setUserNameAndDetails() {
+        LoginResponse loginResponse = new LoginResponse();
+        TextView name = findViewById(R.id.name);
+        TextView email = findViewById(R.id.email);
+        TextView cellNo = findViewById(R.id.cellNo);
+        email.setText(loginResponse.getLoginModel().getEmail());
+        cellNo.setText(loginResponse.getLoginModel().getMobileNumber());
+        name.setText(loginResponse.getLoginModel().getUsername());
     }
 
     private void makeAddressApiCall() {
         AddressPageViewModel addressPageViewModel = new ViewModelProvider(this).get(AddressPageViewModel.class);
-        String email = "anuragsahani0123@gmail.com";
+        UGPreferences preferences = new UGPreferences(getApplicationContext());
+        String email = preferences.getStringValue(Helper.LOGIN_ID);
 
 //        FetchAddressRequest addressRequest = new FetchAddressRequest();
 //        addressRequest.setEmail(email);
@@ -158,7 +177,53 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
                 Intent updateProfile = new Intent(this, AccountSetting.class);
                 startActivity(updateProfile);
                 break;
-
+            case R.id.view_order:
+                makeViewOrderApiCall();
+                break;
         }
+    }
+
+    private void makeViewOrderApiCall() {
+        UGPreferences preferences = new UGPreferences(getApplicationContext());
+        String email = preferences.getStringValue(Helper.LOGIN_ID);
+
+        OrderViewModel orderViewModel = new ViewModelProvider(this).get(OrderViewModel.class);
+        orderViewModel.fetchOrderList(email).observe(this, new Observer<ApiResource<FetchOrderResponse>>() {
+            @Override
+            public void onChanged(ApiResource<FetchOrderResponse> fetchOrderResponseApiResource) {
+                switch (fetchOrderResponseApiResource.getStatus()) {
+                    case SUCCESS:
+                        FetchOrderResponse response = fetchOrderResponseApiResource.getData();
+                        if (response.isGetModel()) {
+                            inflateData(response.getOrderModel());
+                        }
+                        else{
+
+                        }
+                        break;
+                    case ERROR:
+                        break;
+
+                    case LOADING:
+                        break;
+
+
+                }
+            }
+        });
+
+
+    }
+
+    private void inflateData(OrderModel orderModel) {
+        setUpOrderRecyclerView(orderModel);
+    }
+
+    private void setUpOrderRecyclerView(OrderModel orderModel) {
+        RecyclerView recyclerView = findViewById(R.id.my_orders_recyclerview);
+        OrderAdapter orderAdapter = new OrderAdapter(this,orderModel);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(orderAdapter);
     }
 }

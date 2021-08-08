@@ -122,18 +122,18 @@ public class HomePageFragment extends Fragment {
         GridView womenSubCatGrid = mRootView.findViewById(R.id.women_sub_cat);
         SubCategoriesAdapter adapter2 = new SubCategoriesAdapter(mActivity, Constants.CATEGORIES.WOMEN);
         womenSubCatGrid.setAdapter(adapter2);
-        womenSubCatGrid.setOnItemClickListener((parent, view, position, id) -> fetchProductsBySubCategory(2, position));
+        womenSubCatGrid.setOnItemClickListener((parent, view, position, id) -> fetchProductsBySubCategory(2, position + 4));
 
         GridView kidSubCatGrid = mRootView.findViewById(R.id.kid_sub_cat);
         SubCategoriesAdapter adapterKid = new SubCategoriesAdapter(mActivity, Constants.CATEGORIES.KIDS);
         kidSubCatGrid.setAdapter(adapterKid);
-        kidSubCatGrid.setOnItemClickListener((parent, view, position, id) -> fetchProductsBySubCategory(3, position));
+        kidSubCatGrid.setOnItemClickListener((parent, view, position, id) -> fetchProductsBySubCategory(3, position + 8));
     }
 
     private void fetchProductsBySubCategory(int catId, int subCatId) {
         Intent productListActivity = new Intent(getActivity(), ProductListActivity.class);
         productListActivity.putExtra(Constants.EXTRA_CAT_ID, catId);
-        productListActivity.putExtra(Constants.EXTRA_SUB_CAT_ID, subCatId+1);
+        productListActivity.putExtra(Constants.EXTRA_SUB_CAT_ID, subCatId + 1);
         startActivity(productListActivity);
     }
 

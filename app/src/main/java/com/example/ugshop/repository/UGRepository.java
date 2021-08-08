@@ -6,6 +6,7 @@ import com.example.ugshop.model.CatsResponse;
 import com.example.ugshop.model.request.AddAddressRequest;
 import com.example.ugshop.model.request.AddToCartRequest;
 import com.example.ugshop.model.request.LoginRequest;
+import com.example.ugshop.model.request.PlaceOrderRequest;
 import com.example.ugshop.model.request.RemoveFromCartRequest;
 import com.example.ugshop.model.request.SignupRequest;
 import com.example.ugshop.model.response.AddAddressResponse;
@@ -13,11 +14,14 @@ import com.example.ugshop.model.response.AddToCartResponse;
 import com.example.ugshop.model.response.ChangePasswordResponse;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.FetchCategoryResponse;
+import com.example.ugshop.model.response.FetchOrderResponse;
 import com.example.ugshop.model.response.FetchProductListResponse;
 import com.example.ugshop.model.response.ForgetPasswordResponse;
 import com.example.ugshop.model.response.GenerateOtpResponse;
 import com.example.ugshop.model.response.LoginResponse;
+import com.example.ugshop.model.response.PlaceOrderResponse;
 import com.example.ugshop.model.response.RemoveFromCartResponse;
+import com.example.ugshop.model.response.RemoveUserResponse;
 import com.example.ugshop.model.response.SignupResponse;
 import com.example.ugshop.model.response.VerifyOtpResponse;
 import com.example.ugshop.model.response.ViewCartResponse;
@@ -100,5 +104,17 @@ public class UGRepository {
 
     public RetrofitLiveData<ForgetPasswordResponse> forgetPassword(String email) {
         return  new RetrofitLiveData<>(sNetworkApi.forgetPassword(email));
+    }
+
+    public LiveData<ApiResource<PlaceOrderResponse>> placeOrder(PlaceOrderRequest request) {
+        return  new RetrofitLiveData<>(sNetworkApi.placeOrder(request));
+    }
+
+    public LiveData<ApiResource<FetchOrderResponse>> fetchOrderList(String email) {
+        return new RetrofitLiveData<>(sNetworkApi.fetchOrderList(email));
+    }
+
+    public LiveData<ApiResource<RemoveUserResponse>> removeUserProfile(LoginRequest loginRequest) {
+        return new RetrofitLiveData<>(sNetworkApi.removeUserProfile(loginRequest));
     }
 }

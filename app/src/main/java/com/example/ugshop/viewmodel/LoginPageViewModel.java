@@ -8,6 +8,7 @@ import com.example.ugshop.model.request.LoginRequest;
 import com.example.ugshop.model.response.FetchAddressResponse;
 import com.example.ugshop.model.response.ForgetPasswordResponse;
 import com.example.ugshop.model.response.LoginResponse;
+import com.example.ugshop.model.response.RemoveUserResponse;
 import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.network.RetrofitLiveData;
 import com.example.ugshop.repository.UGRepository;
@@ -39,5 +40,9 @@ public class LoginPageViewModel extends ViewModel {//Model -> data -> view
 
     public RetrofitLiveData<ForgetPasswordResponse> forgetPassword(String email){
         return  repository.forgetPassword(email);
+    }
+
+    public LiveData<ApiResource<RemoveUserResponse>> removeUserProfile(LoginRequest loginRequest){
+        return  repository.removeUserProfile(loginRequest);
     }
 }

@@ -68,11 +68,9 @@ public class ProductListActivity extends AppCompatActivity {
                     case 1:
                         str.append(" | Shirt");
                         break;
-
                     case 2:
                         str.append(" | T-Shirt");
                         break;
-
                     case 3:
                         str.append(" | Trouser");
                         break;
@@ -84,26 +82,27 @@ public class ProductListActivity extends AppCompatActivity {
 
             case 2:
                 str.append("Women");
-                switch (subCatId) {
+                switch (subCatId - 4) {
                     case 1:
                         str.append(" | Kurtis");
                         break;
 
                     case 2:
-                        str.append(" | Tops");
+                        str.append(" | Tees");
                         break;
 
                     case 3:
-                        str.append(" | Trousers");
+                        str.append(" | Tops");
                         break;
                     case 4:
-                        str.append(" | T-Shirts");
+                        str.append(" | Trousers");
                         break;
                 }
                 break;
 
             case 3:
-                switch (subCatId) {
+                str.append("Kids");
+                switch (subCatId - 8) {
                     case 1:
                         str.append(" | Trousers");
                         break;

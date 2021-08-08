@@ -18,6 +18,7 @@ import com.example.ugshop.model.request.AddAddressRequest;
 import com.example.ugshop.model.response.AddAddressResponse;
 import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Helper;
+import com.example.ugshop.util.UGPreferences;
 import com.example.ugshop.viewmodel.AddressPageViewModel;
 
 public class AddDeliveryAddressActivity extends AppCompatActivity implements View.OnClickListener {
@@ -85,7 +86,8 @@ public class AddDeliveryAddressActivity extends AppCompatActivity implements Vie
     }
 
     private void makeAddAddressApiCall() {
-        String email ="anuragsahani0123@gmail.com";
+        UGPreferences preferences = new UGPreferences(getApplicationContext());
+        String email = preferences.getStringValue(Helper.LOGIN_ID);
         String name = nameV.getText().toString();
         String mobileNumber = mobile_numberV.getText().toString();
         String alterMobile = alternate_mobileV.getText().toString();

@@ -115,6 +115,6 @@ public class SubCategoriesAdapter extends BaseAdapter {
             R.drawable.w_tops, R.drawable.w_trouser
     };
     public Integer[] mKidSubCatIds = {
-            R.drawable.trouser, R.drawable.shirt
+            R.drawable.shirt, R.drawable.trouser
     };
 }

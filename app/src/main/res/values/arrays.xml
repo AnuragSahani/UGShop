@@ -69,6 +69,17 @@
         <item>@drawable/womens_tshirts_item5_1</item>
     </array>
 
+    <array name="kids_tshirts">
+
+
+        <item>@drawable/kids_tshirts_item1_1</item>
+        <item>@drawable/kids_tshirts_item2_1</item>
+        <item>@drawable/kids_tshirts_item3_1</item>
+        <item>@drawable/kids_tshirts_item4_1</item>
+        <item>@drawable/kids_tshirts_item5_1</item>
+        <item>@drawable/kids_tshirts_item6_1</item>
+    </array>
+
     <array name="kids_trousers">
         <item>@drawable/kids_trousers_item1_1</item>
         <item>@drawable/kids_trousers_item2_1</item>
@@ -76,15 +87,6 @@
         <item>@drawable/kids_trousers_item4_1</item>
         <item>@drawable/kids_trousers_item5_1</item>
         <item>@drawable/kids_trousers_item6_1</item>
-    </array>
-
-    <array name="kids_tshirts">
-        <item>@drawable/kids_tshirts_item1_1</item>
-        <item>@drawable/kids_tshirts_item2_1</item>
-        <item>@drawable/kids_tshirts_item3_1</item>
-        <item>@drawable/kids_tshirts_item4_1</item>
-        <item>@drawable/kids_tshirts_item5_1</item>
-        <item>@drawable/kids_tshirts_item6_1</item>
     </array>
 
 

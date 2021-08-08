@@ -89,7 +89,7 @@
     </EditText>
 
     <Button
-        android:id="@+id/Update_acc_setting"
+        android:id="@+id/deactivate_account_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_bg"

@@ -55,6 +55,7 @@
     <string name="check_connection">Check your connection</string>
     <string name="user_already_exist">User already exist</string>
     <string name="verify_account">Please verify your account first</string>
+    <string name="account_deactivated">Account Deactivated</string>
 
     <string-array name="men_sub_cat">
         <item>Shirt</item>
@@ -71,7 +72,9 @@
     </string-array>
 
     <string-array name="kid_sub_cat">
-        <item>Trouser</item>
+
         <item>Shirt</item>
+        <item>Trouser</item>
+
     </string-array>
 </resources>
