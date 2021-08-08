@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewholder> {
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHolder> {
 
     private final List<ProductModel> mProductsList;
     private final MyCartActivity mCartActivity;
@@ -38,7 +38,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewho
 
     @NonNull
     @Override
-    public CartItemViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CartItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View rootView;
         if (viewType == CartItemModel.TOTAL_AMOUNT) {
             rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_total_amount_layout, parent, false);
@@ -46,7 +46,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewho
             rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_item_layout, parent, false);
         }
         rootView.setTag(viewType);
-        return new CartItemViewholder(rootView);
+        return new CartItemViewHolder(rootView);
     }
 
     public long getTotalPrice() {
@@ -59,14 +59,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewho
 
     private long mTotalPrice = 0, mTotalOriginalPrice = 0;
     @Override
-    public void onBindViewHolder(@NonNull CartItemViewholder holder, int position) {
+    public void onBindViewHolder(@NonNull CartItemViewHolder holder, int position) {
         if (position == mProductsList.size()) {
             //BIND total amount data
             //totalItemsPrice, totalPrice, deliveryAmount, savedAmount
-            holder.totalItemsPrice.setText("Rs. " + mTotalPrice);
-            holder.totalPrice.setText("Rs. " + mTotalOriginalPrice);
+            holder.totalItemsPrice.setText("Rs. " + mTotalOriginalPrice);
+            holder.totalPrice.setText("Rs. " + mTotalPrice);
             holder.deliveryAmount.setText("Rs. 0");
-            holder.savedAmount.setText("You saved " + "Rs. " + (mTotalOriginalPrice-mTotalPrice) + " on this order");
+//            holder.totalCartAmount.setText("Rs. "+(mTotalOriginalPrice - mTotalPrice));
+            holder.savedAmount.setText("You saved " + "Rs. " + (mTotalOriginalPrice - mTotalPrice) + " on this order");
         } else {
             final ProductModel product = mProductsList.get(position);
             holder.productName.setText(product.getName());
@@ -76,7 +77,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewho
             int originalPrice = (int) (product.getPrice() * 1.2);
             mTotalOriginalPrice += originalPrice;
             holder.originalPrice.setText("Rs. " + originalPrice);
-            holder.quantity.setText(product.getProductCartQuantity()+"");
+            holder.quantity.setText(" "+product.getProductCartQuantity());
             Picasso.get()
                     .load(product.getUrlModel().getBaseUrl())
                     .into(holder.productImage);
@@ -95,13 +96,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewho
         return mProductsList.size() + 1;
     }
 
-    static class CartItemViewholder extends RecyclerView.ViewHolder {
+    static class CartItemViewHolder extends RecyclerView.ViewHolder {
         int mViewType = -1;
-        TextView productName, productPrice, originalPrice, quantity, totalItemsPrice, totalPrice, deliveryAmount, savedAmount;
+        TextView productName,totalCartAmount, productPrice, originalPrice, quantity, totalItemsPrice, totalPrice, deliveryAmount, savedAmount;
         ViewGroup removeItemLayout;
         ImageView productImage;
 
-        public CartItemViewholder(@NonNull View itemView) {
+        public CartItemViewHolder(@NonNull View itemView) {
             super(itemView);
             mViewType = (Integer) itemView.getTag();
             if (mViewType == CartItemModel.CART_ITEM) {
@@ -111,11 +112,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewho
                 quantity = itemView.findViewById(R.id.product_quantity);
                 productImage = itemView.findViewById(R.id.cart_product_img);
                 removeItemLayout = itemView.findViewById(R.id.remove_item_btn);
+
             } else if (mViewType == CartItemModel.TOTAL_AMOUNT) {
                 totalItemsPrice = itemView.findViewById(R.id.total_items_price);
                 deliveryAmount = itemView.findViewById(R.id.delivery_price);
                 totalPrice = itemView.findViewById(R.id.total_price);
                 savedAmount = itemView.findViewById(R.id.saved_amount);
+//                totalCartAmount = itemView.findViewById(R.id.total_cart_amount);
             }
         }
     }

@@ -3,6 +3,7 @@ package com.example.ugshop.view;
 public class CartItemModel {
     public static final int CART_ITEM = 0;
     public static final int TOTAL_AMOUNT = 1;
+    public  static final int TOTAL_CART_AMOUNT=2;
 
     private int type;
 

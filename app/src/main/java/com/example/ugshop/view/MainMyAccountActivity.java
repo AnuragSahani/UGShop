@@ -121,19 +121,21 @@ public class MainMyAccountActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onChanged(ApiResource<FetchAddressResponse> fetchAddressResponseApiResource) {
                 switch (fetchAddressResponseApiResource.getStatus()) {
+                    case ERROR:
+                            new Helper(MainMyAccountActivity.this).showToast(R.string.suggestion_to_addAddress);
+                        break;
+
                     case SUCCESS:
                         FetchAddressResponse response = fetchAddressResponseApiResource.getData();
-                        if (response == null || response.getFetchResList().isEmpty() || response.getFetchResList() == null) {
+                        if ( response.getAddressList().size() == 0 ) {
                             new Helper(MainMyAccountActivity.this).showToast(R.string.suggestion_to_addAddress);
                             return;
                         } else
-                            inflateData(response.getFetchResList());
+                            inflateData(response.getAddressList());
                         break;
                     case LOADING:
                         break;
-                    case ERROR:
-                        new Helper(MainMyAccountActivity.this).showToast(R.string.something_error);
-                        break;
+
                 }
             }
         });

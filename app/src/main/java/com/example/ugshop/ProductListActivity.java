@@ -20,6 +20,7 @@ import com.example.ugshop.model.response.FetchProductListResponse;
 import com.example.ugshop.network.ApiResource;
 import com.example.ugshop.util.Constants;
 import com.example.ugshop.util.Helper;
+import com.example.ugshop.util.UGPreferences;
 import com.example.ugshop.view.MyCartActivity;
 import com.example.ugshop.view.adapter.ProductListAdapter;
 import com.example.ugshop.viewmodel.ProductListViewModel;
@@ -234,8 +235,10 @@ public class ProductListActivity extends AppCompatActivity {
         CartModel cartModelItem = new CartModel();
         cartModelItem.setProductId(productModel.getProductId());
         cartModelItem.setQuantity(1);
+        UGPreferences preferences = new UGPreferences(getApplication());
+        String email = preferences.getStringValue(Helper.LOGIN_ID);
         AddToCartRequest addToCartRequest = new AddToCartRequest();
-        addToCartRequest.setEmail("nt840071@gmail.com");//(new UGPreferences(this).getStringValue(Constants.EXTRA_EMAIL));
+        addToCartRequest.setEmail(email);//(new UGPreferences(this).getStringValue(Constants.EXTRA_EMAIL));
         addToCartRequest.setCartModel(cartModelItem);
 
         mProductListViewModel.addToCart(addToCartRequest)
@@ -244,19 +247,22 @@ public class ProductListActivity extends AppCompatActivity {
                     switch (addToCartResponseApiResource.getStatus()) {
                         case SUCCESS:
                             AddToCartResponse body = addToCartResponseApiResource.getData();
-                            if (body == null) {
-                                mHelper.showToast(R.string.add_to_cart_failed);
-                                return;
-                            }/* else {
+//                            if (body == null) {
+//                                mHelper.showToast(R.string.add_to_cart_failed);
+//                                return;
+//                            }
+                            /* else {
                                 mHelper.showToast(R.string.item_added_to_cart);
                             }*/
                             if (body.isAdded()) {
                                 mHelper.showToast(R.string.item_added_to_cart);
                             } else {
+                                System.out.println("Else");
                                 mHelper.showToast(R.string.add_to_cart_failed);
                             }
                             break;
                         case ERROR:
+                            System.out.println("Error");
                             mHelper.showToast(R.string.add_to_cart_failed);
                             break;
                         case LOADING:

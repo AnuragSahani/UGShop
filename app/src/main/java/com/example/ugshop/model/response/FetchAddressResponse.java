@@ -4,12 +4,11 @@ import com.example.ugshop.model.ResponseEntity;
 import com.example.ugshop.model.common.AddressModel;
 import com.example.ugshop.network.ErrorResponse;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FetchAddressResponse extends ResponseEntity {
     private ErrorResponse error;
-    private List<AddressModel> addressList = new ArrayList<AddressModel>();
+    private List<AddressModel> addressList;
 
     @Override
     public String toString() {
@@ -19,12 +18,12 @@ public class FetchAddressResponse extends ResponseEntity {
                 '}';
     }
 
-    public List<AddressModel> getFetchResList() {
+    public List<AddressModel> getAddressList() {
         return addressList;
     }
 
-    public void setFetchResList(List<AddressModel> fetchResList) {
-        this.addressList = fetchResList;
+    public void setAddressList(List<AddressModel> addressList) {
+        this.addressList = addressList;
     }
 
     public ErrorResponse getError() {

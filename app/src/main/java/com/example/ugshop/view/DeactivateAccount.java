@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -56,6 +57,9 @@ public class DeactivateAccount extends AppCompatActivity implements View.OnClick
                     case SUCCESS:
                         RemoveUserResponse response = removeUserResponseApiResource.getData();
                         if(response.isDeleted()){
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            startActivity(intent);
+                            finishAffinity();
                             new Helper(DeactivateAccount.this).showToast(R.string.account_deactivated);
                         }
                         else{
