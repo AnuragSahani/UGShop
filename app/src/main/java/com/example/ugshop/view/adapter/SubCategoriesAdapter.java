@@ -107,8 +107,8 @@ public class SubCategoriesAdapter extends BaseAdapter {
 
     // Keep all Images in array
     public Integer[] mMenSubCatIds = {
-            R.drawable.m_shirt, R.drawable.m_t_shirt,
-            R.drawable.m_trouse, R.drawable.m_shorts
+            R.drawable.m_shirt, R.drawable.m_trouse,
+            R.drawable.m_shorts, R.drawable.m_t_shirt
     };
     public Integer[] mWomenSubCatIds = {
             R.drawable.w_kurtis, R.drawable.w_tees,

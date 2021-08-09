@@ -59,9 +59,9 @@
 
     <string-array name="men_sub_cat">
         <item>Shirt</item>
-        <item>T-Shirt</item>
         <item>Trouser</item>
         <item>Shorts</item>
+        <item>T-Shirt</item>
     </string-array>
 
     <string-array name="women_sub_cat">

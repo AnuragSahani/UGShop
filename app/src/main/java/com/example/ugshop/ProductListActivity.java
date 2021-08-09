@@ -69,13 +69,13 @@ public class ProductListActivity extends AppCompatActivity {
                     case 1:
                         str.append(" | Shirt");
                         break;
-                    case 2:
+                    case 4:
                         str.append(" | T-Shirt");
                         break;
-                    case 3:
+                    case 2:
                         str.append(" | Trouser");
                         break;
-                    case 4:
+                    case 3:
                         str.append(" | Shorts");
                         break;
                 }
