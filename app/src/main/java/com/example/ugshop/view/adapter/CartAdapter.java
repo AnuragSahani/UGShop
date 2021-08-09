@@ -66,7 +66,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHo
             holder.totalItemsPrice.setText("Rs. " + mTotalOriginalPrice);
             holder.totalPrice.setText("Rs. " + mTotalPrice);
             holder.deliveryAmount.setText("Rs. 0");
-            holder.totalCartAmount.setText("Rs. "+(mTotalOriginalPrice - mTotalPrice));
+//            holder.totalCartAmount.setText("Rs. "+(mTotalOriginalPrice - mTotalPrice));
             holder.savedAmount.setText("You saved " + "Rs. " + (mTotalOriginalPrice - mTotalPrice) + " on this order");
         } else {
             final ProductModel product = mProductsList.get(position);
